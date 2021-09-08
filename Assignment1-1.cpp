@@ -31,7 +31,7 @@ int main() {
   newfile.open("students.txt", ios:: in);
 
   if(newfile){
-    cout << "File has been opened" << endl;
+    cout << "File has been opened and read." << endl;
   }
 
   while(!newfile.eof()){
@@ -48,6 +48,10 @@ int main() {
     newfile.close();
   } 
 
+  if(!newfile){
+    cout << "File has been closed" << endl;
+    }
+
 
   for(int i = 0; i < 10; i++){
     firstclass[i].sum = firstclass[i].score1 + firstclass[i].score2;
@@ -61,25 +65,30 @@ int main() {
   newfile.open("students.txt", ios:: out);
 
   if(newfile){
-    cout << "File has been opened" << endl;
+    cout << "File has been opened for writing." << endl;
   }
 
-  while(!newfile.eof()){
-    for(int i = 0; i < sizeof(newfile); i++){
-      newfile << firstclass[i].id;
-
-      newfile << firstclass[i].name;
-
-      newfile << firstclass[i].score1;
-
-      newfile << firstclass[i].score2;
-      
-      newfile << firstclass[i].sum;
-
-      newfile << firstclass[i].scoreavg;
-      
-    } 
+  for(int i = 0; i < 10; i++){
+    newfile << firstclass[i].id;
+    newfile << " ";
+    newfile << firstclass[i].name;
+    newfile << " ";
+    newfile << firstclass[i].score1;
+    newfile << " ";
+    newfile << firstclass[i].score2;
+    newfile << " ";
+    newfile << firstclass[i].sum;
+    newfile << " ";
+    newfile << firstclass[i].scoreavg << endl;
+    
+  } 
+  
+  newfile.close();
+  
+  if(!newfile){
+    cout << "File has been closed" << endl;
   }
+  
 }
 
 void findstudents(students classes[]){
@@ -91,8 +100,8 @@ void findstudents(students classes[]){
       if(input == classes[i].id){
         cout << "Student information found" << endl;
         cout << endl;
-        cout << "Student Number: " << "Student Name: " << "First Score: " << "Second Score: " << "Sum of score" << "Score Average: " << endl;
-        cout << classes[i].id << setw(11)<< " " << classes[i].name << setw(10)<<  " " << classes[i].score1 << setw(10)<< " " << classes[i].score2 << setw(12)<< " " << classes[i].sum << " "<< classes[i].scoreavg;
+        cout << "Student Number: " << "Student Name: " << "First Score: " << "Second Score: " << "Sum of score: " << "Score Average: " << endl;
+        cout << classes[i].id << setw(11)<< " " << classes[i].name << setw(10)<<  " " << classes[i].score1 << setw(10)<< " " << classes[i].score2 << setw(12)<< " " << classes[i].sum << setw(10) << " "<< classes[i].scoreavg;
         cout << endl;
         cout << endl;
       }
