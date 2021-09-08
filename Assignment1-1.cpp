@@ -19,7 +19,7 @@ struct students {
  double scoreavg;
 };
 
-void findstudents(students);
+void findstudents(students classes[]);
 
 
 int main() {
@@ -54,8 +54,9 @@ int main() {
     firstclass[i].scoreavg = (firstclass[i].sum) / 2;
     
   }
-  for(int i = 0; i < 10; i++)
-    findstudents(firstclass[i]);
+//   for(int i = 0; i < 10; i++)
+//     findstudents(firstclass[i]);
+    findstudents(firstclass);
 
   newfile.open("students.txt", ios:: out);
 
