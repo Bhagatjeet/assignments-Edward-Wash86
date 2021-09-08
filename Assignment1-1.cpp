@@ -58,6 +58,11 @@ int main() {
     findstudents(firstclass[i]);
 
   newfile.open("students.txt", ios:: out);
+
+  if(newfile){
+    cout << "File has been opened" << endl;
+  }
+
   while(!newfile.eof()){
     for(int i = 0; i < sizeof(newfile); i++){
       newfile << firstclass[i].id;
