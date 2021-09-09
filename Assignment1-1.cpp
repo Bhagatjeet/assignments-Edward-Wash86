@@ -13,14 +13,14 @@ if we give the is ""10009, show all the information about the studnet "Mike" inc
 using namespace std;
 
 struct students {
- int id;
+ int id, sum;
  string name;
  double score1,score2;
  double scoreavg;
 };
 
-void findstudnets(int);
-void printfile(students &);
+void findstudents(students classes[]);
+
 
 int main() {
   fstream newfile;
@@ -31,7 +31,7 @@ int main() {
   newfile.open("students.txt", ios:: in);
 
   if(newfile){
-    cout << "File has been opened" << endl;
+    cout << "File has been opened and read." << endl;
   }
 
   while(!newfile.eof()){
@@ -44,31 +44,67 @@ int main() {
 
       newfile >> firstclass[i].score2;
       
-      //firstclass[i].scoreavg = (static_cast<double>(firstclass[i].score2) + static_cast<double>(firstclass[i].score1)) / 2;
     } 
     newfile.close();
   } 
 
+  if(!newfile){
+    cout << "File has been closed" << endl;
+    }
+
 
   for(int i = 0; i < 10; i++){
-    firstclass[i].scoreavg = (firstclass[i].score1 + firstclass[i].score2) / 2;
+    firstclass[i].sum = firstclass[i].score1 + firstclass[i].score2;
+    firstclass[i].scoreavg = (firstclass[i].sum) / 2;
     
   }
+//   for(int i = 0; i < 10; i++)
+//     findstudents(firstclass[i]);
+    findstudents(firstclass);
 
+  newfile.open("students.txt", ios:: out);
+
+  if(newfile){
+    cout << "File has been opened for writing." << endl;
+  }
+
+  for(int i = 0; i < 10; i++){
+    newfile << firstclass[i].id;
+    newfile << " ";
+    newfile << firstclass[i].name;
+    newfile << " ";
+    newfile << firstclass[i].score1;
+    newfile << " ";
+    newfile << firstclass[i].score2;
+    newfile << " ";
+    newfile << firstclass[i].sum;
+    newfile << " ";
+    newfile << firstclass[i].scoreavg << endl;
+    
+  } 
+  
+  newfile.close();
+  
+  if(!newfile){
+    cout << "File has been closed" << endl;
+  }
+  
+}
+
+void findstudents(students classes[]){
+  int input;
   while(input != 0){
     cout << "Please enter a student ID or enter ZERO to quit." << endl;
     cin >> input;
     for(int i = 0; i < 10; i++){
-      if(input == firstclass[i].id){
+      if(input == classes[i].id){
         cout << "Student information found" << endl;
         cout << endl;
-        cout << "Student Number: " << "Student Name: " << "First Score: " << "Second Score: " << "Score Average: " << endl;
-        cout << firstclass[i].id << setw(11)<< " " << firstclass[i].name << setw(10)<<  " " << firstclass[i].score1 << setw(10)<< " " << firstclass[i].score2 << setw(12)<< " " <<  firstclass[i].scoreavg;
+        cout << "Student Number: " << "Student Name: " << "First Score: " << "Second Score: " << "Sum of score: " << "Score Average: " << endl;
+        cout << classes[i].id << setw(11)<< " " << classes[i].name << setw(10)<<  " " << classes[i].score1 << setw(10)<< " " << classes[i].score2 << setw(12)<< " " << classes[i].sum << setw(10) << " "<< classes[i].scoreavg;
         cout << endl;
         cout << endl;
       }
     }
   }
 }
-
-  
