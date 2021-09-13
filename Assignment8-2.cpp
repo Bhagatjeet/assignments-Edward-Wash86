@@ -1,47 +1,72 @@
 #include <iostream>
+#include <ctime>
 
 using namespace std;
 
 const int N = 64;
 
-void makeArray(int, int);
+void makeArray(int array[], int);
 
-int linearSearch(int array, int N, int target);
+int linearSearch(int array[], int , int);
 
-int binarySarch(int array, int N, int target);
+int binarySarch(int array[] , int, int);
 
-void stortArray(int array[], int N);
+void sortArray(int array[], int N);
 
 int main(){
-
-
-  int target;
-  int pool[] = {10, 25, 30, 35, 40, 45, 55, 60, 65, 70}
-
+  srand(time(0));
   
+  int target;
+  int pool[N];
+
+  makeArray(pool, N);
+  for(int i = 0; i < N; i++){
+    cout << pool[i] << " ";
+  }
+  cout << endl;
+  cout << endl;
+
+  sortArray(pool,N);
+
+
+
+  for(int i = 0; i < N; i++){
+    cout << pool[i] << " ";
+  }
 
 
 
   return 0;
 }
 
-void makeArray(int array[], int N); 
 // fill 64 elements array with numbers 1 through 100
+void makeArray(int array[], int N){
+  for(int i = 0; i < N; i++){
+    array[i] = rand() % 101;
+  }
+}
 
-int linearSearch(int array, int N, int target); 
+
 // return value = the number of comparisons that was used to find the target;
+int linearSearch(int array, int N, int target){
 
-int binarySarch(int array, int N, int target);
+} 
+
+
 // return value = the number of comparisons that was used to find the target;
+int binarySarch(int array, int N, int target){
 
-void stortArray(int pool[], int N){
+}
+
+
+void sortArray(int array[], int N){
   //Sorts the array in acending order.
-  for(int j = 0; j < SIZE; j++){
-    for(int i = 0; i < SIZE - 1; i++){
-      if(pool[i] > pool[i +1]){
-        int temp = pool[i];
-        pool[i] = pool[i + 1];
-        pool[i + 1] = temp;
+  for(int j = 0; j < N; j++){
+    for(int i = 0; i < N - 1; i++){
+      if(array[i] > array[i +1]){
+        int temp = array[i];
+        array[i] = array[i + 1];
+        array[i + 1] = temp;
       }
     }
   }
