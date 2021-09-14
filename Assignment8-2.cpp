@@ -18,23 +18,42 @@ int main(){
   
   int target;
   int pool[N];
+  for(int e = 0; e <= 100; e++){
+    cout << "Search Task: " << e << endl;
+    makeArray(pool, N);
+    
+    cout << "Unsorted array: " << endl;
+    for(int i = 0; i < N; i++){
+      cout << pool[i] << " ";
+    }
+    cout << endl;
+    cout << endl;
 
-  makeArray(pool, N);
-  for(int i = 0; i < N; i++){
-    cout << pool[i] << " ";
+    sortArray(pool,N);
+    cout << "Sorted array: " << endl;
+    for(int i = 0; i < N; i++){
+      cout << pool[i] << " ";
+    }
+
+    cout << endl;
+    cout << endl;
+    
+    target = rand() % 101;
+
+    cout << "Searching for number: " << target << endl;
+    cout << endl;
+
+    int linearResults = linearSearch(pool, N, target);
+    int binaryResults = binarySarch(pool, N, target);
+
+    cout << "linear search result: " << linearResults << endl;
+    cout << "Binary search results: " << binaryResults << endl;
+
+    cout << endl;
+    cout << "===============================================" << endl;
+    cout << endl;
+    
   }
-  cout << endl;
-  cout << endl;
-
-  sortArray(pool,N);
-
-
-
-  for(int i = 0; i < N; i++){
-    cout << pool[i] << " ";
-  }
-
-
 
   return 0;
 }
@@ -48,14 +67,51 @@ void makeArray(int array[], int N){
 
 
 // return value = the number of comparisons that was used to find the target;
-int linearSearch(int array, int N, int target){
-
+int linearSearch(int array[], int N, int target){
+  int found;
+  for(int i = 0; i < N; i++){
+    if(target == array[i]){
+      cout << "Number has been found in element " << array[i]<< "!"; 
+      found = 1;
+    }  
+  }
+  for(int i = 0; i < N; i++){
+    if(target != array[i])
+      found = -1;
+  }
+  return found;
 } 
 
 
 // return value = the number of comparisons that was used to find the target;
-int binarySarch(int array, int N, int target){
+int binarySarch(int array[], int N, int target){
+  bool found = false;
+  int first = 0;
+  int mid = 0;
+  int last = N;
+  int result;
 
+  while(first <= last && !found){
+    mid = (first + last) / 2;
+
+    if(target > array[mid]){
+      first = mid + 1;
+    }
+    else if(target < array[mid]){
+      last = mid - 1;
+    }
+    else {
+      cout << "The value " << target << " was found in element "<< mid << endl;
+      found = true;
+      result = 1;
+    }
+  } 
+
+  if(!found){
+    result = -1;
+  }
+
+  return result;
 }
 
 
@@ -73,6 +129,6 @@ void sortArray(int array[], int N){
 }
 // binary search should be called after stortArray because the array must be sorted in binary search.
 
-//make a for loop to run 100 times to call each search with trhe target
+//make a for loop to run 100 times to call each search with the target
 //              target value should be selected in the array randomly.
 //                
