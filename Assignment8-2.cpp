@@ -46,6 +46,8 @@ int main(){
     int linearResults = linearSearch(pool, N, target);
     int binaryResults = binarySarch(pool, N, target);
 
+    cout << endl;
+
     cout << "linear search result: " << linearResults << endl;
     cout << "Binary search results: " << binaryResults << endl;
 
@@ -68,17 +70,15 @@ void makeArray(int array[], int N){
 
 // return value = the number of comparisons that was used to find the target;
 int linearSearch(int array[], int N, int target){
-  int found;
+  int found = -1;
   for(int i = 0; i < N; i++){
     if(target == array[i]){
-      cout << "Number has been found in element " << array[i]<< "!"; 
+      cout << "LINEAR SEARCH has been found the value " << target << " in element " << i << "!" << endl << endl; 
       found = 1;
-    }  
+    }
+    
   }
-  for(int i = 0; i < N; i++){
-    if(target != array[i])
-      found = -1;
-  }
+  
   return found;
 } 
 
@@ -101,7 +101,7 @@ int binarySarch(int array[], int N, int target){
       last = mid - 1;
     }
     else {
-      cout << "The value " << target << " was found in element "<< mid << endl;
+      cout << "BINARY SEARCH has found the value " << target << " in element "<< mid << "!"<< endl;
       found = true;
       result = 1;
     }
@@ -109,6 +109,7 @@ int binarySarch(int array[], int N, int target){
 
   if(!found){
     result = -1;
+    cout << "The value " << target << " was not found." << endl;
   }
 
   return result;
