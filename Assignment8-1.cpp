@@ -31,7 +31,9 @@ int main() {
 int binarySearch(int splash[], int bubble, int pop){
   int notFound = -1;
   
-
+// This is not a binary search. It is Linear Search
+ // Need to implement the full code of binary search.
+  
   for(int i = 0; i < bubble; i++){
     
     if(pop == splash[i]){
