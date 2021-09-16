@@ -2,10 +2,12 @@
 
 using namespace std;
 
-int binarySearch(int [], int, int);
+int binarySearch(int array[], int, int);
 
-int main() {
-  const int SIZE = 15; 
+const int SIZE = 15;
+
+int main(){
+   
   int pool[] = {10, 25, 30, 35, 40, 45, 55, 60, 65, 70};
   int target;
   int results;
@@ -13,33 +15,41 @@ int main() {
   cout << "What number would you like to search for? " << endl;
   cout << "Search for: "; cin >> target;
 
-  
+  cout << endl;
 
   results = binarySearch(pool, SIZE, target);
 
-  if(results >= 0){
-    cout << "The number " << target << " was found at index: " << results; 
-  } else if(results == -1){
-    cout << "number not found";
-  }
-
-
-  
+  cout << results;
   
 }
 
-int binarySearch(int splash[], int bubble, int pop){
-  int notFound = -1;
-  
-// This is not a binary search. It is Linear Search
- // Need to implement the full code of binary search.
-  
-  for(int i = 0; i < bubble; i++){
-    
-    if(pop == splash[i]){
-      return i;
+int binarySearch(int array[], int N, int target){
+  bool found = false;
+  int first = 0;
+  int mid = 0;
+  int last = N;
+  int result;
+
+  while(first <= last && !found){
+    mid = (first + last) / 2;
+
+    if(target > array[mid]){
+      first = mid + 1;
     }
-     
+    else if(target < array[mid]){
+      last = mid - 1;
+    }
+    else {
+      cout << "BINARY SEARCH has found the value " << target << " in element "<< mid << "!"<< endl;
+      found = true;
+      result = 1;
+    }
+  } 
+
+  if(!found){
+    result = -1;
+    cout << "The value " << target << " was not found." << endl;
   }
-  return notFound;
-};
+
+  return result;
+}
