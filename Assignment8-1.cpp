@@ -19,7 +19,12 @@ int main(){
 
   results = binarySearch(pool, SIZE, target);
 
-  cout << results;
+   if ( results != -1)
+      cout << "BINARY SEARCH has found the value " << target << " in element "<< results << "!"<< endl;
+   else
+        cout << "The value " << target << " was not found." << endl;
+
+//   cout << results;
   
 }
 
@@ -40,15 +45,16 @@ int binarySearch(int array[], int N, int target){
       last = mid - 1;
     }
     else {
-      cout << "BINARY SEARCH has found the value " << target << " in element "<< mid << "!"<< endl;
+//      cout << "BINARY SEARCH has found the value " << target << " in element "<< mid << "!"<< endl;
       found = true;
-      result = 1;
+      result = mid;
+//       result = 1;
     }
   } 
 
   if(!found){
     result = -1;
-    cout << "The value " << target << " was not found." << endl;
+//    cout << "The value " << target << " was not found." << endl;
   }
 
   return result;
