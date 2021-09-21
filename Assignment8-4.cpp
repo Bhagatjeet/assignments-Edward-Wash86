@@ -20,6 +20,7 @@ int main()
 {
 	const int 	N = 10;
 	Students 	s[N];
+  fstream infile;
 
 	makeStudents(s, N);
 	cout << "Initial Student's Struct Array \n";
@@ -33,6 +34,8 @@ int main()
 	bubbleSortbyScores(s, N);
 	cout << "After Sorting by Scores \n";
 	printStudents(s, N);
+
+  return 0;
 }
 
 void bubbleSortbyID(Students s[], int N)
@@ -49,53 +52,55 @@ void bubbleSortbyID(Students s[], int N)
   */
 }
 
-void bubbleSortbyName(Students s[], int N)
-{
-  // for(int i = 0; i < N; i++){
-  //   if(s[i] > s[i +1])
-  //     swap(s[i], s[i + 1]);
-}
+void bubbleSortbyName(Students s[], int N){
+  for(int i = 0; i < N; i++){
+    if(s[i].sname > s[i +1].sname)
+      swap(s[i], s[i + 1]);
+};
 
-void bubbleSortbyScores(Students s[], int N)
-{
-//  for(int i = 0; i < N; i++){
-//     if(s[i] > s[i +1])
-//       swap(s[i], s[i + 1])
-}
+void bubbleSortbyScores(Students s[], int N){
+ for(int i = 0; i < N; i++){
+    if(s[i].score > s[i +1].score)
+      swap(s[i].score, s[i + 1].score)
+ }
+};
 
-void makeStudents(Students s[], int N)
-{
-	newfile.open("students.txt", ios:: in);
+void makeStudents(Students s[], int N) {
+	fstream records;
 
-  if(newfile){
+  records.open("students.txt", iso:: in)
+
+  if(records){
     cout << "File has been opened and read." << endl;
   }
 
-  while(!newfile.eof()){
-    for(int i = 0; i < sizeof(newfile); i++){
-      newfile >> s[i].id;
+  while(!records.eof()){
+    for(int i = 0; i < sizeof(records); i++){
+      records >> firstclass[i].id;
 
-      newfile >> s[i].name;
+      records >> firstclass[i].name;
 
-      newfile >> s[i].score1;
+      records >> firstclass[i].score1;
 
-      newfile >> s[i].score2;
+      records >> firstclass[i].score2;
       
     } 
-    newfile.close();
+    records.close();
   } 
 
-  if(!newfile){
+  if(!records){
     cout << "File has been closed" << endl;
-    }
+  }
+
 }
 
 void printStudents(Students s[], int N){
 	for(int i=0;i<N;i++){
 		cout << s[i].sid << "\t" << s[i].sname << "\t";
-		for(int j=0; j<NUM_SCORES; j++)
+		for(int j=0; j<NUM_SCORES; j++){
 			cout <<  s[i].scores[j] << "\t";
 		  cout << endl;
+    }
 	}
 	cout << "==== End of Record === \n";
 }
