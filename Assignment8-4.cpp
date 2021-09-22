@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <algorithm>
 using namespace std;
 
 const int 	MAX_LEN = 20;
@@ -23,27 +24,43 @@ int main()
   fstream infile;
 
 	makeStudents(s, N);
+  
+  cout << endl;
+
 	cout << "Initial Student's Struct Array \n";
 	printStudents(s, N);
+  cout << endl;
 	bubbleSortbyID(s, N);
 	cout << "After Sorting by ID \n";
 	printStudents(s, N);
+  cout << endl;
 	bubbleSortbyName(s, N);
 	cout << "After Sorting by Name \n";
 	printStudents(s, N);
+  cout << endl;
 	bubbleSortbyScores(s, N);
 	cout << "After Sorting by Scores \n";
 	printStudents(s, N);
+  cout << endl;
 
   return 0;
 }
 
 void bubbleSortbyID(Students s[], int N)
 {
-  for(int i = 0; i < N; i++){
-    if(s[i].sid > s[i + 1].sid)
-      swap(s[i], s[i + 1]);
+  for(int i = 0; i < N - 1; i++){
+    for(int j = 0; j < N - i - 1; j++)
+      if(s[j].sid > s[j + 1].sid){
+        swap(s[j], s[j + 1]);
+    }
+    
   }
+
+  // for(int i = 0; i < N - 1; i++){
+    
+  // }
+
+  
   /*
   N = the number of elements
   repeat N times
@@ -53,22 +70,41 @@ void bubbleSortbyID(Students s[], int N)
 }
 
 void bubbleSortbyName(Students s[], int N){
-  for(int i = 0; i < N; i++){
-    if(s[i].sname > s[i +1].sname)
-      swap(s[i], s[i + 1]);
-};
+  for(int i = 0; i < N - 1; i++){
+    for(int j = 0; j < N - i - 1; j++)
+      if(s[j].sname[0] > s[j + 1].sname[0]){
+        swap(s[j], s[j + 1]);
+    }
+    
+  }
+}
 
 void bubbleSortbyScores(Students s[], int N){
- for(int i = 0; i < N; i++){
-    if(s[i].score > s[i +1].score)
-      swap(s[i].score, s[i + 1].score)
- }
-};
 
-void makeStudents(Students s[], int N) {
+  for(int i = 0; i < N - 1; i++){
+    for(int j = 0; j < NUM_SCORES; j++){
+      if(s[j].scores[j] > s[i].scores[j + 1])
+        swap(s[i].scores[j], s[i].scores[j + 1]);
+
+    cout << s[i].scores[j] << " ";
+    }
+    cout << endl;
+  }
+    
+      
+  
+
+  // for(int i = 0; i < N - 1; i++)
+  //   for(int j = 0; j < N - i - 1; j++)
+  //     if(s[j].scores[0] > s[j + 1].scores[0])
+  //       swap(s[j], s[j + 1]);
+      
+}
+
+void makeStudents(Students s[], int N){
 	fstream records;
 
-  records.open("students.txt", iso:: in)
+  records.open("students.txt", ios:: in);
 
   if(records){
     cout << "File has been opened and read." << endl;
@@ -76,13 +112,14 @@ void makeStudents(Students s[], int N) {
 
   while(!records.eof()){
     for(int i = 0; i < sizeof(records); i++){
-      records >> firstclass[i].id;
+      records >> s[i].sid;
 
-      records >> firstclass[i].name;
+      records >> s[i].sname;
 
-      records >> firstclass[i].score1;
+      for(int j = 0; j < NUM_SCORES; j++)
+        records >> s[i].scores[j];
 
-      records >> firstclass[i].score2;
+      
       
     } 
     records.close();
@@ -94,13 +131,13 @@ void makeStudents(Students s[], int N) {
 
 }
 
-void printStudents(Students s[], int N){
-	for(int i=0;i<N;i++){
+void printStudents(Students s[],int N){
+	for(int i=0;i<N-1;i++){
 		cout << s[i].sid << "\t" << s[i].sname << "\t";
-		for(int j=0; j<NUM_SCORES; j++){
+		for(int j=0; j < NUM_SCORES; j++){
 			cout <<  s[i].scores[j] << "\t";
-		  cout << endl;
     }
+    cout << endl;
 	}
 	cout << "==== End of Record === \n";
 }
