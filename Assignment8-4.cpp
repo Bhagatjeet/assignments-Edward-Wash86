@@ -80,24 +80,38 @@ void bubbleSortbyName(Students s[], int N){
 }
 
 void bubbleSortbyScores(Students s[], int N){
-
+  
   for(int i = 0; i < N - 1; i++){
-    for(int j = 0; j < NUM_SCORES; j++){
-      if(s[j].scores[j] > s[i].scores[j + 1])
-        swap(s[i].scores[j], s[i].scores[j + 1]);
+    
+      if(s[i].scores[1] > s[i].scores[2]){
+        int temp;
+        temp = s[i].scores[1];
+        s[i].scores[1] = s[i].scores[2];
+        s[i].scores[2] = temp;
+      }
+      if(s[i].scores[0] > s[i].scores[1]){
+        int temp;
+        temp = s[i].scores[0];
+        s[i].scores[0] = s[i].scores[1];
+        s[i].scores[1] = temp;
+      }
+      if(s[i].scores[1] > s[i].scores[2]){
+        int temp;
+        temp = s[i].scores[1];
+        s[i].scores[1] = s[i].scores[2];
+        s[i].scores[2] = temp;
+      }
 
-    cout << s[i].scores[j] << " ";
-    }
-    cout << endl;
+    
   }
     
       
   
 
-  // for(int i = 0; i < N - 1; i++)
-  //   for(int j = 0; j < N - i - 1; j++)
-  //     if(s[j].scores[0] > s[j + 1].scores[0])
-  //       swap(s[j], s[j + 1]);
+  for(int i = 0; i < N - 1; i++)
+    for(int j = 0; j < N - i - 1; j++)
+      if(s[j].scores[0] > s[j + 1].scores[0])
+        swap(s[j], s[j + 1]);
       
 }
 
