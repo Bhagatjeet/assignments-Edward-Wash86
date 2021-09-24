@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector> 
 #include <fstream>
+#include <algorithm>
 
 using namespace std;
 
 void printVectors(vector<int>&, vector<string>&, int);
 void fillVector(vector<int>&, vector<string>&, int);
+void daulSort(vector<int>&, vector<string>&, int);
 
 int main(){
 
@@ -13,28 +15,36 @@ int main(){
 
   fstream infile;
   const int N = 10;
-  vector <int> IDs(N);
+  vector <int> vectorID(N);
   vector <string> names(N);
   
 
-  infile.open("students.txt", ios :: in);
+  // infile.open("students.txt", ios :: in);
 
-  if(infile){
-    cout << "The file has been accessed." << endl;
-    cout << endl;
-  }
-    else if(!infile)
-    cout << "The intened file could not be opened." << endl;
+  // if(infile){
+  //   cout << "The file has been accessed." << endl;
+  //   cout << endl;
+  // }
+  //   else if(!infile)
+  //   cout << "The intened file could not be opened." << endl;
 
   
-  fillVector(IDs, names, N);
+  fillVector(vectorID, names, N);
   
-  printVectors(IDs, names, N);
+  printVectors(vectorID, names, N);
+
+  //sort(vectorID.begin(), vectorID.end());
+
+  daulSort(vectorID, names, N);
+
+  cout << endl;
+
+  printVectors(vectorID, names, N);
   
   // cout << "Students ID Numbers:     Students Names: " << endl;
   // for(int i = 0; i < N; i++){
     
-  //   cout << IDs[i] << "                 " << names[i] << endl;
+  //   cout << vectorID[i] << "                 " << names[i] << endl;
   // }
 
   /*
@@ -84,3 +94,29 @@ void fillVector(vector<int>& vectorID, vector<string>& vectorNames, int SIZE){
     }
   }
 }
+
+void daulSort(vector<int>& vectorID, vector<string>& vectorNames, int SIZE){
+  int minval, minid;
+    string tmp;
+    for(int i = 0; i < SIZE; i++)
+    {
+        minval = vectorID[i];
+        minid = i;
+        for(int j = i + 1; j < SIZE; j++)
+        {
+            if ( minval > vectorID[j] )
+            {
+                minval = vectorID[j];
+                minid = j;
+            }
+        }
+        vectorID[minid] = vectorID[i];
+        vectorID[i] = minval;
+
+        tmp = vectorNames[minid];
+        vectorNames[minid] = vectorNames[i];
+        vectorNames[i] = tmp;
+    }
+  
+}
+
