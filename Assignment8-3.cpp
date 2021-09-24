@@ -37,10 +37,18 @@ void printArray(int array[], int N ){
 }
 
 void selectSort(int array[], int N){
+  
+  // This is Bubble Sort
+  
+  
   for(int i = 0; i < N - 1; i++){
     for(int j= 0; j < N -1; j++){
       if(array[j] > array[j + 1])
         swap(array[j], array[j + 1]);
     }
   }
+  
+  // Need to implement Selection Sort 
+  
+  
 }
