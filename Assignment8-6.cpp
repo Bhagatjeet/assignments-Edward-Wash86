@@ -46,9 +46,45 @@ int main()
 
 void bubbleSortbyID(Students s[], int N)
 {
+  for(int i = 0; i < N - 1; i++){
+    for(int j= 0; j < N -1; j++){
+      if(s[j].sid > s[j + 1].sid)
+        swap(s[j].sid, s[j + 1].sid);
+    }
+  }
 }
-int binarySearch(Students s[], int N, int target)
+
+int binarySearch(Students array[], int N, int target)
 {
+  bool found = false;
+  int first = 0;
+  int mid = 0;
+  int last = N;
+  int result;
+
+  while(first <= last && !found){
+    mid = (first + last) / 2;
+
+    if(target > array[mid].sid){
+      first = mid + 1;
+    }
+    else if(target < array[mid].sid){
+      last = mid - 1;
+    }
+    else {
+//      cout << "BINARY SEARCH has found the value " << target << " in element "<< mid << "!"<< endl;
+      found = true;
+      result = mid;
+//       result = 1;
+    }
+  } 
+
+  if(!found){
+    result = -1;
+//    cout << "The value " << target << " was not found." << endl;
+  }
+
+  return result;
 }
 
 void makeStudents(Students s[], int N)
@@ -85,16 +121,3 @@ void printStudents(Students s[], int N)
 	}
 	cout << "==== End of Record === \n";
 }
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
-Loading complete

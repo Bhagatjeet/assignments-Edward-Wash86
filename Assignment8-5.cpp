@@ -19,21 +19,9 @@ int main(){
   vector <string> names(N);
   
 
-  // infile.open("students.txt", ios :: in);
-
-  // if(infile){
-  //   cout << "The file has been accessed." << endl;
-  //   cout << endl;
-  // }
-  //   else if(!infile)
-  //   cout << "The intened file could not be opened." << endl;
-
-  
   fillVector(vectorID, names, N);
   
   printVectors(vectorID, names, N);
-
-  //sort(vectorID.begin(), vectorID.end());
 
   daulSort(vectorID, names, N);
 
@@ -41,28 +29,7 @@ int main(){
 
   printVectors(vectorID, names, N);
   
-  // cout << "Students ID Numbers:     Students Names: " << endl;
-  // for(int i = 0; i < N; i++){
-    
-  //   cout << vectorID[i] << "                 " << names[i] << endl;
-  // }
-
-  /*
-  for(int i = 0: i < N; i++){
-    minval = numbers[i];
-    minid = i;
-    for(int j = i+1; i < N; j++){
-      if(minval > numbers[j]){
-        minval= numbers[j];
-        minid = j;
-      }
-    }
-    numbers[minid] = numbers[i];
-    numbers[i] = minval;
-  }
-  */
-
-  // sort() - sort(numbers.begin(), numbers.end())
+  return 0;
 }
                   
 void printVectors(vector<int>& vectorID, vector<string>& vectorNames, int SIZE){
