@@ -11,8 +11,14 @@ int main(){
 
   cout << "Memory addresses: " << endl;
 
+  // ptr = number
   for(int i = 0; i < N; i++){
-    ptr = &number[i];
+    ptr = &number[i]; // must be commnented out
+	// this is fine, but array name is also pointer variable.
+	// ptr = number; could be wokring fine, and it should move up outside for-loop.
+
+	// and then,
+	// ptr + i  shows the address of i_th element.
     cout << "Element (" << i << ")is: " << ptr << endl; 
   }
 
@@ -20,9 +26,13 @@ int main(){
 
   cout << "Element contents: " << endl;
 
+//   ptr = number; 
   for(int i = 0; i < N; i++){
     ptr = &number[i];
+	// same as above.
+
     cout << "The element (" << i << ") of the array number contains ; " << *ptr  << endl;
+	// 																	*(ptr+i)
   }
 
   // cout << "Data stored in the memory address: ";
