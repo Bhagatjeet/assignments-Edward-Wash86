@@ -21,37 +21,47 @@ REQUIRMENRS:
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+#include <iomanip>
+
 using namespace std;
+
 void deleteNumbers(double *);
+double makeArray(double &, int);
+void sortNUmbers(double [], int);
+void printNumbers(double [], int);
+
 int main(){
   int size = 10;
   double *ptr;
-  srand(time(0));
+
+  
+  
+  //ptr = new double[size];
 
   cout << "DMA has be completed using the follwing statment:(ptr = new int[size];)" << endl;
 
   cout << endl;
 
-  ptr = new double[size];
-
   
+
+  makeArray(ptr, size);
+
   for(int i = 0; i < size; i++){
-    for(int i = 0; i < size; i++){
-      ptr[i] = (rand() % 101) * .3;
-    }
+    cout << ptr[i] << " ";
   }
+
+  //printNumbers(ptr, size);
+  
 
   //cout << "Memory used: " << malloc(ptr[1]) << endl;
 
-  for(int i = 0; i < size; i++){
-    cout << "Element (" << i << ") holds the value " << ptr[i] << "    " << " Address: " << &ptr[i] << endl;
-  } 
+  
 
   
   deleteNumbers(ptr);
   ptr = NULL;
   
-  cout << "Memory used: " << sizeof(ptr[0]) << endl;
+  //cout << "Memory used: " << sizeof(ptr[0]) << endl;
 
   cout << endl;
   
@@ -65,4 +75,28 @@ int main(){
 
 void deleteNumbers(double *ptr){
   delete[]ptr;
+}
+
+double makeArray( double *ptr, int size){
+  srand(time(0));
+  
+  ptr = new double[size];
+
+  
+  
+  for(int i = 0; i < size; i++){
+     ptr[i] = (rand() % 101);
+    // cout << ptr[i] << " ";
+    return ptr[i];
+  }
+
+ 
+  
+}
+
+void printNumbers(double ptr[], int size){
+  for(int i = 0; i < size; i++){
+    //cout << setprecision(3) << endl;
+    cout << "The address of element (" << i << ") is " << &ptr[i] << " and holds the value " << ptr[i] << endl << endl;
+  } 
 }

@@ -9,29 +9,31 @@ int main(){
   double number[N] = {10.0, 15.2, 21.2, 10.5, 11.3, 12.51, 13.8, 14.7, 19.8, 20.0};
   double *ptr;
 
-  cout << "Memory addresses: " << endl;
-
+ //cout << "Memory addresses: " << endl;
+  cout << endl;
   // ptr = number
   for(int i = 0; i < N; i++){
-    ptr = &number[i]; // must be commnented out
+    ptr = number; // must be commnented out
+    
 	// this is fine, but array name is also pointer variable.
 	// ptr = number; could be wokring fine, and it should move up outside for-loop.
 
 	// and then,
 	// ptr + i  shows the address of i_th element.
-    cout << "Element (" << i << ")is: " << ptr << endl; 
+    //cout << ptr + i << endl;
+    cout << "The MEMORY ADDRESS of element (" << i << ") is: " << &ptr[i] << endl; 
   }
 
   cout << endl;
 
-  cout << "Element contents: " << endl;
+  //cout << "Element contents: " << endl;
 
 //   ptr = number; 
   for(int i = 0; i < N; i++){
-    ptr = &number[i];
+    //ptr = number[i];
 	// same as above.
 
-    cout << "The element (" << i << ") of the array number contains ; " << *ptr  << endl;
+    cout << "The element (" << i << ") of the array number contains ; " << ptr[i]  << endl;
 	// 																	*(ptr+i)
   }
 
