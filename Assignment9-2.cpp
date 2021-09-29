@@ -16,8 +16,8 @@ int main(){
   cout << "Memory addresses: " << endl;
 
   for(int i = 0; i < N; i++){
-    ptr = &numbers[i];
-    cout << "Element (" << i << ")is: " << ptr << endl; 
+    ptr = numbers;
+    cout << "Element (" << i << ") is: " << ptr[i] << endl; 
   }
 
   cout << endl;
@@ -31,7 +31,7 @@ int main(){
 
 void printArray(double numbers[], int N){
   for(int i = 0; i < N; i++){
-    ptr = &numbers[i];
-    cout << "The elemnt (" << i << ") of the array number contains ; " << *ptr  << endl;
+    ptr = numbers;
+    cout << "The element (" << i << ") of the array number contains ; " << &ptr[i]  << endl;
   }
 }
