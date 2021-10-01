@@ -26,40 +26,34 @@ REQUIRMENRS:
 using namespace std;
 
 void deleteNumbers(double *);
-double makeArray(double &, int);
-void sortNUmbers(double [], int);
+double makeArray(double *, int);
+void sortNumbers(double *, int);
 void printNumbers(double [], int);
 
 int main(){
+  srand(time(0));
+  
   int size = 10;
   double *ptr;
-
   
-  
-  //ptr = new double[size];
-
   cout << "DMA has be completed using the follwing statment:(ptr = new int[size];)" << endl;
 
   cout << endl;
 
-  
-
   makeArray(ptr, size);
 
-  for(int i = 0; i < size; i++){
-    cout << ptr[i] << " ";
-  }
+  //sortNumbers(ptr, size);
 
+ 
   //printNumbers(ptr, size);
+
+      cout << (ptr + 8) << " ";
+  
   
 
-  //cout << "Memory used: " << malloc(ptr[1]) << endl;
-
   
-
-  
-  deleteNumbers(ptr);
-  ptr = NULL;
+  //deleteNumbers(ptr);
+  //ptr = NULL;
   
   //cout << "Memory used: " << sizeof(ptr[0]) << endl;
 
@@ -67,31 +61,31 @@ int main(){
   
   
   
-  
-
 
  return 0;
 }
 
 void deleteNumbers(double *ptr){
-  delete[]ptr;
+  delete ptr;
+  delete[] ptr;
 }
 
-double makeArray( double *ptr, int size){
-  srand(time(0));
-  
-  ptr = new double[size];
+double makeArray(double *bank, int size){
+  bank = new double [size];
 
-  
-  
-  for(int i = 0; i < size; i++){
-     ptr[i] = (rand() % 101);
-    // cout << ptr[i] << " ";
-    return ptr[i];
+    for(int i = 0; i < size; i++){
+      bank[i] = rand() % 101 * .03;
+      
+    }
+}
+
+void sortNumbers(double *bank, int size){
+  for(int i = 0; i < size - 1; i++){
+    for(int j = 0; j < size -1; j++){
+      if(bank[j] > bank[j + 1])
+        swap(bank[j], bank[j + 1]);
+    }
   }
-
- 
-  
 }
 
 void printNumbers(double ptr[], int size){
