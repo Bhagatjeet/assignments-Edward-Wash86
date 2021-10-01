@@ -19,78 +19,49 @@ REQUIRMENRS:
 */
 
 #include <iostream>
+#include <vector>
 #include <ctime>
-#include <cstdlib>
-#include <iomanip>
 
 using namespace std;
 
-void deleteNumbers(double *);
-double makeArray(double *, int);
-void sortNumbers(double *, int);
-void printNumbers(double [], int);
+//vector <double> makeArray();
+
+double &makeArray();
+void printArray(double *);
+void sortArray(double *);
 
 int main(){
-  srand(time(0));
+  double *bank = &makeArray();
+  sortArray(bank);
+  printArray(bank);
   
-  int size = 10;
-  double *ptr;
-  
-  cout << "DMA has be completed using the follwing statment:(ptr = new int[size];)" << endl;
-
-  cout << endl;
-
-  makeArray(ptr, size);
-
-  //sortNumbers(ptr, size);
-
- 
-  //printNumbers(ptr, size);
-
-      cout << (ptr + 8) << " ";
-  
-  
-
-  
-  //deleteNumbers(ptr);
-  //ptr = NULL;
-  
-  //cout << "Memory used: " << sizeof(ptr[0]) << endl;
-
-  cout << endl;
-  
-  
-  
-
- return 0;
+  //cout << *bank << " ";
 }
 
-void deleteNumbers(double *ptr){
-  delete ptr;
-  delete[] ptr;
+double &makeArray(){
+  srand((0));
+  static double numbers[10];
+  for(int i = 0; i < 10; i++){
+    numbers[i] = rand() % 101 * .3;
+  }
+
+  for(int i = 0; i < 10; i++){
+    return numbers[i];
+  }
+  
 }
 
-double makeArray(double *bank, int size){
-  bank = new double [size];
-
-    for(int i = 0; i < size; i++){
-      bank[i] = rand() % 101 * .03;
-      
-    }
-}
-
-void sortNumbers(double *bank, int size){
-  for(int i = 0; i < size - 1; i++){
-    for(int j = 0; j < size -1; j++){
-      if(bank[j] > bank[j + 1])
-        swap(bank[j], bank[j + 1]);
-    }
+void printArray(double *num){
+  for(int i = 0; i < 10; i++){
+    cout << num[i] << " ";
   }
 }
 
-void printNumbers(double ptr[], int size){
-  for(int i = 0; i < size; i++){
-    //cout << setprecision(3) << endl;
-    cout << "The address of element (" << i << ") is " << &ptr[i] << " and holds the value " << ptr[i] << endl << endl;
-  } 
+void sortArray(double *num){
+  for(int i = 0; i < 10 - 1; i++){
+    for(int j = 0; j < 10 -1; j++){
+      if(num[j] > num[j + 1])
+        swap(num[j], num[j + 1]);
+    }
+  }
 }
