@@ -11,7 +11,7 @@ the first number is pointed by the double-type pointer from the function makeNum
       release all memory space for the numbers to re-use it by the operating system
 
 REQUIRMENRS:
-1.do not use and array, use dymanic memory allocation and pointers.
+1.do not use an array, use dymanic memory allocation and pointers.
 
 2.at the end of main call the delete number function.
 
@@ -19,49 +19,48 @@ REQUIRMENRS:
 */
 
 #include <iostream>
-#include <vector>
 #include <ctime>
-
 using namespace std;
 
-//vector <double> makeArray();
-
-double &makeArray();
-void printArray(double *);
-void sortArray(double *);
+double *makeArray(int bunch );
+void printArray(double *, int);
+void sortArray(double *, int);
+void deleteArray(double *);
 
 int main(){
-  double *bank = &makeArray();
-  sortArray(bank);
-  printArray(bank);
+  const int bunch = 10;
+  double *market = makeArray(bunch);
   
-  //cout << *bank << " ";
+  printArray(market, bunch);
+  sortArray(market, bunch);
+  deleteArray(market);
+
 }
 
-double &makeArray(){
-  srand((0));
-  static double numbers[10];
-  for(int i = 0; i < 10; i++){
-    numbers[i] = rand() % 101 * .3;
+double *makeArray(int bunch){
+  srand(time(0));
+  static double *apple =  new double[bunch];
+  for(int i = 0; i < bunch; i++){
+    apple[i] = rand() % 101 * .7;
   }
-
-  for(int i = 0; i < 10; i++){
-    return numbers[i];
-  }
-  
+  return apple;
 }
 
-void printArray(double *num){
-  for(int i = 0; i < 10; i++){
-    cout << num[i] << " ";
+void printArray(double * print, int size){
+  for(int i = 0; i < size; i++){
+    cout << print[i] << " ";
   }
 }
 
-void sortArray(double *num){
-  for(int i = 0; i < 10 - 1; i++){
-    for(int j = 0; j < 10 -1; j++){
-      if(num[j] > num[j + 1])
-        swap(num[j], num[j + 1]);
+void sortArray(double *array, int size){
+  for(int i = 0; i < size - 1; i++){
+    for(int j = 0; j < size -1; j++){
+      if(array[j] > array[j + 1])
+        swap(array[j], array[j + 1]);
     }
   }
+}
+
+void deleteArray(double *array){
+  delete array;
 }
