@@ -33,13 +33,14 @@ int main(){
   
   printArray(market, bunch);
   sortArray(market, bunch);
+  printArray(market, bunch);
   deleteArray(market);
 
 }
 
 double *makeArray(int bunch){
   srand(time(0));
-  static double *apple =  new double[bunch];
+  double *apple =  new double[bunch];
   for(int i = 0; i < bunch; i++){
     apple[i] = rand() % 101 * .7;
   }
@@ -50,6 +51,8 @@ void printArray(double * print, int size){
   for(int i = 0; i < size; i++){
     cout << print[i] << " ";
   }
+
+  cout << endl;
 }
 
 void sortArray(double *array, int size){
