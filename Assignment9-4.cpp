@@ -15,9 +15,11 @@ using namespace std;
 struct students {
  int id, sum;
  string name;
- double score1,score2;
+ double score[3];
  double scoreavg;
 };
+
+void printArray(students*,int);
 
 int main() {
   
@@ -39,9 +41,9 @@ int main() {
 
       newfile >> firstclass[i].name;
 
-      newfile >> firstclass[i].score1;
-
-      newfile >> firstclass[i].score2;
+      for(int j = 0; j < 3;j++){
+        newfile >> firstclass[i].score[j];
+      }
       
     } 
     newfile.close();
@@ -49,10 +51,24 @@ int main() {
 
   if(!newfile){
     cout << "File has been closed" << endl;
+    cout << endl;
   }
 
-  
+  printArray(firstclass,10);
 
 
 
+}
+
+void printArray(students * print, int size){
+  for(int i = 0; i < size; i++){
+    cout << print[i].id << " ";
+    cout << print[i].name << " ";
+    for(int j = 0; j < 3;j++){
+      cout << print[i].score[j] << " ";
+    }
+    cout << endl;
+  }
+
+  cout << endl;
 }
