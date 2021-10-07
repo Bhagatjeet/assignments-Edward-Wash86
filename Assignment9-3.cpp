@@ -1,4 +1,4 @@
-/*
+dxcfd/*
 Make a program that manages the double type values
 (1) The function makeNumbers
       generate 10 double random numbers and store them into the memory that is dynamically allocated by the "new".

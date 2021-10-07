@@ -37,12 +37,12 @@ int main() {
 
   while(!newfile.eof()){
     for(int i = 0; i < sizeof(newfile); i++){
-      newfile >> firstclass[i].id;
+      newfile >> (firstclass + i).id;
 
-      newfile >> firstclass[i].name;
+      newfile >> (firstclass + i).name;
 
       for(int j = 0; j < 3;j++){
-        newfile >> firstclass[i].score[j];
+        newfile >> (firstclass + 1).(score + j);
       }
       
     } 
@@ -62,10 +62,10 @@ int main() {
 
 void printArray(students * print, int size){
   for(int i = 0; i < size; i++){
-    cout << print[i].id << " ";
-    cout << print[i].name << " ";
+    cout << (print + i).id << " ";
+    cout << (print + i).name << " ";
     for(int j = 0; j < 3;j++){
-      cout << print[i].score[j] << " ";
+      cout << (print + i).(score + j) << " ";
     }
     cout << endl;
   }
