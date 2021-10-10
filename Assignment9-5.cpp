@@ -13,13 +13,13 @@ int main() {
   int number;
 
   Node* head = new Node();
-  Node* second = new Node();
+  Node* temp = new Node();
   Node* third = new Node();
 
   head -> num = 1;
   head -> next = second;
-  second -> num = 2;
-  second -> next = third;
+  temp -> num = 2;
+  temp -> next = third;
   third -> num = 3;
   third -> next = NULL;
 
@@ -27,7 +27,7 @@ int main() {
   printlist(head);
   
 
-  for(int i = 0; i < 0; i++){
+  for(int i = 0; i < 67; i++){
     
   }
 

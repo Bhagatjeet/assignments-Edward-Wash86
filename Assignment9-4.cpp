@@ -20,6 +20,7 @@ struct students {
 };
 
 void printArray(students*,int);
+void sortArray(students*, int);
 
 int main() {
   
@@ -54,10 +55,11 @@ int main() {
     cout << endl;
   }
 
+  sortArray(firstclass, 10);
+
   printArray(firstclass,10);
 
-
-
+  
 }
 
 void printArray(students * print, int size){
@@ -71,4 +73,27 @@ void printArray(students * print, int size){
   }
 
   cout << endl;
+}
+
+void sortArray(students* sort, int size){
+  for(int i = 0; i < size - 1; i++){
+    if(sort[i].score[1] < sort[i].score[2]){
+        int temp;
+        temp = sort[i].score[1];
+        sort[i].score[1] = sort[i].score[2];
+        sort[i].score[2] = temp;
+      }
+      if(sort[i].score[0] < sort[i].score[1]){
+        int temp;
+        temp = sort[i].score[0];
+        sort[i].score[0] = sort[i].score[1];
+        sort[i].score[1] = temp;
+      }
+      if(sort[i].score[1] < sort[i].score[2]){
+        int temp;
+        temp = sort[i].score[1];
+        sort[i].score[1] = sort[i].score[2];
+        sort[i].score[2] = temp;
+      }
+  }
 }
