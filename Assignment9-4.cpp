@@ -83,13 +83,13 @@ void sortArray(students* sort, int size){
         sort[i].score[1] = sort[i].score[2];
         sort[i].score[2] = temp;
       }
-      if(sort[i].score[0] < sort[i].score[1]){
+    if(sort[i].score[0] < sort[i].score[1]){
         int temp;
         temp = sort[i].score[0];
         sort[i].score[0] = sort[i].score[1];
         sort[i].score[1] = temp;
       }
-      if(sort[i].score[1] < sort[i].score[2]){
+    if(sort[i].score[1] < sort[i].score[2]){
         int temp;
         temp = sort[i].score[1];
         sort[i].score[1] = sort[i].score[2];
