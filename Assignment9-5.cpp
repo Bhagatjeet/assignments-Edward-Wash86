@@ -1,42 +1,48 @@
 #include <iostream>
+using namespace std;
 
 struct Node{
   int num;
   struct Node* next;
 };
 
-using namespace std;
 
-void printlist(Node *);
+int main()
+{
+	Node *new_node, *head, *ptr;
 
-int main() {
-  int number;
+	head = nullptr;
 
-  Node* head = new Node();
-  Node* temp = new Node();
-  Node* third = new Node();
+	for(int i=0; i<5;i++)
+	{
+		new_node = new Node;
+		cout << "Enter your num : " ;
+		cin >> new_node->num;
+		new_node->next = nullptr;
 
-  head -> num = 1;
-  head -> next = second;
-  temp -> num = 2;
-  temp -> next = third;
-  third -> num = 3;
-  third -> next = NULL;
+		if ( head == nullptr)
+		{
+			head = new_node;
+		}
+		else
+		{
+			ptr = head ;
+			while( ptr->next != nullptr)
+			{
+				ptr = ptr->next;
+			}
+			ptr->next = new_node;
 
-
-  printlist(head);
-  
-
-  for(int i = 0; i < 67; i++){
+		}
+	}
     
-  }
+    ptr = head;
+    int i = 1;
+	while(ptr != nullptr)
+    {
+		cout << i++ << " node's value " << ptr->num << endl;        
+		ptr = ptr->next;
+    }
 
 
-}
-
-void printlist(Node* bank){
-  while(bank != NULL ){
-    cout << bank -> num << endl;
-    bank = bank -> next;
-  }
 }
