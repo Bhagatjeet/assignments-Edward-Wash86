@@ -3,10 +3,13 @@
 
 using namespace std;
 
+const int LEN_NAME = 20;
+const int NUM_SCORES = 3;
+
 struct students{
-  int idNumber;
-  string name;
-  int score[3];
+  int sid;
+  char sname[LEN_NAME];
+  double score[NUM_SCORES];
 };
 
 int main(){
@@ -25,18 +28,23 @@ int main(){
   }
 
   for(int p = 0; p < size; p++){
-    robot.read(reinterpret_cast<char *>(&zion[p].idNumber), sizeof(zion[p].idNumber));
+    robot.read(reinterpret_cast<char *>(&zion[p].sid), sizeof(zion[p].sid));
     
-    robot.read(reinterpret_cast<char *>(nameCharArray), sizeof(nameCharArray));
-    for(int i = 0; i < sizeof(nameCharArray); i++){
-      zion[p].name = zion[p].name + nameCharArray[i];
-    }
+    robot.read(reinterpret_cast<char *>(zion[p].sname), sizeof(zion[p].sname));
+    
     
     for(int g = 0; g < 3; g++){
       robot.read(reinterpret_cast<char *>(&zion[p].score[g]), sizeof(zion[p].score));
     }
 
     
+  }
+
+  for(int i = 0; i < 10; i++){
+    cout << zion[i].sid << " ";
+    cout << zion[i].sname << " ";
+    for(int e = 0; e < 3; e++)
+      cout << zion[i].score[e] << " ";
   }
   
   // while(!robot.eof()){
