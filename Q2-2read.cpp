@@ -10,34 +10,42 @@ struct students{
 };
 
 int main(){
-  students zion[10];
+  const int size = 10;
+  students *zion;
   fstream robot;
   int spam = 0;
+  char nameCharArray[8];
 
   robot.open("students.bin", ios :: in | ios :: binary);
 
+  zion =  new students[size];
 
+  if(robot){
+    cout << "file has been opened." << endl; 
+  }
 
-
-  robot.seekg(0,ios::end);
-  spam = (int)robot.tellg();
-  robot.seekg(0,ios::beg);
-
-  while(robot.tellg() < spam){
-    for(int i = 0; i < 10; i++){
-      robot.read(reinterpret_cast<char*>(&zion[i].idNumber), sizeof(zion[i].name));
-      robot.read(reinterpret_cast<char*>(&zion[i].name), sizeof(zion[i].name));
-      for(int q = 0; q < 3; q++){
-        robot.read(reinterpret_cast<char*>(&zion[i].score[q]), sizeof(zion[i].score[q]));
-      }
-      cout << zion[i].idNumber << " " << zion[i].name << " ";
-      for(int w = 0; w < 3; w++){
-        cout << zion[i].score[w] << " ";
-      }
-      cout << endl;  
+  for(int p = 0; p < size; p++){
+    robot.read(reinterpret_cast<char *>(&zion[p].idNumber), sizeof(zion[p].idNumber));
+    
+    robot.read(reinterpret_cast<char *>(nameCharArray), sizeof(nameCharArray));
+    for(int i = 0; i < sizeof(nameCharArray); i++){
+      zion[p].name = zion[p].name + nameCharArray[i];
     }
     
+    for(int g = 0; g < 3; g++){
+      robot.read(reinterpret_cast<char *>(&zion[p].score[g]), sizeof(zion[p].score));
+    }
+
+    
   }
+  
+  // while(!robot.eof()){
+  //   cout << zion.idNumber << " " << zion.name << " ";
+  //   for(int i = 0; i < 3; i++){
+  //     cout << zion.score[i] << " ";
+  //   }
+  //   cout << endl << endl;
+  // }
 
   
 }

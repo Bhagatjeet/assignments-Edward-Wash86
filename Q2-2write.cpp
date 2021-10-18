@@ -37,6 +37,8 @@ struct students{
   int score[3];
 };
 
+
+
 int main(){
 
   fstream matrix, agents;
@@ -67,24 +69,77 @@ int main(){
         matrix >> zion[i].score[y];
       }
     }
+    
+    
+    // for(int i = 0; i < sizeof(matrix); i++){
+    //   matrix >> zion[i].idNumber;
+    //   matrix >> zion[i].name;
+    //   for(int y = 0; y < 3; y++){
+    //     matrix >> zion[i].score[y];
+    //   }
+    // }
   }
 
   matrix.close();
 
+  
+
   for(int p = 0; p < size; p++){
-    cout << zion[p].idNumber << " ";
-    cout << zion[p].name << " ";
-    for(int y = 0; y < 3; y++){
-      cout << zion[p].score[y];
+    char* nameCharArray = new char[zion[p].name.length() + 1];
+    for(int t = 0; t < zion[p].name.length(); t++){
+      nameCharArray[t] = zion[p].name[t];
     }
-    cout << endl;
+    
   }
+
+  
+
 
   agents.open(binFileName, ios :: out | ios :: binary);
 
   for(int p = 0; p < size; p++){
-    agents.write(reinterpret_cast<char *>(&zion[p]), sizeof(zion[p]));
+    agents.write(reinterpret_cast<char *>(&zion[p].idNumber), sizeof(zion[p].idNumber));
+    char* nameCharArray = new char[zion[p].name.length() + 1];
+    for(int t = 0; t < zion[p].name.length(); t++){
+      nameCharArray[t] = zion[p].name[t];
+      agents.write(reinterpret_cast<char *>(&nameCharArray[t]), sizeof(nameCharArray));
+    }
+    for(int g = 0; g < 3; g++){
+      agents.write(reinterpret_cast<char *>(&zion[p].score[g]), sizeof(zion[p].score));
+    }
+
+    
   }
 
   agents.close();
+
+  
+
+  
+
+  // agents.open(binFileName, ios :: out | ios :: binary);
+
+  // if(!agents.is_open()){
+  //   cout << "something went wrong" << endl;
+  // }
+
+  // for(int t = 0; t < size; t++){    
+  //   agents.write(reinterpret_cast<char *>(&zion), sizeof(zion));
+  // }
+  // //agents.write(*zion, sizeof(zion));
+  
+
+  // // for(int a = 0; a < 10; a++){
+  // //   agents << zion[a].idNumber;
+  // //   agents << zion[a].name;
+  // //   for(int y = 0; y < 3; y++){
+  // //     agents << zion[a].score[y];
+  // //   }
+  // //   agents << endl; 
+  // // }
+
+  // agents.close();
+
+
+
 }
