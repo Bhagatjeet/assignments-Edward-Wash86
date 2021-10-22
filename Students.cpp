@@ -1,5 +1,5 @@
 //Implamentation file for Student class. (lines 2 - 4)
-#include "Students.h"
+#include "Students.hpp"
 #include <iostream>
 #include <cstdlib>
 
@@ -33,14 +33,14 @@ void Student :: setSname(string designation){
   name = designation;
 };
 
-void setScores(int score[3],int index){
+void StudentssetScores(int value,int index){
   /*
     int sid;
     string sname;
     double scores[3];
   */
   //seats.setScores(tempScore[e],e);
-  index[i] = score[];
+  index[i] = score;
   
   
 };
