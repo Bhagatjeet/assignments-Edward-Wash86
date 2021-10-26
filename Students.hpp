@@ -6,7 +6,7 @@
 class Student{
   private:
     int sid;
-    string sname;
+    string sname = "Steve";
     double scores[3];
   public:
     int getSid() const;
