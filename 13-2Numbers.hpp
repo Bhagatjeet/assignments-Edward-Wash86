@@ -1,6 +1,8 @@
 #ifndef 	NUMBERS_H
 #define 	NUMBERS_H
 
+using namespace std;
+
 /*
 constructions Numbers()
 default size is 10. make new int[10]and assign to "head".
@@ -16,28 +18,31 @@ create a main function to test your member function.
 */
 
 class Numbers{
-  private;
-  int size;
-  int *head;
+  private:
+    int size;
+    int *head;
 
   public:
-  Numbers();
-  Numbers(int);
-    //construct
-  getSize()const: int;
-  getElement(i:int) const int;
-    //get the i_th element.
-  getSum() const: double;
-    // get the sum of all the elements.
-  getAvg() const: double;
-    //get the average of all the elements.
-  setElements(): void;
-  setElements(value:int, i: int):void
-    //set the value of the i_th elements.
-  bubbleSort(dessc:int): void;
-    //sort all number in assending order, if the param is 0 then sort in decending order.
-  printNumbers(desc:int): void;
-  clear();
-    //delete a all memory space for numbers.
+    Numbers();
+    Numbers(int);
+      
+      //construct
+    int getSize()const;
+    int getElement(int i) const;
+      //get the i_th element.
+    double getSum() const;
+      // get the sum of all the elements.
+    double getAvg(); const;
+      //get the average of all the elements.
+    void setElements();
+    void setElements(int i , value);
+      //set the value of the i_th elements.
+    void bubbleSort(dessc:int);
+      //sort all number in assending order, if the param is 0 then sort in decending order.
+    void printNumbers(desc:int)
+      clear();
+      //delete a all memory space for numbers.
 
 };
+
+#endif
