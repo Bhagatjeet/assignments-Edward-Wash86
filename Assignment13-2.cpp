@@ -47,14 +47,24 @@ double Numbers:: getAvg() const{
 }
   //get the average of all the elements.
 void Numbers:: setElements() {
-  
+  for(int i = 0; i < sizeof(head); i++)
+    head[i] = rand() % 101;
 }
 void Numbers:: setElements(int i , value){
-  
+  head[i] = value;
 }
   //set the value of the i_th elements.
-// void Numbers:: bubbleSort(dessc:int);
-//   //sort all number in assending order, if the param is 0 then sort in decending order.
-// void Numbers:: printNumbers(desc:int);
+void Numbers:: bubbleSort(dessc:int){
+  for(int i = 0; i < sizeof(head)- 1; i++){
+    for(int j = 0; j < sizeof(head) -1; j++){
+      swap(head[j], head j+1);
+    }
+  }
+}
+//sort all number in assending order, if the param is 0 then sort in decending order.
+void Numbers:: printNumbers(desc:int);
+  for(int i  = 0; i < size0f(head); i++){
+    cout << head[i] << endl;
+  }
 //   clear();
 //   //delete a all memory space for numbers.
