@@ -27,42 +27,48 @@ constuctor implmentation:
 
 */
 
-#include "13-3.hpp"
-
-#include <string>
-
+#include "student.hpp"
+#include <iostream>
+#include <fstream>
 using namespace std;
 
-class Students{
-  -int sid;
-  -string sname;
-  -DOB dob;
-  +Student(): sname("noname"), id(0), dob(1,1){
-  };
-  +Student(n: string, id: int, dob: DOB) : sname(stname), id(idnum), dob(date){
+void printStudent(Student &s);
+int main()
+{
+	ifstream ifs;
+	const int N = 10;
+	string sname;
+	int idnum, month, day;
+	DOB date;
+	Student s[10];
 
-  }
-  +getID const: int{
-    return
-  };
-  +getSname() const: string;
-  +getDOB() const: DOB
-  +setSname(name: string): void
-  +setID(id int) : void
-  +setDOB(dob DOB) : void
+	ifs.open("studentsDOB.txt");
+	if (ifs.fail())
+	{
+		cerr << " File not open\n";
+		exit(0);
+	}
+	int i = 0;
+	while (ifs >> sname >> idnum >> month >> day)
+	{
+		date.setDOB(month, day);
+		s[i].setSname(sname);
+		s[i].setID(idnum);
+		s[i].setDOB(date);
+		i++;
+	}
+
+	for (int i = 0; i < N; i++)
+	{
+		printStudent(s[i]);
+	}
 }
 
-class DOB{
-  -int month;
-  -int day;
-  +DOB();
-  +DOB(int m, int d):
-  +getMonth() const: int;
-  +getDay() const: int;
-  +printDate() const: void
-  +setDOB(dob: DOB) : void
-  +setMonth(m: int) : void
-  +setDay(d: int) : void
+void printStudent(Student &s)
+{
+	DOB date;
+	cout << "Student Name: " << s.getSname() << endl;
+	cout << "Student ID: " << s.getID() << endl;
+	date = s.getDOB();
+	date.printDate();
 }
-
-#endif
