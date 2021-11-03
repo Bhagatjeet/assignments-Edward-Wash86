@@ -125,13 +125,27 @@ int main(){
   //cout << findMax(numberset,5);
 };
 
+//TESTED AND WORKS
 int findMax(NUMBERS group[], int n){
   int absoluteMax = group[0].getMax();
+  int absoluteMaxID;
   for(int i = 0; i < n; i++){
     
     if(group[i].getMax() > absoluteMax){
-        absoluteMax = group[i].getMax();
-      }
+      absoluteMax = group[i].getMax();
+    }
+
   }
+
+  for(int i = 0; i < n; i++){
+    if(absoluteMax == group[i].getMax()){
+      absoluteMaxID = i;
+    }
+  }
+
+  cout << "The group with the larget number is number: " 
+
+
+
   return absoluteMax;
 }
