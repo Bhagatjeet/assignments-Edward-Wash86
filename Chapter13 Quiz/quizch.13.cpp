@@ -82,12 +82,12 @@ class NUMBERS{
 
 };
 
-int findMax(NUMBERS, int );
+int findMax(NUMBERS[], int );
 
 int main(){
   NUMBERS numberset[] = {NUMBERS(1,3), NUMBERS(2,5), NUMBERS(3,10) ,NUMBERS(4,5),NUMBERS(5,3)};
 
-  
+  cout << findMax(numberset, 5);
   
   numberset[0].printAll();
   cout << endl;
@@ -97,12 +97,12 @@ int main(){
   
 };
 
-int findMax(NUMBERS group, int n){
+int findMax(NUMBERS group[], int n){
   int absoluteMax;
   for(int i = 0; i < n; i++){
     absoluteMax = 0;
-    if(group[i].getMax() > max){
-        max = numbers[i];
+    if(group[i].getMax() > absoluteMax){
+        absoluteMax = group[i].getMax();
       }
   }
   return absoluteMax;
