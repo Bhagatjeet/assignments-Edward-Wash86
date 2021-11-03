@@ -5,23 +5,19 @@ using namespace std;
 
 class NUMBERS{
   private:
-  int ID;
-  vector <int> numbers;
+    int ID;
+    vector <int> numbers;
   public:
-  NUMBERS(){
-    ID = -1;
-    vector <int> group;
-  };
-  NUMBERS(int designation, int groupSize){
-    ID = designation;
-    for(int i = 0; i < groupSize; i++){
-      numbers.push_back(rand()% 99);
-    }
-    cout << "group contents: "; 
-    for(int i = 0; i < numbers.size(); i++){
-      cout << numbers[i] << " ";
-    }
-  };
+    NUMBERS(){
+      ID = -1;
+      
+    };
+    NUMBERS(int designation, int groupSize){
+      ID = designation;
+      for(int i = 0; i < groupSize; i++){
+        numbers.push_back(rand()% 99);
+      }
+    };
 
   //Member fucntions
   int getID(){
@@ -79,26 +75,16 @@ class NUMBERS{
   void printAll() const{
     for(int i = 0; i < numbers.size(); i++){
       cout << numbers[i] << " ";
-    
+    }
   }
+
 };
 
 int findMax(NUMBERS, int );
+
 int main(){
   NUMBERS numberset[] = {NUMBERS(1,3), NUMBERS(2,5), NUMBERS(3,10) ,NUMBERS(4,5),NUMBERS(5,3)};
   
   
-  findMax(numberset, 5);
-  
-  
-
-
-
-  
   
 };
-
-int findMax(NUMBERS group, int n){
-  for(int i =0; )
-
-}
