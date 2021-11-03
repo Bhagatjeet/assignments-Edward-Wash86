@@ -73,7 +73,7 @@ class NUMBERS{
     numbers.push_back(rand()% 99);
   };
   void printAll() const{
-    cout << "ID:" << ID;
+    cout << "ID: " << ID << " ";
     for(int i = 0; i < numbers.size(); i++){
       
       cout << numbers[i] << " ";
@@ -95,4 +95,15 @@ int main(){
   cout << endl;
   cout << numberset[0].getMin();
   
+};
+
+int findMax(NUMBERS group, int n){
+  int absoluteMax;
+  for(int i = 0; i < n; i++){
+    absoluteMax = 0;
+    if(group[i].getMax() > max){
+        max = numbers[i];
+      }
+  }
+  return absoluteMax;
 };
