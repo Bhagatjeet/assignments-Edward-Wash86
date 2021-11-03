@@ -55,7 +55,7 @@ class NUMBERS{
         min = numbers[i];
       }
     }
-    cout << "The smallest number in this group is: "; 
+    cout << "The largest number in this group is: "; 
     return min;
   };
   int getSum(){
@@ -73,11 +73,11 @@ class NUMBERS{
     numbers.push_back(rand()% 99);
   };
   void printAll() const{
-    cout << "ID:" << ID;
+	  cout << "ID : " << ID << "\t";
     for(int i = 0; i < numbers.size(); i++){
-      
       cout << numbers[i] << " ";
     }
+	cout << endl;
   }
 
 };
@@ -86,13 +86,13 @@ int findMax(NUMBERS, int );
 
 int main(){
   NUMBERS numberset[] = {NUMBERS(1,3), NUMBERS(2,5), NUMBERS(3,10) ,NUMBERS(4,5),NUMBERS(5,3)};
-
   
-  
-  numberset[0].printAll();
-  cout << endl;
-  cout << numberset[0].getMax();
-  cout << endl;
-  cout << numberset[0].getMin();
+	numberset[0].printAll();
+	cout << " Min: " << numberset[0].getMin() << endl;
+	cout << " Max: " << numberset[0].getMax() << endl;
+	numberset[1].printAll();
+	numberset[2].printAll();
+	numberset[3].printAll();
+	numberset[4].printAll();
   
 };
