@@ -112,7 +112,7 @@ int main(){
   cout << numberset[4].getMax() << endl;
 
   cout << endl;
-  cout << findMax(numberset, 4);
+  cout << findMax(numberset, 5);
   cout << endl;
   
   
@@ -126,9 +126,9 @@ int main(){
 };
 
 int findMax(NUMBERS group[], int n){
-  int absoluteMax;
+  int absoluteMax = group[0].getMax();
   for(int i = 0; i < n; i++){
-    absoluteMax = group[0].getMax();
+    
     if(group[i].getMax() > absoluteMax){
         absoluteMax = group[i].getMax();
       }
