@@ -38,24 +38,24 @@ class NUMBERS{
   };
   int getMax(){
     int max;
+    max = numbers[0];
     for(int i = 0; i < numbers.size(); i++){
-      max = numbers[0];
       if(numbers[i] > max){
         max = numbers[i];
       }
     }
-    cout << "The largest number in this group is: "; 
+    //cout << "The largest number in this group is: "; 
     return max;
   };
   int getMin(){
     int min;
+    min = numbers[0];
     for(int i = 0; i < numbers.size(); i++){
-      min = numbers[0];
       if(numbers[i] < min){
         min = numbers[i];
       }
     }
-    cout << "The smallest number in this group is: "; 
+    //cout << "The smallest number in this group is: "; 
     return min;
   };
   int getSum(){
@@ -87,23 +87,51 @@ int findMax(NUMBERS[], int );
 int main(){
   NUMBERS numberset[] = {NUMBERS(1,3), NUMBERS(2,5), NUMBERS(3,10) ,NUMBERS(4,5),NUMBERS(5,3)};
 
-  cout << findMax(numberset, 5);
-  
   numberset[0].printAll();
   cout << endl;
-  cout << numberset[0].getMax();
+  cout << numberset[0].getMax() << endl;
+
   cout << endl;
-  cout << numberset[0].getMin();
+  numberset[1].printAll();
+  cout << endl;
+  cout << numberset[1].getMax() << endl;
+
+  cout << endl;
+  numberset[2].printAll();
+  cout << endl;
+  cout << numberset[2].getMax() << endl;
+
+  cout << endl;
+  numberset[3].printAll();
+  cout << endl;
+  cout << numberset[3].getMax() << endl;
+
+  cout << endl;
+  numberset[4].printAll();
+  cout << endl;
+  cout << numberset[4].getMax() << endl;
+
+  cout << endl;
+  cout << findMax(numberset, 4);
+  cout << endl;
   
+  
+  // numberset[0].printAll();
+  // cout << endl;
+  // cout << numberset[0].getMax();
+  // cout << endl;
+  // cout << numberset[0].getMin();
+
+  //cout << findMax(numberset,5);
 };
 
 int findMax(NUMBERS group[], int n){
   int absoluteMax;
   for(int i = 0; i < n; i++){
-    absoluteMax = 0;
+    absoluteMax = group[0].getMax();
     if(group[i].getMax() > absoluteMax){
         absoluteMax = group[i].getMax();
       }
   }
   return absoluteMax;
-};
+}
