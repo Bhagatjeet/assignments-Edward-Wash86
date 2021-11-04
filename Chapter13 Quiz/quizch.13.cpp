@@ -67,7 +67,14 @@ class NUMBERS{
     return total;
   };
   void deleteElm(int d){
-    vector<int> :: iterator;
+    vector<int> :: iterator iter;
+
+    for(iter = numbers.begin(); iter < numbers.end(); iter++){
+      if(*iter == d){
+        numbers.erase(iter);
+      }
+
+    }
   };
   void addElm(){
     numbers.push_back(rand()% 99);
@@ -116,6 +123,11 @@ int main(){
  
   cout << findMax(numberset, 5);
   cout << endl;
+  cout << endl;
+
+  numberset[0].deleteElm(28);
+  numberset[0].printAll();
+  cout << endl;
   
   
   // numberset[0].printAll();
@@ -154,9 +166,9 @@ int findMax(NUMBERS group[], int n){
   return absoluteMax;
 }
 
-void dedup(NUMBERS apple, NUMBERS oranges[]){
-  for(int i = 0; i <sizeof(apple); i++){
-    for(int u = 0; u < )
-  }
-}
+// void dedup(NUMBERS apple, NUMBERS oranges[]){
+//   for(int i = 0; i <sizeof(apple); i++){
+//     for(int u = 0; u < )
+//   }
+// }
 
