@@ -76,8 +76,8 @@ class NUMBERS{
 
     }
   };
-  void addElm(){
-    numbers.push_back(rand()% 99);
+  void addElm(int a){
+    numbers.push_back(a);
   };
   void printAll() const{
     cout << "ID: " << ID << " ";
@@ -186,6 +186,20 @@ void dedup(NUMBERS &array1, NUMBERS &array2){
         array2.deleteElm(B);
       }
       
+    }
+    int C,D;
+    C = array1.getSize();
+    D = array2.getSize();
+    if(C == 0){
+      for(int i = 0; i < array2.getSize(); i++){
+        int add = array2.getElm(i);
+        array1.addElm(add);
+      }
+    } else if(D == 0){
+      for(int i = 0; i < array1.getSize(); i++){
+        int add = array1.getElm(i);
+        array2.addElm(add);
+      }
     }
   }
   // array1.printAll();
