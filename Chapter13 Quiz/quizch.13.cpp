@@ -112,6 +112,7 @@ int main(){
   cout << numberset[4].getMax() << endl;
 
   cout << endl;
+ 
   cout << findMax(numberset, 5);
   cout << endl;
   
@@ -136,16 +137,19 @@ int findMax(NUMBERS group[], int n){
     }
 
   }
-
+  cout << endl;
   for(int i = 0; i < n; i++){
     if(absoluteMax == group[i].getMax()){
-      absoluteMaxID = i;
+      absoluteMaxID = i + 1;
+      cout << "The group with the highest number overall is: " << absoluteMaxID;
     }
   }
 
-  cout << "The group with the larget number is number: " 
+  cout<< endl;
+  cout << "The overall largest number is: "; 
 
 
 
   return absoluteMax;
 }
+
