@@ -90,7 +90,7 @@ class NUMBERS{
 };
 
 int findMax(NUMBERS[], int );
-void dedup(NUMBERS, NUMBERS);
+void dedup(NUMBERS &, NUMBERS &);
 
 int main(){
   NUMBERS numberset[] = {NUMBERS(1,3), NUMBERS(2,5), NUMBERS(3,10) ,NUMBERS(4,5),NUMBERS(5,3)};
@@ -132,6 +132,11 @@ int main(){
   dedup(numberset[1],numberset[3]);
   cout << endl;
 
+  numberset[1].printAll();
+  cout << endl;
+  numberset[3].printAll();
+  cout << endl;
+
     
   
   // numberset[0].printAll();
@@ -170,7 +175,7 @@ int findMax(NUMBERS group[], int n){
   return absoluteMax;
 }
 
-void dedup(NUMBERS array1, NUMBERS array2){
+void dedup(NUMBERS &array1, NUMBERS &array2){
   int A,B;
   for(int i = 0; i < array1.getSize(); i++){
     for(int q = 0; q < array2.getSize(); q++){
@@ -183,8 +188,8 @@ void dedup(NUMBERS array1, NUMBERS array2){
       
     }
   }
-  array1.printAll();
-  cout << endl;
-  array2.printAll();
+  // array1.printAll();
+  // cout << endl;
+  // array2.printAll();
 }
 
