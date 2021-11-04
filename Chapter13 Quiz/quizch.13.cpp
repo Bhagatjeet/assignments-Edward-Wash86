@@ -21,19 +21,19 @@ class NUMBERS{
 
   //Member fucntions
   int getID(){
-    cout << "The group's ID is: ";
+    
     return ID;
   };
   int getSize(){
-    cout << "The group's size is: ";
+    
     return numbers.size();
   };
   int getElm(int i){
-    cout << "The element you requested is: ";
+    
     if(i > numbers.size()){
       cout << "The group is not that big, try a lower number.";
     };
-    cin >> i;
+    
     return numbers[i];
   };
   int getMax(){
@@ -90,7 +90,7 @@ class NUMBERS{
 };
 
 int findMax(NUMBERS[], int );
-void dedup(NUMBERS[], NUMBERS[]);
+void dedup(NUMBERS, NUMBERS);
 
 int main(){
   NUMBERS numberset[] = {NUMBERS(1,3), NUMBERS(2,5), NUMBERS(3,10) ,NUMBERS(4,5),NUMBERS(5,3)};
@@ -126,7 +126,14 @@ int main(){
   cout << endl;
 
   numberset[0].deleteElm(28);
-  numberset[0].printAll();
+  //numberset[0].printAll();
+  cout << endl;
+
+  dedup(numberset[1],numberset[3]);
+
+  numberset[1].printAll();
+  cout << endl;
+  numberset[3].printAll();
   cout << endl;
   
   
@@ -172,8 +179,11 @@ void dedup(NUMBERS array1, NUMBERS array2){
     for(int q = 0; q < array2.getSize(); q++){
       A = array1.getElm(i);
       B = array2.getElm(q);
-      if(A == array2.getElm(q))
-      array1.deleteElm();
+      if(A == B){
+        array1.deleteElm(i);
+        array2.deleteElm(q);
+      }
+      
     }
   }
 }
