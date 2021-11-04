@@ -95,47 +95,28 @@ void dedup(NUMBERS &, NUMBERS &);
 int main(){
   NUMBERS numberset[] = {NUMBERS(1,3), NUMBERS(2,5), NUMBERS(3,10) ,NUMBERS(4,5),NUMBERS(5,3)};
 
-  numberset[0].printAll();
-  cout << endl;
-  cout << numberset[0].getMax() << endl;
+  cout << "Groups with ID number and their contents: " << endl;
 
-  cout << endl;
-  numberset[1].printAll();
-  cout << endl;
-  cout << numberset[1].getMax() << endl;
-
-  cout << endl;
-  numberset[2].printAll();
-  cout << endl;
-  cout << numberset[2].getMax() << endl;
-
-  cout << endl;
-  numberset[3].printAll();
-  cout << endl;
-  cout << numberset[3].getMax() << endl;
-
-  cout << endl;
-  numberset[4].printAll();
-  cout << endl;
-  cout << numberset[4].getMax() << endl;
-
-  cout << endl;
- 
+  for(int i = 0; i < sizeof(numberset); i++){
+    numberset[i].printAll();
+    cout << endl;
+    cout << numberset[i].getMax() << endl;
+    cout << endl;
+    cout << endl;
+  }
+  
+  cout << "Here we will scan all the values and give the largest number and which group it belongs to: " << endl;
+  
   cout << findMax(numberset, 5);
   cout << endl;
   cout << endl;
 
-  numberset[0].deleteElm(28);
-  //numberset[0].printAll();
-  cout << endl;
 
+  cout << "Here we will scan all the values and remove any duplicates, if a vector is left empty, it will be populated with one copy of the duplicated numbers: " << endl;
   dedup(numberset[1],numberset[3]);
   cout << endl;
 
-  numberset[1].printAll();
-  cout << endl;
-  numberset[3].printAll();
-  cout << endl;
+  
 
     
   
@@ -177,6 +158,7 @@ int findMax(NUMBERS group[], int n){
 
 void dedup(NUMBERS &array1, NUMBERS &array2){
   int A,B;
+  int deleted[array1.getSize() + array2.getSize()];
   for(int i = 0; i < array1.getSize(); i++){
     for(int q = 0; q < array2.getSize(); q++){
       A = array1.getElm(i);
@@ -184,6 +166,7 @@ void dedup(NUMBERS &array1, NUMBERS &array2){
       if(A == B){
         array1.deleteElm(A);
         array2.deleteElm(B);
+        deleted[i] = A; 
       }
       
     }
@@ -194,6 +177,7 @@ void dedup(NUMBERS &array1, NUMBERS &array2){
       for(int i = 0; i < array2.getSize(); i++){
         int add = array2.getElm(i);
         array1.addElm(add);
+        for(int i = 0; i < sizeof(deleted); i++)
       }
     } else if(D == 0){
       for(int i = 0; i < array1.getSize(); i++){
