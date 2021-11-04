@@ -2,6 +2,12 @@
 #include <iostream>
 #include <vector>
 
+NUMBERS();
+
+NUMBERS :: NUMBERS(int designation, int groupSize){
+  
+}
+
 using namespace std;
 
 int NUMBERS :: getID(){
