@@ -167,14 +167,13 @@ int findMax(NUMBERS group[], int n){
 }
 
 void dedup(NUMBERS array1, NUMBERS array2){
+  int A,B;
   for(int i = 0; i < array1.getSize(); i++){
-    for(int q = 0; q < array1.getSize(); q++){
-      vector<int> :: iterator iter;
-
-      for(iter = numbers.begin(); iter < numbers.end(); iter++){
-      if(*iter == d){
-        numbers.erase(iter);
-      }
+    for(int q = 0; q < array2.getSize(); q++){
+      A = array1.getElm(i);
+      B = array2.getElm(q);
+      if(A == array2.getElm(q))
+      array1.deleteElm();
     }
   }
 }
