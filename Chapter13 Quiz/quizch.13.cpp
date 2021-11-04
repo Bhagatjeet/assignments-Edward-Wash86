@@ -130,12 +130,9 @@ int main(){
   cout << endl;
 
   dedup(numberset[1],numberset[3]);
+  cout << endl;
 
-  numberset[1].printAll();
-  cout << endl;
-  numberset[3].printAll();
-  cout << endl;
-  
+    
   
   // numberset[0].printAll();
   // cout << endl;
@@ -180,11 +177,14 @@ void dedup(NUMBERS array1, NUMBERS array2){
       A = array1.getElm(i);
       B = array2.getElm(q);
       if(A == B){
-        array1.deleteElm(i);
-        array2.deleteElm(q);
+        array1.deleteElm(A);
+        array2.deleteElm(B);
       }
       
     }
   }
+  array1.printAll();
+  cout << endl;
+  array2.printAll();
 }
 
