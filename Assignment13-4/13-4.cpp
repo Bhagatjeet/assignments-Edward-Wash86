@@ -20,8 +20,14 @@ The Private data of stack
   Important: swap() relocation
 
 */
+const int num = 20;
 
 int main(){
-  
+  stack < int > myStack[num];
+
+  for(int i = 0; i < num; i++){
+    myStack[i].stack1(); 
+  }
+
   
 }
