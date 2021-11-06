@@ -21,7 +21,7 @@ class Student{
         scores[i] = sc[i];
         TOTAL_SUM += sc[i];  
       } 
-      NUM_STUDENTS +=1;
+      NUM_STUDENTS += 1;
     };
     int getId(){
       return sid;
@@ -29,13 +29,20 @@ class Student{
     string getName(){
       return sname;
     };
-    int getScores(){
+    void getScores(){
+      int output;
       for(int i =0; i < sizeof(scores); i++){
-        return scores[i];
-        }
+        cout << "Score " << (i + 1) << " ";
+        cout << scores[i] << endl;
+      }
+      
     };
-    static int getNumStudent();
-    static double getTotalSum();
+    static int getNumStudent(){
+      return NUM_STUDENTS;
+    };
+    static double getTotalSum(){
+      return TOTAL_SUM;
+    };
 
 };
 
