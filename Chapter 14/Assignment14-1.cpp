@@ -8,20 +8,42 @@ using namespace std;
 
 int main(){
 
-  Student s1;
+  double r[] = {1.1, 5.5, 90.3};
+  double p[] = {56.23, 100.0, 85.6};
+  double f[] = {89.1, 99.5, 16.0};
 
-  // cout << s1.getName();
-  // cout << s1.getId();
-  // s1.getScores();
-
-  double r[] = {45.6, 76.87, 567.56}; 
+  Student s1("Miles", 1094784, p);
 
   Student s2("frank", 4637, r);
 
-  cout << s2.getName() << endl;
-  cout << s2.getId() << endl;
+  Student s3("james", 6736627, f);
+
+
+  cout <<  "Students name: "<< s2.getName() << endl;
+  cout << "Student ID: " <<s2.getId() << endl;
   s2.getScores();
 
   cout << "Students in class: " << Student :: getNumStudent();
-  
+  cout << endl;
+  cout << "Th Total sum on the scores is: " << Student :: getTotalSum();
+
+  cout << endl;
+
+  cout <<  "Students name: "<< s2.getName() << endl;
+  cout << "Student ID: " <<s2.getId() << endl;
+  s2.getScores();
+
+  cout << "Students in class: " << Student :: getNumStudent();
+  cout << endl;
+  cout << "Th Total sum on the scores is: " << Student :: getTotalSum();
+
+  cout << endl;
+
+  cout <<  "Students name: "<< s2.getName() << endl;
+  cout << "Student ID: " <<s2.getId() << endl;
+  s2.getScores();
+
+  cout << "Students in class: " << Student :: getNumStudent();
+  cout << endl;
+  cout << "Th Total sum on the scores is: " << Student :: getTotalSum();
 }
