@@ -1,7 +1,11 @@
-//charper 14 - 1
+//class declaration
+#ifndef STUDENT_H
+#define STUDENT_H
+#include<iostream>
+#include <string>
 
-#include <iostream>
 using namespace std;
+
 
 class Student{
   private:
@@ -17,7 +21,7 @@ class Student{
     Student(string n, int id, double sc[]){
       sname = n;
       sid = id;
-      for(int i = 0; i < sizeof(scores); i++){
+      for(int i = 0; i < 3; i++){
         scores[i] = sc[i];
         TOTAL_SUM += sc[i];  
       } 
@@ -31,9 +35,9 @@ class Student{
     };
     void getScores(){
       
-      for(int i = 0; i < sizeof(3); i++){
+      for(int i = 0; i < 3; i++){
         
-        cout << scores[i - 1] << endl;
+        cout << scores[i] << endl;
       }
       
     };
@@ -49,21 +53,4 @@ class Student{
 int Student :: NUM_STUDENTS = 0;
 double Student :: TOTAL_SUM = 0;
 
-
-int main(){
-
-  Student s1;
-
-  cout << s1.getName();
-  cout << s1.getId();
-  s1.getScores();
-
-  double r[] = {45.6, 76.87, 567.56}; 
-
-  Student s2("frank", 4637, r);
-
-  cout << s2.getName();
-  cout << s2.getId();
-  s2.getScores();
-  
-}
+#endif
