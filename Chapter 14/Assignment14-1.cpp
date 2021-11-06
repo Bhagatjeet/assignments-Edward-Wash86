@@ -23,25 +23,21 @@ int main(){
   cout << "Student ID: " <<s2.getId() << endl;
   s2.getScores();
 
-  cout << "Students in class: " << Student :: getNumStudent();
-  cout << endl;
-  cout << "Th Total sum on the scores is: " << Student :: getTotalSum();
+  
 
   cout << endl;
 
-  cout <<  "Students name: "<< s2.getName() << endl;
-  cout << "Student ID: " <<s2.getId() << endl;
-  s2.getScores();
-
-  cout << "Students in class: " << Student :: getNumStudent();
-  cout << endl;
-  cout << "Th Total sum on the scores is: " << Student :: getTotalSum();
+  cout <<  "Students name: "<< s1.getName() << endl;
+  cout << "Student ID: " <<s1.getId() << endl;
+  s1.getScores();
 
   cout << endl;
 
-  cout <<  "Students name: "<< s2.getName() << endl;
-  cout << "Student ID: " <<s2.getId() << endl;
-  s2.getScores();
+  cout <<  "Students name: "<< s3.getName() << endl;
+  cout << "Student ID: " <<s3.getId() << endl;
+  s3.getScores();
+
+  cout << "===================================================================" << endl;
 
   cout << "Students in class: " << Student :: getNumStudent();
   cout << endl;
