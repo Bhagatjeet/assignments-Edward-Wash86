@@ -33,8 +33,10 @@ class Student{
       for(int i =0; i < sizeof(scores); i++){
         return scores[i];
         }
-       
     };
+    static int getNumStudent();
+    static double getTotalSum();
+
 };
 
 int Student :: NUM_STUDENTS = 0;
