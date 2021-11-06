@@ -11,13 +11,16 @@ class Student{
     static int NUM_STUDENTS;
     static double TOTAL_SUM;
   public:
-    Student() : sid(0), sname("noname"),score[](){
+    Student() : sid(0), sname(){
       NUM_STUDENTS +=1;
     };
-    Student(string n, int id, double *sc){
+    Student(string n, int id, double sc[]){
       sname = n;
       sid = id;
-      scores[0] = *sc; 
+      for(int i = 0; i < sizeof(scores); i++){
+        scores[i] = sc[i];
+        TOTAL_SUM += sc[i];  
+      } 
       NUM_STUDENTS +=1;
     };
     int getId(){
@@ -35,6 +38,7 @@ class Student{
 };
 
 int Student :: NUM_STUDENTS = 0;
+double Student :: TOTAL_SUM = 0;
 
 
 int main(){
