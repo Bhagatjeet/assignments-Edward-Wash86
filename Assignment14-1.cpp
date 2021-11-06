@@ -30,10 +30,10 @@ class Student{
       return sname;
     };
     void getScores(){
-      int output;
-      for(int i =0; i < sizeof(scores); i++){
-        cout << "Score " << (i + 1) << " ";
-        cout << scores[i] << endl;
+      
+      for(int i = 0; i < sizeof(3); i++){
+        
+        cout << scores[i - 1] << endl;
       }
       
     };
@@ -51,5 +51,19 @@ double Student :: TOTAL_SUM = 0;
 
 
 int main(){
+
+  Student s1;
+
+  cout << s1.getName();
+  cout << s1.getId();
+  s1.getScores();
+
+  double r[] = {45.6, 76.87, 567.56}; 
+
+  Student s2("frank", 4637, r);
+
+  cout << s2.getName();
+  cout << s2.getId();
+  s2.getScores();
   
 }
