@@ -18,22 +18,26 @@ class B{
       cout << x.p_A;//accessing private member.(friend class)
     }
     friend class A;
+    //Below is the friend function to print all data with in the two specified classes.
     friend void printAll(A& x, B& y){
       cout << x.p_A << endl;
       cout << y.p_B << endl;
     }
 };
 class C{
+  //Testing accessing a vector using a friend function.
   private:
-    vector <double> score;
+    vector <double> score; 
   public:
   C(){
     for(int i = 0; i < 5; i++){
+      //Adding data to the vector.
       score.push_back(i * 9.8);
+      //printing out the data assigned to the specific element of the vector.
       cout << score[i] << " " << endl;
     }
   };
-  friend class D;
+  friend class D; //Creating a single dirctional relationship  with the class type D.
   
 
 };
@@ -47,7 +51,9 @@ class D{
       cout << score[i] << " " << endl;
     }
   };
-  friend class C;
+  friend class C; //C was added to create a bi directional relationship between class tpyes C and D.
+
+  //This friend function now has access to the private members of class type C and D.
   friend int largerTotalScore(C& x ,D& y){
     int xTotal = 0;
     int yTotal = 0;
