@@ -1,9 +1,12 @@
 #include <iostream>
 #include <vector>
+#include <ctime>
+#include <string> 
 
-// Test build of concept
+// Test build
 
 using namespace std;
+
 
 class A{
   private:
@@ -18,49 +21,70 @@ class B{
       cout << x.p_A;//accessing private member.(friend class)
     }
     friend class A;
-    //Below is the friend function to print all data with in the two specified classes.
     friend void printAll(A& x, B& y){
       cout << x.p_A << endl;
       cout << y.p_B << endl;
     }
 };
-class C{
-  //Testing accessing a vector using a friend function.
+class Student1{
   private:
-    vector <double> score; 
+    int sid;
+    string sname;
+    vector <double> score;
   public:
-  C(){
-    for(int i = 0; i < 5; i++){
-      //Adding data to the vector.
-      score.push_back(i * 9.8);
-      //printing out the data assigned to the specific element of the vector.
-      cout << score[i] << " " << endl;
+  Student1(){
+    sid = 0;
+    sname = "No_Name";
+    // srand(time(NULL));
+    // for(int i = 0; i < 5; i++){
+    //   score.push_back((rand() % 50));
+    //   cout << score[i] << " " << endl;
+    };
+  
+  Student1(string n, int id, vector <double> &sc){
+    sname = n;
+    sid = id;
+    for(int i = 0; i < sc.size(); i++){
+      score[i] = sc[i];
     }
   };
-  friend class D; //Creating a single dirctional relationship  with the class type D.
+  void setID(int id){
+    sid = id;
+  }
+  void setName(string name){
+    sname = name;
+  }
+  void setScores(vector <double> &sc){
+    for(int i = 0; i < sc.size(); i++){
+      score[i] = sc[i];
+    }
+  }
+  int getScore(){
+    
+  }
+  friend class Students2;
   
 
 };
-class D{
+class Student2{
   private:
     vector <double> score;
   public:
-  D(){
+  Student2(){
     for(int i = 0; i < 5; i++){
-      score.push_back(i * 4.9);
+      
+      score.push_back((rand() % 50));
       cout << score[i] << " " << endl;
     }
   };
-  friend class C; //C was added to create a bi directional relationship between class tpyes C and D.
-
-  //This friend function now has access to the private members of class type C and D.
-  friend int largerTotalScore(C& x ,D& y){
+  friend class C;
+  friend int largerTotalScore(Student1& x ,Student2& y){
     int xTotal = 0;
     int yTotal = 0;
     int master;
     for(int i = 0; i < 5; i++){
-      xTotal += x.score[i];
-      yTotal += y.score[i];
+      xTotal += x.getScore[i];
+      yTotal += y.getScore[i];
     }
     if(xTotal < yTotal){
       cout << "from the second peramiter: ";
@@ -78,10 +102,20 @@ class D{
 
 
 int main() {
+  srand(time(NULL));
+
+  Student1 person1;
+  Student2 person2;
+
+  vector <double> set1, set2;
+  for(int i = 0; i < 6; i++){
+    set1.push_back((rand() % 100));
+    set2.push_back((rand() % 100));
+  }
+
   A a;
   B b;
-  C c;
-  D d;
+  
   //b.show(a);
 
   //printAll(a,b);
