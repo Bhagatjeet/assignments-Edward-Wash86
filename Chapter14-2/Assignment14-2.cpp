@@ -45,7 +45,7 @@ class Student1{
     sname = n;
     sid = id;
     for(int i = 0; i < sc.size(); i++){
-      score[i] = sc[i];
+      score.push_back(sc[i]);
     }
   };
   void setID(int id){
@@ -56,7 +56,7 @@ class Student1{
   }
   void setScores(vector <double> &sc){
     for(int i = 0; i < sc.size(); i++){
-      score[i] = sc[i];
+      score.push_back(sc[i]);
     }
   }
   void getScore(){
@@ -95,9 +95,32 @@ class Student2{
     sname = n;
     sid = id;
     for(int i = 0; i < sc.size(); i++){
-      score[i] = sc[i];
+      score.push_back(sc[i]);
     }
   };
+  void setID(int id){
+    sid = id;
+  }
+  void setName(string name){
+    sname = name;
+  }
+  void setScores(vector <double> &sc){
+    for(int i = 0; i < sc.size(); i++){
+      score.push_back(sc[i]);
+    }
+  }
+  void getScore(){
+    cout << "Scores: ";
+    for(int i = 0; i < score.size(); i++){
+      cout << score[i] << endl;
+    }
+  }
+  string getName(){
+    return sname;
+  }
+  int getID(){
+    return sid;
+  }
   friend class Student1;
   friend int largerTotalScore(Student1& x ,Student2& y){
     double xTotal = 0;
@@ -126,23 +149,26 @@ class Student2{
 int main() {
   srand(time(NULL));
 
-  vector <double> set1, set2;
+  vector <double> set1, set2,set3;
   for(int i = 0; i < 6; i++){
     set1.push_back((rand() % 100));
     set2.push_back((rand() % 100));
   }
 
-  Student1 person1(100093,"Bob", set1);
-  Student2 person2;
+  Student1 person1("bob",100093,set1);
+  Student2 person2("Samuel", 10000565, set2);
 
   
   A a;
   B b;
   
-  //b.show(a);
+  b.show(a);
 
   printAll(a,b);
   cout << endl;
-  cout << "The largets score is " << largerTotalScore(person1 , person2);
+  cout << "The largets score is " << largerTotalScore(person1 , person2) << endl;;
+  person1.getScore();
+  cout << endl;
+  person2.getScore();
   
 } 
