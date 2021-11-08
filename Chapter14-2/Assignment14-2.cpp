@@ -59,8 +59,11 @@ class Student1{
       score[i] = sc[i];
     }
   }
-  int getScore(){
-    
+  void getScore(){
+    cout << "Scores: ";
+    for(int i = 0; i < score.size(); i++){
+      cout << score[i] << endl;
+    }
   }
   friend class Students2;
   
@@ -77,14 +80,14 @@ class Student2{
       cout << score[i] << " " << endl;
     }
   };
-  friend class C;
+  friend class Student1;
   friend int largerTotalScore(Student1& x ,Student2& y){
-    int xTotal = 0;
-    int yTotal = 0;
+    double xTotal = 0;
+    double yTotal = 0;
     int master;
     for(int i = 0; i < 5; i++){
-      xTotal += x.getScore[i];
-      yTotal += y.getScore[i];
+      xTotal += x.score[i];
+      yTotal += y.Score[i];
     }
     if(xTotal < yTotal){
       cout << "from the second peramiter: ";
