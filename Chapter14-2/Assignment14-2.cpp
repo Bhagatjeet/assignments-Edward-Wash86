@@ -22,8 +22,8 @@ int main() {
     set2.push_back((rand() % 100));
   }
 
-  Student1 person1("bob",100093,set1);
-  Student2 person2("Samuel", 10000565, set2);
+  Student person1("bob",100093,set1);
+  Student person2("Samuel", 10000565, set2);
 
   cout << endl;
   printStudent(person1);
