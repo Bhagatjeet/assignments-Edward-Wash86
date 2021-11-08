@@ -65,19 +65,37 @@ class Student1{
       cout << score[i] << endl;
     }
   }
-  friend class Students2;
+  string getName(){
+    return sname;
+  }
+  int getID(){
+    return sid;
+  }
+
+  friend class Student2;
   
 
 };
 class Student2{
   private:
+    int sid;
+    string sname;
     vector <double> score;
   public:
   Student2(){
-    for(int i = 0; i < 5; i++){
-      
-      score.push_back((rand() % 50));
-      cout << score[i] << " " << endl;
+    sid = 0;
+    sname = "No_Name";
+    // srand(time(NULL));
+    // for(int i = 0; i < 5; i++){
+    //   score.push_back((rand() % 50));
+    //   cout << score[i] << " " << endl;
+    };
+  
+  Student2(string n, int id, vector <double> &sc){
+    sname = n;
+    sid = id;
+    for(int i = 0; i < sc.size(); i++){
+      score[i] = sc[i];
     }
   };
   friend class Student1;
@@ -86,8 +104,9 @@ class Student2{
     double yTotal = 0;
     int master;
     for(int i = 0; i < 5; i++){
+
       xTotal += x.score[i];
-      yTotal += y.Score[i];
+      yTotal += y.score[i];
     }
     if(xTotal < yTotal){
       cout << "from the second peramiter: ";
@@ -107,22 +126,23 @@ class Student2{
 int main() {
   srand(time(NULL));
 
-  Student1 person1;
-  Student2 person2;
-
   vector <double> set1, set2;
   for(int i = 0; i < 6; i++){
     set1.push_back((rand() % 100));
     set2.push_back((rand() % 100));
   }
 
+  Student1 person1(100093,"Bob", set1);
+  Student2 person2;
+
+  
   A a;
   B b;
   
   //b.show(a);
 
-  //printAll(a,b);
+  printAll(a,b);
   cout << endl;
-  cout << "The largets score is " << largerTotalScore(c , d);
+  cout << "The largets score is " << largerTotalScore(person1 , person2);
   
 } 
