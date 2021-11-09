@@ -1,0 +1,97 @@
+//Feiend class
+procedual programming is the process/actions that occur in programing.
+
+OOP - is based on the data and the functions that operate on it.
+
+OPP - Objects are instances of ADTs() that are reresent the data and its functions.
+
+Terminologies:
+  Classes:
+    - like a structure(allowes bundling of related variables)
+    -but variables and functions ina  class can have properties than in a structure.
+  Objects:
+    - an instance of a class, in the same way a variable can be an instance of a structure.
+  (look at 14-3.draw)
+
+Hiding data:
+  Resrticting access private vairbales of the object.
+    - get or set the variables only through the member functions.
+    - we call it public interface.
+  Purposes of restricting access.
+    - to provide some protection from the data corruption.
+  (look at 14-3.2.draw)
+
+Define an instace of a class:
+  classname objectname;
+
+  rectangle Ex.
+     the areas is not stored because the length and width can change, so the areas is return as: return width * length;
+
+  pointing to objects:
+    Rectangle *rectptr = nullptr;
+      rectptr is not an object but rather holdes the address of the rectangle object.
+      
+      Ex:
+      Rectangle myRectangle;        //A rectangle object
+      Rectangle *rectptr = nullptr; //A Rectangle pointer (no address at this point)
+      rectPtr = &myRectangle;       //RectPtr now points to myRectangle.(holds the address of the object)
+
+    pointer to dynamically allocated objects:
+      double number;
+      doubletotalArea;
+      Rectangle *kitchen = nullptr; //To point to kitchen dimensions 
+      Rectangle *bedroom = nullptr; //To point to bedroom dimensions
+      Rectangle *den = nullptr;     //To point to den dimensions
+
+      //Dynamically allocated the objects.
+      kitchen = new Rectangle;
+      bedroom = new Rectangle;
+      den = new Rectangle;
+
+      //delete the objects from memory.
+      delete kitchen;
+      delete bedroom;
+      delete den;
+
+      SMART POINTERS:
+        Using SMARTPOINTER to alocate objects
+          smart pointer data type unique_ptr - to use this data type you need: #include <memory>
+          
+          unique_ptr ex:
+
+          unique_ptr<Rectangle>rectanglePtr(newRectangle);
+
+          smart pointer will delete the allocated object once the function ends.
+  
+  13.3 A)public member functions
+  13.5
+      class Date{
+        private:
+          int month, day, year;
+        public:
+          void setMonth(int m){
+            month = m;
+          }
+          void setDay(int d){
+            day = d;
+          };
+          void setYear(int y){
+            year = y;
+          };
+          int getMonth(){
+            return month;
+          }
+          int getDay(){
+            return day;
+          };
+          int getYear(){
+            return year;
+          };
+          void getDate(){
+            cout <<  month << "/" << day << "/" << year << endl; 
+          };
+      }
+
+  
+
+  
