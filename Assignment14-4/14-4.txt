@@ -1,0 +1,55 @@
+Memberwise Assigenment
+
+Example:
+
+Rectangle r1, r2;
+
+r1. setWidth(10);
+r1.setHeight(10);
+
+r2 = r1;
+
+We can assign one object instance to another object instance.(Same applies to structs).
+
+ex:
+
+class student{
+
+  private:
+    int id;
+    char *name;
+}
+
+student s1, s2;
+
+s2 = s1;
+
+What will be copied?
+A)The int will be directly copied and the variable "*name" coppies address of where the data is stored.
+
+Try to change the name of s2.(strcpy(s2.name,"bill")), then print it out.
+
+copy constructor
+
+a copy constructor is a special constructor that is called whenever:
+  - a new object is created.
+  - initalized with another objects data
+  - an object is sent as a peramiter.
+
+When the copy constructor is called:
+1) Decare the object instance with another instance value.
+   - students s2(s1);
+2) Declare the object instance with aassignment
+   - students s2 = s1;
+3) Send the object instance as a function peramiter
+   - changevalue(s1);
+
+class student{
+  private:
+    int id;
+    string name;
+    double *scores;
+  public: 
+    
+}
+The point to the score memory location, will cause the original scores to be changed. 

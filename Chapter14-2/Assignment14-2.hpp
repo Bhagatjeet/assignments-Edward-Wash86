@@ -54,8 +54,17 @@ class Student{
   int getID(){
     return sid;
   }
-  friend class Student;
-  friend int largerTotalScore(Student& x ,Student& y){
+  
+  friend void printStudent(Student s){
+    cout << "Student ID: " << s.getID() << endl;
+    cout << "Student Name: " << s.getName() << endl;
+    
+    s.getScore(); 
+  }
+
+};
+
+friend int largerTotalScore(Student& x ,Student& y){
     double xTotal = 0;
     double yTotal = 0;
     int master;
@@ -81,7 +90,5 @@ class Student{
     
     s.getScore(); 
   }
-
-};
 
 #endif
