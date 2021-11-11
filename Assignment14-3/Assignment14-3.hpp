@@ -45,10 +45,10 @@ class Rectangle{
     return height * width;
   };
   Rectangle makeRectanglewithSquare(Square s){
-    Rectangle square;
-    double result;
-    square.setWidth(s.getWidth());
-    return square;
+    Rectangle newRect;
+    
+    newRect.setWidth(s.getWidth());
+    return newRect;
   }
 };
 

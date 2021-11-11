@@ -68,7 +68,7 @@ friend int largerTotalScore(Student& x ,Student& y){
     double xTotal = 0;
     double yTotal = 0;
     int master;
-    for(int i = 0; i < 5; i++){
+    for(int i = 0; i < score.size(); i++){
 
       xTotal += x.score[i];
       yTotal += y.score[i];
