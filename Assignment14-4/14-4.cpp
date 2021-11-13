@@ -23,10 +23,12 @@ class Numbers{
       this -> size;
       this -> numbers = new int[size];
       for(int i = 0; i < size; i++){
-        this -> numbers[i] = numbers[i]
+        this -> numbers[i] = numbers[i];
       }
     }; //referance
-    ~Numbers(); //Destructor
+    ~Numbers(){
+      
+    }; //Destructor
     int getMAx() const;
     friend void printNumbers();
 };
