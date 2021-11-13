@@ -1,5 +1,29 @@
 #include <iostream>
 #include <string>
+#include <vector>
+
+using namespace std;
+
+// class Numbers{
+//   private:
+//     int *score; //pointer to an address with no data stored.
+//   public:
+//     Numbers();
+//     Numbers(int *B){
+//       score = new int [10];
+//       for(int i = 0; i < sizeof(score); i++){
+//         score[i] = 674 * B[i];
+//         }
+//     };
+//   void getScore(){
+//     for(int i = 0; i < sizeof(score); i++){
+//       cout << score[i] << endl;
+//     }
+//   }
+// };
+
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -16,11 +40,11 @@ class Numbers{
       size = s;
       numbers = new int [size];
       for(int i = 0; i < size; i++){
-        numbers[i] = 674 * s[i];
+        numbers[i] = 674 * (3+i);
         }
     };
-    Numbers(const Numbers &){
-      this -> size;
+    Numbers(const Numbers &p){
+      this -> size = p.size;
       this -> numbers = new int[size];
       for(int i = 0; i < size; i++){
         this -> numbers[i] = numbers[i];
@@ -33,7 +57,7 @@ class Numbers{
     int getMax() const{
       int max = numbers[0];
       for(int i = 0; i < size; i++){
-        if(number[i] > max){
+        if(numbers[i] > max){
           max = numbers[i];
         }
       }
@@ -42,6 +66,12 @@ class Numbers{
     friend void printNumbers();
 };
 
+
 int main(){
+  int bank[] = {1,2,2,1,5,6,5,4,6,98};
+
+
+  
+
 
 }
