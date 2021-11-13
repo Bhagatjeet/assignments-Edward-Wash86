@@ -44,12 +44,26 @@ When the copy constructor is called:
 3) Send the object instance as a function peramiter
    - changevalue(s1);
 
+Unwanted result without your own copy constructor.
+  - Student s2(s1);
+
 class student{
   private:
     int id;
     string name;
     double *scores;
   public: 
-    
+    member functions;
 }
 The point to the score memory location, will cause the original scores to be changed. 
+
+class student{
+  private:
+    int id;
+    string name;
+    double *scores;
+  public: 
+    ~Student() {delete [] scores}; //deconstructor
+    member functions;
+}
+
