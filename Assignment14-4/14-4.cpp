@@ -24,6 +24,7 @@ using namespace std;
 
 #include <iostream>
 #include <string>
+#include <ctime>
 
 using namespace std;
 
@@ -40,7 +41,7 @@ class Numbers{
       size = s;
       numbers = new int [size];
       for(int i = 0; i < size; i++){
-        numbers[i] = 3+i;
+        numbers[i] = rand() % 100;
         }
     };
     Numbers(const Numbers &p){
@@ -80,12 +81,16 @@ void printNumbers(Numbers print){
 }
 
 int main(){
+  srand(time(0));
   int bank[] = {1,2,2,1,5,6,5,4,6,98};
 
   Numbers first(4);
-  //Numbers second(first);
+  Numbers second(first);
+
+  cout << "Biggest number:"<< second.getMax() << endl;
 
   printNumbers(first);
+  printNumbers(second);
   
 
   
