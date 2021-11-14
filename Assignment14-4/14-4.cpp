@@ -52,6 +52,7 @@ class Numbers{
       }
     }; //referance
     ~Numbers(){
+      cout << endl;
       cout << "Activated Deconstructor" << endl;
       delete [] numbers;
     }; 
@@ -84,14 +85,16 @@ int main(){
   srand(time(0));
   int bank[] = {1,2,2,1,5,6,5,4,6,98};
 
-  Numbers first(4);
-  Numbers second(first);
+  Numbers n1(10);
+  Numbers n2(n1);
 
-  cout << "Biggest number:"<< second.getMax() << endl;
-
-  printNumbers(first);
-  printNumbers(second);
   
+
+  printNumbers(n1);
+  cout << "Biggest number in n1: "<< n1.getMax() << endl;
+  cout << endl;  
+  printNumbers(n2);
+  cout << "Biggest number in n2: "<< n2.getMax() << endl;
 
   
 
