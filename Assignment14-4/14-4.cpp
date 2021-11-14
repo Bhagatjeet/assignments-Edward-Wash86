@@ -63,9 +63,19 @@ class Numbers{
       }
       return max;
     };
-    friend void printNumbers();
+    int getSize(){
+      return size;
+    }
+    friend void printNumbers(Numbers print);
 };
 
+void printNumbers(Numbers print){
+  cout << "Array Size: " ;
+  cout << print.getSize() << endl;
+  for(int i = 0; i < print.getSize(); i++){
+    
+  }
+}
 
 int main(){
   int bank[] = {1,2,2,1,5,6,5,4,6,98};
