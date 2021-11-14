@@ -40,20 +40,21 @@ class Numbers{
       size = s;
       numbers = new int [size];
       for(int i = 0; i < size; i++){
-        numbers[i] = 674 * (3+i);
+        numbers[i] = 3+i;
         }
     };
     Numbers(const Numbers &p){
       this -> size = p.size;
       this -> numbers = new int[size];
       for(int i = 0; i < size; i++){
-        this -> numbers[i] = numbers[i];
+        this -> numbers[i] = p.numbers[i];
       }
     }; //referance
     ~Numbers(){
       cout << "Activated Deconstructor" << endl;
       delete [] numbers;
-    }; //Destructor
+    }; 
+    //Destructor
     int getMax() const{
       int max = numbers[0];
       for(int i = 0; i < size; i++){
@@ -72,14 +73,20 @@ class Numbers{
 void printNumbers(Numbers print){
   cout << "Array Size: " ;
   cout << print.getSize() << endl;
+  cout << "Numbers Stored: ";
   for(int i = 0; i < print.getSize(); i++){
-    
+    cout << print.numbers[i] << " ";
   }
 }
 
 int main(){
   int bank[] = {1,2,2,1,5,6,5,4,6,98};
 
+  Numbers first(4);
+  //Numbers second(first);
+
+  printNumbers(first);
+  
 
   
 
