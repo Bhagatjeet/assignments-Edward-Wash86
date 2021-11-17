@@ -12,45 +12,77 @@ using namespace std;
 //THIS - only accessable through a member function, poointer to the current object instance.
 
 
-class nads{
+// class nads{
+//   private:
+//     vector <int> apple;
+//     char A = 'A';
+//   public:
+//     nads(){
+//       for(int i = 0; i < 5; i++){
+//       apple.push_back(6 + i);
+//     };
+//     int nads :: operator>(const nads &r){
+//       int sum1 = 0, sum2 = 0;
+//       for(int i = 0; i < 6; i++){
+//         sum1+= this -> score[i];
+//         sum2 += r.score[i];
+//       }
+//       return sum1 > sum2;
+//     }
+
+//     int nads :: operator + (const nads &r){
+//       int sum1 = 0, sum2 = 0;
+//       for(int i =0l i < 6; i++){
+//         sum1+= this -> score[i];
+//         sum2 += r.score[i];
+//       }
+//       return sum1 + sum2;
+//     }
+
+
+  
+// }
+
+
+
+
+
+// int main(){
+//   nads ben();
+  
+//   }
+
+
+// }
+
+#include <iostream>
+
+using namespace std;
+
+
+class Numbers(){
   private:
-    vector <int> apple;
-    char A = 'A';
+    int size;
+    int *numbers;
   public:
-    nads(){
-      for(int i = 0; i < 5; i++){
-      apple.push_back(6 + i);
+    Numbers();
+    Numbers(int s){
+      numbers = new int [s];
+      for(int i = 0; i < s; i++){
+        numbers[i] = i * 5;
+      }
     };
-    int nads :: operator>(const nads &r){
-      int sum1 = 0, sum2 = 0;
-      for(int i = 0; i < 6; i++){
-        sum1+= this -> score[i];
-        sum2 += r.score[i];
-      }
-      return sum1 > sum2;
+    Numbers(const Numbers &);
+    ~Numbers(){
+      cout << endl;
+      cout << "Activated Deconstructor" << endl;
+      delete [] numbers;
+    };
+    int operator>(const Numbers &n){
+       this -> 
     }
+};
 
-    int nads :: operator + (const nads &r){
-      int sum1 = 0, sum2 = 0;
-      for(int i =0l i < 6; i++){
-        sum1+= this -> score[i];
-        sum2 += r.score[i];
-      }
-      return sum1 + sum2;
-    }
-
-
+int main() {
   
-}
-
-
-
-
-
-int main(){
-  nads ben();
-  
-  }
-
-
-}
+} 
