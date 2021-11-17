@@ -60,7 +60,12 @@ using namespace std;
 using namespace std;
 
 
-class Numbers(){
+#include <iostream>
+
+using namespace std;
+
+
+class Numbers{
   private:
     int size;
     int *numbers;
@@ -79,9 +84,27 @@ class Numbers(){
       delete [] numbers;
     };
     int operator>(const Numbers &n){
-       this -> 
+      int sum1 = 0, sum2 = 0;
+      for(int i = 0; i < 6; i++){
+        sum1+= this -> numbers[i];
+        sum2 += n.numbers[i];
+      }
+      return sum1 > sum2;
     }
+    Numbers operator+(const Numbers &n){
+      int sum1 = 0, sum2 = 0;
+      for(int i =0; i < 6; i++){
+        sum1+= this -> numbers[i];
+        sum2 += n.numbers[i];
+      }
+      return sum1 & sum2;
+    };
+    
 };
+
+int main() {
+  
+} 
 
 int main() {
   
