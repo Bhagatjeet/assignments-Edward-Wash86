@@ -119,13 +119,19 @@ class Numbers{
 
     friend void printNumbers(const Numbers &n);
     friend ostream& operator<<(ostream &COUT, Numbers &E){
-  for(int i = 0; i < E.size;i++){
-    COUT << E.numbers[i] << " ";
-  }
-
-
-  return COUT;
-}
+      for(int i = 0; i < E.size;i++){
+      COUT << E.numbers[i] << " ";
+      }
+      return COUT;
+    }
+    friend ostream& operator>>(ostream& CIN, Numbers &E){
+      
+      for(int i = 0; i < E.size;i++){
+        cout << "Please enter a number: ";
+        CIN >> E.numbers[i];
+      }
+      return CIN;
+    }
 };
 
 void printNumbers(const Numbers &n){
