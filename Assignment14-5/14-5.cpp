@@ -60,11 +60,6 @@ using namespace std;
 using namespace std;
 
 
-#include <iostream>
-
-using namespace std;
-
-
 class Numbers{
   private:
     int size;
@@ -74,10 +69,17 @@ class Numbers{
     Numbers(int s){
       numbers = new int [s];
       for(int i = 0; i < s; i++){
-        numbers[i] = i * 5;
+        numbers[i] = i * 9;
       }
     };
-    Numbers(const Numbers &);
+    Numbers(const Numbers &q){
+      this -> size = *new int;
+      this -> numbers = new int [size];
+      for(int i = 0; i < size; i++){
+        numbers[i] = q.numbers[i];
+      }
+    };
+
     ~Numbers(){
       cout << endl;
       cout << "Activated Deconstructor" << endl;
@@ -85,27 +87,46 @@ class Numbers{
     };
     int operator>(const Numbers &n){
       int sum1 = 0, sum2 = 0;
-      for(int i = 0; i < 6; i++){
+      for(int i = 0; i < sizeof(numbers); i++){
         sum1+= this -> numbers[i];
         sum2 += n.numbers[i];
       }
       return sum1 > sum2;
     }
+    Numbers operator= (Numbers &n){
+      
+      this -> size = n.size;
+      for(int i = 0; i < sizeof(numbers); i++){
+        this -> numbers[i] = n.numbers[i];
+      }
+        
+      return n;
+    };
     Numbers operator+(const Numbers &n){
       int sum1 = 0, sum2 = 0;
-      for(int i =0; i < 6; i++){
+      for(int i =0; i < size; i++){
         sum1+= this -> numbers[i];
         sum2 += n.numbers[i];
       }
-      return sum1 & sum2;
+      return sum1 + sum2;
     };
-    
+
+    friend void printNumbers(Numbers Q);
 };
 
+void printNumbers(Numbers Q){
+  for(int i = 0; i < Q.size;i++){
+    cout << Q.numbers[i] << " ";
+  }
+}
+
 int main() {
+
+  Numbers n1(10);
+  Numbers n2(n1);
+
+  printNumbers(n1);
+  printNumbers(n2);
   
 } 
 
-int main() {
-  
-} 
