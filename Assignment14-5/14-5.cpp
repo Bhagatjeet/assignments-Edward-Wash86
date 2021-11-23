@@ -67,18 +67,21 @@ class Numbers{
   public:
     Numbers();
     Numbers(int s){
+      size = s;
       numbers = new int [s];
       for(int i = 0; i < s; i++){
         numbers[i] = i * 9;
-      }
+        }
     };
     Numbers(const Numbers &q){
-      this -> size = *new int;
-      this -> numbers = new int [size];
+      size = q.size;
+      numbers = new int [size];
       for(int i = 0; i < size; i++){
         numbers[i] = q.numbers[i];
       }
-    };
+      
+    }
+    
 
     ~Numbers(){
       cout << endl;
@@ -91,6 +94,9 @@ class Numbers{
         sum1+= this -> numbers[i];
         sum2 += n.numbers[i];
       }
+      cout << "sum1: " << sum1 << " " << "sum2: " << sum2 << endl;
+      cout << "If the result is: 1, sum1 is larger." << endl;
+      cout << "If the result is: 0, sum1 is not larger." << endl;
       return sum1 > sum2;
     }
     Numbers operator= (Numbers &n){
@@ -111,22 +117,32 @@ class Numbers{
       return sum1 + sum2;
     };
 
-    friend void printNumbers(Numbers Q);
+    friend void printNumbers(const Numbers &n);
 };
 
-void printNumbers(Numbers Q){
-  for(int i = 0; i < Q.size;i++){
-    cout << Q.numbers[i] << " ";
-  }
+void printNumbers(const Numbers &n){
+  for(int i = 0; i < n.size; i++){
+    cout << n.numbers[i] << " ";
+    }
+
 }
+
 
 int main() {
 
   Numbers n1(10);
+  cout << endl;
   Numbers n2(n1);
-
+  cout << endl;
+  cout << "Printed: " << endl;
   printNumbers(n1);
+  cout << endl;
   printNumbers(n2);
+  cout << endl;
+  int larger = n1 > n2;
+  cout << larger;
+
+
   
 } 
 
