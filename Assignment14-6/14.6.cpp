@@ -124,7 +124,7 @@ class Numbers{
       }
       return COUT;
     }
-    friend ostream& operator>>(ostream& CIN, Numbers &E){
+    friend istream& operator>>(istream& CIN, Numbers &E){
       
       for(int i = 0; i < E.size;i++){
         cout << "Please enter a number: ";
@@ -161,7 +161,11 @@ int main() {
 
   cout << n1;
 
+  cout << endl;
 
+  cin >> n1;
+
+  cout << n1;
   
 } 
 
