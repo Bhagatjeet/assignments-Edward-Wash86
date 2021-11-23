@@ -165,6 +165,8 @@ int main() {
 
   cin >> n1;
 
+  cout<< "New List: " << endl;
+
   cout << n1;
   
 } 
