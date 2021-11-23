@@ -118,6 +118,14 @@ class Numbers{
     };
 
     friend void printNumbers(const Numbers &n);
+    friend ostream& operator<<(ostream &COUT, Numbers &E){
+  for(int i = 0; i < E.size;i++){
+    COUT << E.numbers[i] << " ";
+  }
+
+
+  return COUT;
+}
 };
 
 void printNumbers(const Numbers &n){
@@ -127,7 +135,6 @@ void printNumbers(const Numbers &n){
 
 }
 
-void operator<<(ostream)
 
 
 int main() {
@@ -143,6 +150,10 @@ int main() {
   cout << endl;
   int larger = n1 > n2;
   cout << larger;
+
+  cout << endl;
+
+  cout << n1;
 
 
   
