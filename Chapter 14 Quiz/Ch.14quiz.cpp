@@ -157,16 +157,33 @@ class Course{
 };
 
 ifstream& operator>>(fstream& IN, Course& E){
-  E = new vector <Course>;
-
-  
   string name;
   int credits;
   string semester;
   int numberOfStudents;
 
-  IN >> E.setCourseName();
-  IN >> E.setCredits();
+
+
+  IN >> name;
+  E.setCourseName(name);
+  IN >> credits;
+  E.setCredits(credits);
+  IN >> semester;
+  E.setSemester(semester);
+  IN >> numberOfStudents;
+
+  int studentID;
+  String studentName;
+  char grade;
+  double score;
+
+  for(int i = 0; i < numberOfStudents; i++){
+    IN >> studentID;
+    IN >> studentName;
+    IN >> grade;
+    IN >> score;
+    student.push_back(Student(studentID, studentName, score));
+  };
 }
 
 int main() {
