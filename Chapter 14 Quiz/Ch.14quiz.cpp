@@ -125,10 +125,10 @@ class Course{
           cout << student[i].getScores() << endl;
         }
       }
-      return getStudent;
+      return getStudent();
     }
 
-}
+};
 
 
 
