@@ -1,13 +1,34 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 class student{
-  int ID;
-  string studentName;
-  char grade;
-  double scores;
+  private;  
+    int ID;
+    string studentName;
+    char grade;
+    double scores;
+  public;
+    void setID(int id){
+      ID = id;
+    };
+    void setStudentName(string name){
+      studentName = name;
+    };
+    void setGrade(char GRADE){
+      grade = GRADE;
+    };
+    void setScores(){
+      ==================
+    };
+    int getID();
+    string getStudentName();
+    char getGrade();
+    double getScores();
+
+    friend void Course;
 }
 
 class Course{
@@ -19,7 +40,7 @@ class Course{
     Course(){
       courseName = "No Data";
       credits = 0;
-      if(student.size == 0){
+      if(student.size() == 0){
         cout << "No Students Enrolled." << endl;
       }
     };
