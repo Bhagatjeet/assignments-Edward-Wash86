@@ -87,10 +87,13 @@ class Course{
        cout << "Course: " << courseName << endl;
        cout << "Semester: " << semester << endl;
        cout << "Credits: " << credits << endl;
-       NUM_STUDENTS +=1;
+       NUM_COURSES +=1;
     };
     void setCourseName(string name){
       courseName = name;
+    };
+    void setCredits(int numOfCredits){
+      credits = numOfCredits;
     };
     void setSemester(int numOfCredits){
       credits = numOfCredits;
@@ -154,7 +157,16 @@ class Course{
 };
 
 ifstream& operator>>(fstream& IN, Course& E){
-  IN >> E;
+  E = new vector <Course>;
+
+  
+  string name;
+  int credits;
+  string semester;
+  int numberOfStudents;
+
+  IN >> E.setCourseName();
+  IN >> E.setCredits();
 }
 
 int main() {
