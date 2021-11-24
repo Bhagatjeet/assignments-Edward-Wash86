@@ -22,15 +22,15 @@ class Student{
       ID = id;
       studentName = name;
       scores = score;
-      if(score > 90){
+      if(score >= 90){
         grade = 'A';
-      } if(score > 82 && score < 89){
+      } else if (score >= 80) {
         grade = 'B';
-      } if(score > 72 && score < 79){
+      } else if (score >= 70) {
         grade = 'C';
-      } if(score > 66 && score < 69){
+      } if(score > 66 && score < 69) {
         grade = 'D';
-      } if(score < 65){
+      } if(score < 65) {
         grade = 'F';
       }
     }
@@ -66,7 +66,8 @@ class Course{
   private:
     string courseName, semester;
     int credits;
-    vector <Student> student;  
+    vector <Student> student;
+    static int NUM_STUDENTS;  
   public:
     Course(){
       courseName = "No Data";
@@ -74,6 +75,7 @@ class Course{
       if(student.size() == 0){
         cout << "No Students Enrolled." << endl;
       }
+
     };
     Course(string name, string SEMESTER, int numOfCredits){
        courseName = name;
@@ -93,7 +95,7 @@ class Course{
     };
     void setStudent(){
       srand(time(NULL));
-      vector <Student> student;
+    
       int SID;
       string sName;
       double score = (rand() % 100);
@@ -124,11 +126,13 @@ class Course{
     int getCredits(){
       return credits;
     };
-    Student getStudent(){
+    void getStudent(){
       int id;
       cout << "Please enter a student ID: ";
       cin >> id;
+      cout << student.size() << endl;
       for(int i = 0; i < student.size(); i++){
+        cout << i << " " << student[i].getID() << endl;
         if(id == student[i].getID()){
           cout << "******************* Student Information *******************" << endl;
           cout << endl;
@@ -142,7 +146,7 @@ class Course{
           cout << student[i].getScores() << endl;
         }
       }
-      return getStudent();
+      
     }
 
 };
