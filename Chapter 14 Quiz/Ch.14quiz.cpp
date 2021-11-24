@@ -1,5 +1,5 @@
 #include <iostream>
-#include
+#include <vector>
 
 using namespace std;
 
@@ -9,9 +9,32 @@ class Course{
     int credits;
     vector <Student> student;  
   public:
-    void setCourseName(string){
+    Course(){
+      courseName = "No Data";
+      credits = 0;
+      if(student.size == 0){
+        cout << "No Students Enrolled." << endl;
+      }
+    };
+    void setCourseName(string name){
+      courseName = name;
+    };
+    void setSemester(int numOfCredits){
+      credits = numOfCredits;
+    };
+    void setStudent(string name){
 
     };
+    string getCourseName(){
+      return courseName;
+    }
+    int getCredits(){
+      return credits;
+    };
+    Student getStudent(){
+      return Student;
+    }
+    
 }
 
 class student{
