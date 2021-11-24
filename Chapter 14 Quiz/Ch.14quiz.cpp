@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include <fstream>
 
 using namespace std;
 
@@ -152,10 +153,16 @@ class Course{
 
 };
 
-
+ifstream& operator>>(fstream& IN, Course& E){
+  IN >> E;
+}
 
 int main() {
   srand(time(NULL));
+
+  fstream bacon;
+
+  bacon.open("CourseStudents.txt", ios :: in)
 
   //name, semester, numOfCredits
   Course CS1("CS1", "Fall 2021",4);
@@ -164,6 +171,8 @@ int main() {
   cout << "Printing: " << endl;
   cout << endl;
   CS1.getStudent();
+
+  bacon >> CS1();
 
   
 } 
