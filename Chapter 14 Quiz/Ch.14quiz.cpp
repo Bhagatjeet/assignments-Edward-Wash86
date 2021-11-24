@@ -75,19 +75,13 @@ class Course{
         cout << "No Students Enrolled." << endl;
       }
     };
-    Course(string name, string semester, int numOfCredits){
+    Course(string name, string SEMESTER, int numOfCredits){
        courseName = name;
        credits = numOfCredits;
-       vector <Student> student;
-       int SID;
-       string sName;
-       double score = (rand() % 100);
-       cout << "Enter Student ID: ";
-       cin >> SID;
-       cout << "Enter Student Name: ";
-       getline(cin, sName);
-       student.push_back(Student(SID, sName, score));
-
+       semester = SEMESTER;
+       cout << "****************** Course has been created ******************" cout << endl;
+       cout << "Course: " << courseName << endl;
+       cout << "Semester" << semester << endl;
     };
     void setCourseName(string name){
       courseName = name;
@@ -102,6 +96,7 @@ class Course{
        double score = (rand() % 100);
        cout << "Enter Student ID: ";
        cin >> SID;
+       cin.ignore();
        cout << "Enter Student Name: ";
        getline(cin, sName);
        student.push_back(Student(SID, sName, score));
@@ -118,10 +113,15 @@ class Course{
       cin >> id;
       for(int i = 0; i < sizeof(student); i++){
         if(id == student[i].getID()){
-          cout << "Student Information: " << endl;
+          cout << "******************* Student Information *******************" << endl;
+          cout << endl;
+          cout << "Student ID: " << endl;
           cout << student[i].getID() << endl;
+          cout << "Student Name: " << endl;
           cout << student[i].getStudentName() << endl;
+          cout << "Current Grade: " << endl;
           cout << student[i].getGrade() << endl;
+          cout << "Current Score: " << endl;
           cout << student[i].getScores() << endl;
         }
       }
@@ -134,5 +134,9 @@ class Course{
 
 int main() {
   srand(time(NULL));
+
+  //name, semester, numOfCredits
+  Course CS1("CS1", "Fall2021",4);
+
   
 } 
