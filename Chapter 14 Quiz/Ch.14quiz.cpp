@@ -6,12 +6,12 @@
 using namespace std;
 
 class Student{
-  private;  
+  private:  
     int ID;
     string studentName;
     char grade;
     double scores;
-  public;
+  public:
     Student(){
       ID = 0;
       studentName = "No Data";
@@ -21,14 +21,17 @@ class Student{
     Student(int id, string name, double score){
       ID = id;
       studentName = name;
+      scores = score;
       if(score > 90){
         grade = 'A';
       } if(score > 82 && score < 89){
         grade = 'B';
-      } if(score > 82 && score < 89){
+      } if(score > 72 && score < 79){
         grade = 'C';
-      } if(score > 82 && score < 89){
+      } if(score > 66 && score < 69){
         grade = 'D';
+      } if(score < 65){
+        grade = 'F';
       }
     }
     void setID(int id){
@@ -56,7 +59,7 @@ class Student{
       return scores;
     };
 
-    friend void Course;
+    friend Course;
 }
 
 class Course{
@@ -75,7 +78,16 @@ class Course{
     Course(string name, string semester, Student blaze){
        courseName = name;
        credits = numOfCredits;
-       blaze = new student; ===================
+       blaze = new vector <Student>;
+       int SID;
+       string sName;
+       double score = (rand() % 100);
+       cout << "Enter Student ID: ";
+       cin >> SID;
+       cout << "Enter Student Name: ";
+       getline(cin, sName);
+       blaze.push_back(Student(SID, sName, score));
+
     };
     void setCourseName(string name){
       courseName = name;
@@ -83,8 +95,16 @@ class Course{
     void setSemester(int numOfCredits){
       credits = numOfCredits;
     };
-    void setStudent(string name){
-
+    void setStudent(Student trainee){
+      trainee = new vector <Student>;
+      int SID;
+      string sName;
+      double score = (rand() % 100)
+      cout << "Enter Student ID: ";
+      cin >> SID;
+      cout << "Enter Student Name: ";
+      getline(cin, sName);
+      trainee.push_back(Student(SID, sName, score));
     };
     string getCourseName(){
       return courseName;
