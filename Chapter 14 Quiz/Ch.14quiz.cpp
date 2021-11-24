@@ -117,8 +117,12 @@ class Course{
       cout << "Please enter a student ID: ";
       cin >> id;
       for(int i = 0; i < sizeof(student); i++){
-        if(id == number[i].getID()){
-          
+        if(id == student[i].getID()){
+          cout << "Student Information: " << endl;
+          cout << student[i].getID() << endl;
+          cout << student[i].getStudentName() << endl;
+          cout << student[i].getGrade() << endl;
+          cout << student[i].getScores() << endl;
         }
       }
       return getStudent;
