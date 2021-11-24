@@ -92,6 +92,7 @@ class Course{
       credits = numOfCredits;
     };
     void setStudent(){
+      srand(time(NULL));
       vector <Student> student;
       int SID;
       string sName;
@@ -127,7 +128,7 @@ class Course{
       int id;
       cout << "Please enter a student ID: ";
       cin >> id;
-      for(int i = 0; i < sizeof(student); i++){
+      for(int i = 0; i < student.size(); i++){
         if(id == student[i].getID()){
           cout << "******************* Student Information *******************" << endl;
           cout << endl;
@@ -153,7 +154,11 @@ int main() {
 
   //name, semester, numOfCredits
   Course CS1("CS1", "Fall 2021",4);
+  
   CS1.setStudent();
+  cout << "Printing: " << endl;
+  cout << endl;
+  CS1.getStudent();
 
   
 } 
