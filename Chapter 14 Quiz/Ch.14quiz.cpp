@@ -95,9 +95,12 @@ class Course{
     void setCredits(int numOfCredits){
       credits = numOfCredits;
     };
-    void setSemester(int numOfCredits){
-      credits = numOfCredits;
+    void setSemester(string SEMESTER){
+      semester = SEMESTER;
     };
+    void setStudent1(int id, string name, double score){
+        student.push_back(Student(id, name, score));
+      }
     void setStudent(){
       srand(time(NULL));
     
@@ -173,7 +176,7 @@ ifstream& operator>>(fstream& IN, Course& E){
   IN >> numberOfStudents;
 
   int studentID;
-  String studentName;
+  string studentName;
   char grade;
   double score;
 
@@ -182,16 +185,17 @@ ifstream& operator>>(fstream& IN, Course& E){
     IN >> studentName;
     IN >> grade;
     IN >> score;
-    student.push_back(Student(studentID, studentName, score));
+    E.setStudent1(studentID, studentName, score);
   };
-}
+  return IN;
+};
 
 int main() {
   srand(time(NULL));
 
   fstream bacon;
 
-  bacon.open("CourseStudents.txt", ios :: in)
+  bacon.open("CourseStudents.txt", ios :: in);
 
   //name, semester, numOfCredits
   Course CS1("CS1", "Fall 2021",4);
