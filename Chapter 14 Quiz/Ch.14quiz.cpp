@@ -15,8 +15,8 @@ class Student{
     Student(){
       ID = 0;
       studentName = "No Data";
-      char = NULL;
-      score = 0;
+      
+      scores = 0;
     };
     Student(int id, string name, double score){
       ID = id;
@@ -44,7 +44,7 @@ class Student{
       grade = GRADE;
     };
     void setScores(double SCORE){
-      score = SCORE;
+      scores = SCORE;
     };
     int getID(){
       return ID;
@@ -59,8 +59,8 @@ class Student{
       return scores;
     };
 
-    friend Course;
-}
+    friend class Course;
+};
 
 class Course{
   private:
@@ -75,10 +75,10 @@ class Course{
         cout << "No Students Enrolled." << endl;
       }
     };
-    Course(string name, string semester, Student blaze){
+    Course(string name, string semester, int numOfCredits){
        courseName = name;
        credits = numOfCredits;
-       blaze = new vector <Student>;
+       vector <Student> student;
        int SID;
        string sName;
        double score = (rand() % 100);
@@ -86,7 +86,7 @@ class Course{
        cin >> SID;
        cout << "Enter Student Name: ";
        getline(cin, sName);
-       blaze.push_back(Student(SID, sName, score));
+       student.push_back(Student(SID, sName, score));
 
     };
     void setCourseName(string name){
@@ -96,15 +96,15 @@ class Course{
       credits = numOfCredits;
     };
     void setStudent(Student trainee){
-      trainee = new vector <Student>;
-      int SID;
-      string sName;
-      double score = (rand() % 100)
-      cout << "Enter Student ID: ";
-      cin >> SID;
-      cout << "Enter Student Name: ";
-      getline(cin, sName);
-      trainee.push_back(Student(SID, sName, score));
+      vector <Student> student;
+       int SID;
+       string sName;
+       double score = (rand() % 100);
+       cout << "Enter Student ID: ";
+       cin >> SID;
+       cout << "Enter Student Name: ";
+       getline(cin, sName);
+       student.push_back(Student(SID, sName, score));
     };
     string getCourseName(){
       return courseName;
