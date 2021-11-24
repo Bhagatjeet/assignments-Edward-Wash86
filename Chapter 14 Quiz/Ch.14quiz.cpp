@@ -113,7 +113,15 @@ class Course{
       return credits;
     };
     Student getStudent(){
-      return Student;
+      int id;
+      cout << "Please enter a student ID: ";
+      cin >> id;
+      for(int i = 0; i < sizeof(student); i++){
+        if(id == number[i].getID()){
+          
+        }
+      }
+      return getStudent;
     }
 
 }
