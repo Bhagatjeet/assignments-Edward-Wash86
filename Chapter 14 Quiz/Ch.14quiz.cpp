@@ -187,7 +187,13 @@ ifstream& operator>>(fstream& IN, Course& E){
     IN >> score;
     E.setStudent1(studentID, studentName, score);
   };
-  return IN;
+  //return 0;
+};
+
+ostream& operator<<(ostream& COUT, Course& E){
+  COUT << E.getCourseName();
+  COUT << E.getCredits();
+  COUT << E.getGrade();
 };
 
 int main() {
