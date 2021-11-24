@@ -3,6 +3,13 @@
 
 using namespace std;
 
+class student{
+  int ID;
+  string studentName;
+  char grade;
+  double scores;
+}
+
 class Course{
   private:
     string courseName, semester;
@@ -15,6 +22,11 @@ class Course{
       if(student.size == 0){
         cout << "No Students Enrolled." << endl;
       }
+    };
+    Course(string name, string semester, Student blaze){
+       courseName = name;
+       credits = numOfCredits;
+       blaze = new student; ===================
     };
     void setCourseName(string name){
       courseName = name;
@@ -34,15 +46,10 @@ class Course{
     Student getStudent(){
       return Student;
     }
-    
+
 }
 
-class student{
-  int ID;
-  string studentName;
-  char grade;
-  double scores;
-}
+
 
 int main() {
   
