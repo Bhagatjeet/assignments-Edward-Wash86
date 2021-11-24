@@ -79,9 +79,11 @@ class Course{
        courseName = name;
        credits = numOfCredits;
        semester = SEMESTER;
-       cout << "****************** Course has been created ******************" cout << endl;
+       cout << "****************** Course has been created ******************" << endl;
+       cout << endl;
        cout << "Course: " << courseName << endl;
-       cout << "Semester" << semester << endl;
+       cout << "Semester: " << semester << endl;
+       cout << "Credits: " << credits << endl;
     };
     void setCourseName(string name){
       courseName = name;
@@ -89,17 +91,31 @@ class Course{
     void setSemester(int numOfCredits){
       credits = numOfCredits;
     };
-    void setStudent(Student trainee){
+    void setStudent(){
       vector <Student> student;
-       int SID;
-       string sName;
-       double score = (rand() % 100);
-       cout << "Enter Student ID: ";
-       cin >> SID;
-       cin.ignore();
-       cout << "Enter Student Name: ";
-       getline(cin, sName);
-       student.push_back(Student(SID, sName, score));
+      int SID;
+      string sName;
+      double score = (rand() % 100);
+      cout << endl;
+      cout << "Enter Student ID: ";
+      cin >> SID;
+      cin.ignore();
+      cout << "Enter Student Name: ";
+      getline(cin, sName);
+      student.push_back(Student(SID, sName, score));
+      cout << endl;
+      cout << "****************** Student Added ******************" << endl;
+      cout << endl;
+      for(int i = 0; i < student.size(); i++){
+        cout << "Student ID: " << endl;
+        cout << student[i].getID() << endl;
+        cout << "Student Name: " << endl;
+        cout << student[i].getStudentName() << endl;
+        cout << "Current Grade: " << endl;
+        cout << student[i].getGrade() << endl;
+        cout << "Current Score: " << endl;
+        cout << student[i].getScores() << endl;
+      }
     };
     string getCourseName(){
       return courseName;
@@ -136,7 +152,8 @@ int main() {
   srand(time(NULL));
 
   //name, semester, numOfCredits
-  Course CS1("CS1", "Fall2021",4);
+  Course CS1("CS1", "Fall 2021",4);
+  CS1.setStudent();
 
   
 } 
