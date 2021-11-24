@@ -1,16 +1,36 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <ctime>
 
 using namespace std;
 
-class student{
+class Student{
   private;  
     int ID;
     string studentName;
     char grade;
     double scores;
   public;
+    Student(){
+      ID = 0;
+      studentName = "No Data";
+      char = NULL;
+      score = 0;
+    };
+    Student(int id, string name, double score){
+      ID = id;
+      studentName = name;
+      if(score > 90){
+        grade = 'A';
+      } if(score > 82 && score < 89){
+        grade = 'B';
+      } if(score > 82 && score < 89){
+        grade = 'C';
+      } if(score > 82 && score < 89){
+        grade = 'D';
+      }
+    }
     void setID(int id){
       ID = id;
     };
@@ -20,13 +40,21 @@ class student{
     void setGrade(char GRADE){
       grade = GRADE;
     };
-    void setScores(){
-      ==================
+    void setScores(double SCORE){
+      score = SCORE;
     };
-    int getID();
-    string getStudentName();
-    char getGrade();
-    double getScores();
+    int getID(){
+      return ID;
+    };
+    string getStudentName(){
+      return studentName;
+    };
+    char getGrade(){
+      return grade;
+    };
+    double getScores(){
+      return scores;
+    };
 
     friend void Course;
 }
@@ -73,5 +101,6 @@ class Course{
 
 
 int main() {
+  srand(time(NULL));
   
 } 
