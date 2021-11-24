@@ -22,15 +22,15 @@ class Student{
       ID = id;
       studentName = name;
       scores = score;
-      if(score >= 90){
+      if (score >= 90){
         grade = 'A';
       } else if (score >= 80) {
         grade = 'B';
       } else if (score >= 70) {
         grade = 'C';
-      } if(score > 66 && score < 69) {
+      } else if (score >= 60) {
         grade = 'D';
-      } if(score < 65) {
+      } else if (score < 60) {
         grade = 'F';
       }
     }
@@ -67,7 +67,7 @@ class Course{
     string courseName, semester;
     int credits;
     vector <Student> student;
-    static int NUM_STUDENTS;  
+    static int NUM_COURSES;  
   public:
     Course(){
       courseName = "No Data";
@@ -75,7 +75,7 @@ class Course{
       if(student.size() == 0){
         cout << "No Students Enrolled." << endl;
       }
-
+      NUM_COURSES +=1;
     };
     Course(string name, string SEMESTER, int numOfCredits){
        courseName = name;
@@ -86,6 +86,7 @@ class Course{
        cout << "Course: " << courseName << endl;
        cout << "Semester: " << semester << endl;
        cout << "Credits: " << credits << endl;
+       NUM_STUDENTS +=1;
     };
     void setCourseName(string name){
       courseName = name;
