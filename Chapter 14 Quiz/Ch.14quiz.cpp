@@ -130,6 +130,9 @@ class Course{
     int getCredits(){
       return credits;
     };
+    string getSemester(){
+      return semester;
+    }
     void getStudent(){
       unsigned int id;
       cout << "Please enter a student ID: ";
@@ -189,9 +192,9 @@ void operator>>(fstream& IMPORT, Course& E){
 
 }
 ostream& operator<<(ostream& COUT, Course& E){
-  COUT << "Course: " << E.getCourseName(); 
-  COUT << "Credits: " << E.getCredits();
-  COUT << "" 
+  COUT << "Course: " << E.getCourseName() << endl; 
+  COUT << "Credits: " << E.getCredits() << endl;
+  COUT << "Semester: " << E.getSemester() << endl;
   return COUT;
 };
 
@@ -209,8 +212,8 @@ int main() {
   
   //CS1.setStudent();
   cout << endl;
-  cout << "Printing: " << endl;
-  cout << endl;
+  
+  
   //CS1.getStudent();
 
   courseFile >> CS2;
