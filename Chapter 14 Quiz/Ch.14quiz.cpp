@@ -152,6 +152,20 @@ class Course{
         }
       }
     }
+    void getStudent1(){
+      for(int i = 0; i < student.size(); i++){
+          cout << "******************* Student Information *******************" << endl;
+          cout << endl;
+          cout << "Student ID: " << endl;
+          cout << student[i].getID() << endl;
+          cout << "Student Name: " << endl;
+          cout << student[i].getStudentName() << endl;
+          cout << "Current Grade: " << endl;
+          cout << student[i].getGrade() << endl;
+          cout << "Current Score: " << endl;
+          cout << student[i].getScores() << endl;
+      }
+    }
 
 };
 
@@ -195,6 +209,8 @@ ostream& operator<<(ostream& COUT, Course& E){
   COUT << "Course: " << E.getCourseName() << endl; 
   COUT << "Credits: " << E.getCredits() << endl;
   COUT << "Semester: " << E.getSemester() << endl;
+  COUT << "     ";
+  E.getStudent1();
   return COUT;
 };
 
