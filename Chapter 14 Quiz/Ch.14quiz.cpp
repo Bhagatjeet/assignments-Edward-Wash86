@@ -2,7 +2,6 @@
 #include <vector>
 #include <string>
 #include <ctime>
-#include <fstream>
 
 using namespace std;
 
@@ -87,20 +86,14 @@ class Course{
        cout << "Course: " << courseName << endl;
        cout << "Semester: " << semester << endl;
        cout << "Credits: " << credits << endl;
-       NUM_COURSES +=1;
+       NUM_STUDENTS +=1;
     };
     void setCourseName(string name){
       courseName = name;
     };
-    void setCredits(int numOfCredits){
+    void setSemester(int numOfCredits){
       credits = numOfCredits;
     };
-    void setSemester(string SEMESTER){
-      semester = SEMESTER;
-    };
-    void setStudent1(int id, string name, double score){
-        student.push_back(Student(id, name, score));
-      }
     void setStudent(){
       srand(time(NULL));
     
@@ -159,49 +152,10 @@ class Course{
 
 };
 
-ifstream& operator>>(fstream& IN, Course& E){
-  string name;
-  int credits;
-  string semester;
-  int numberOfStudents;
 
-
-
-  IN >> name;
-  E.setCourseName(name);
-  IN >> credits;
-  E.setCredits(credits);
-  IN >> semester;
-  E.setSemester(semester);
-  IN >> numberOfStudents;
-
-  int studentID;
-  string studentName;
-  char grade;
-  double score;
-
-  for(int i = 0; i < numberOfStudents; i++){
-    IN >> studentID;
-    IN >> studentName;
-    IN >> grade;
-    IN >> score;
-    E.setStudent1(studentID, studentName, score);
-  };
-  //return 0;
-};
-
-ostream& operator<<(ostream& COUT, Course& E){
-  COUT << E.getCourseName();
-  COUT << E.getCredits();
-  COUT << E.getGrade();
-};
 
 int main() {
   srand(time(NULL));
-
-  fstream bacon;
-
-  bacon.open("CourseStudents.txt", ios :: in);
 
   //name, semester, numOfCredits
   Course CS1("CS1", "Fall 2021",4);
@@ -210,8 +164,6 @@ int main() {
   cout << "Printing: " << endl;
   cout << endl;
   CS1.getStudent();
-
-  bacon >> CS1();
 
   
 } 
