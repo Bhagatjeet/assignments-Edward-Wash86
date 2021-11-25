@@ -67,7 +67,8 @@ class Course{
   private:
     string courseName, semester;
     int credits;
-    vector <Student> student;  
+    vector <Student> student;
+    static int NUM_COURSES;  
   public:
     Course(){
       courseName = "No Data";
@@ -75,6 +76,7 @@ class Course{
       if(student.size() == 0){
         cout << "No Students Enrolled." << endl;
       }
+      NUM_COURSES =+1;
     };
     Course(string name, string SEMESTER, int numOfCredits){
        courseName = name;
@@ -85,6 +87,7 @@ class Course{
        cout << "Course: " << courseName << endl;
        cout << "Semester: " << semester << endl;
        cout << "Credits: " << credits << endl;
+       NUM_COURSES =+1;
     };
     void setCourseName(string name){
       courseName = name;
@@ -176,7 +179,7 @@ class Course{
 //   return COUT;
 // };
 
-void operator>>(fstream& IMPORT, Course& E){
+void operator>>(fstream& IMPORT, Course& array){
   
   
   IMPORT.open("CourseStudents.txt", ios:: in);
@@ -186,22 +189,29 @@ void operator>>(fstream& IMPORT, Course& E){
   double score;
   
 
+  
 
+    
   
     IMPORT >> name;
-    E.setCourseName(name);
+    array.setCourseName(name);
     IMPORT >> credits;
-    E.setCredits(credits);
+    array.setCredits(credits);
     IMPORT >> semester;
-    E.setSemester(semester);
+    array.setSemester(semester);
 
     IMPORT >> numberOfStudents;
 
-    IMPORT >> sid;
-    IMPORT >> name;
-    IMPORT >> grade;
-    IMPORT >> score;
-    E.setStudentFile(sid,name,score);
+    for(int i = 0; i < numberOfStudents; i++){
+      IMPORT >> sid;
+      IMPORT >> name;
+      IMPORT >> grade;
+      IMPORT >> score;
+      array.setStudentFile(sid,name,score);
+    }
+
+    
+  
   
 
 }
@@ -222,9 +232,11 @@ int main() {
 
   fstream courseFile;
 
+  Course courses[4];
+
   //name, semester, numOfCredits
   //Course CS1("CS1", "Fall 2021",4);
-  Course CS2;
+  //Course CS2;
   
   //CS1.setStudent();
   cout << endl;
@@ -232,9 +244,12 @@ int main() {
   
   //CS1.getStudent();
 
-  courseFile >> CS2;
+  //for(int i = 0; i < sizeof(courses); i++){
+    courseFile >> courses[0];
+  //}
 
-  cout << CS2;
-
+  // for(int i = 0; i < sizeof(courses); i++){
+  //   cout << courses[i];
+  // }
   
 } 
