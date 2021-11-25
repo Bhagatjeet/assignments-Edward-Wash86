@@ -76,7 +76,7 @@ class Course{
       if(student.size() == 0){
         cout << "No Students Enrolled." << endl;
       }
-      NUM_COURSES =+1;
+      NUM_COURSES +=1;
     };
     Course(string name, string SEMESTER, int numOfCredits){
        courseName = name;
@@ -87,7 +87,7 @@ class Course{
        cout << "Course: " << courseName << endl;
        cout << "Semester: " << semester << endl;
        cout << "Credits: " << credits << endl;
-       NUM_COURSES =+1;
+       NUM_COURSES += 1;
     };
     void setCourseName(string name){
       courseName = name;
@@ -172,6 +172,8 @@ class Course{
 
 };
 
+int Course :: NUM_COURSES = 0;
+
 // ostream& operator<<(ostream& COUT, person1& E){
 //   COUT << "Name:" << E.getName() << endl;
 //   COUT << "Age: " << E.getAge() << endl;
@@ -244,12 +246,12 @@ int main() {
   
   //CS1.getStudent();
 
-  //for(int i = 0; i < sizeof(courses); i++){
-    courseFile >> courses[0];
-  //}
+  for(int i = 0; i < 4; i++){
+    courseFile >> courses[i];
+  }
 
-  // for(int i = 0; i < sizeof(courses); i++){
-  //   cout << courses[i];
-  // }
+  for(int i = 0; i < 4; i++){
+    cout << courses[i];
+  }
   
 } 
