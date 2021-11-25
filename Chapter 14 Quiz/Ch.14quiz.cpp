@@ -173,7 +173,7 @@ class Course{
 };
 
 int Course :: NUM_COURSES = 0;
-
+static int POS;
 // ostream& operator<<(ostream& COUT, person1& E){
 //   COUT << "Name:" << E.getName() << endl;
 //   COUT << "Age: " << E.getAge() << endl;
@@ -185,6 +185,7 @@ void operator>>(fstream& IMPORT, Course& array){
   
   
   IMPORT.open("CourseStudents.txt", ios:: in);
+  
   string name, semester;
   int credits, numberOfStudents, sid;
   char grade;
@@ -192,8 +193,8 @@ void operator>>(fstream& IMPORT, Course& array){
   
 
   
-
-    
+  
+    IMPORT.seekg(POS);
   
     IMPORT >> name;
     array.setCourseName(name);
@@ -212,12 +213,20 @@ void operator>>(fstream& IMPORT, Course& array){
       array.setStudentFile(sid,name,score);
     }
 
+    POS = IMPORT.tellg();//Getting the position of the indicator
+    cout << "Current positon: " << POS << endl;
+    POS += 1;
+    cout << "Next position: " << POS << endl;
+  
+  
+
     
   
   
 
 }
 ostream& operator<<(ostream& COUT, Course& E){
+  COUT << endl;
   COUT << "Course: " << E.getCourseName() << endl; 
   COUT << "Credits: " << E.getCredits() << endl;
   COUT << "Semester: " << E.getSemester() << endl;
@@ -246,12 +255,12 @@ int main() {
   
   //CS1.getStudent();
 
-  for(int i = 0; i < 4; i++){
+  for(int i = 0; i < 3; i++){
     courseFile >> courses[i];
   }
 
-  for(int i = 0; i < 4; i++){
-    cout << courses[i];
-  }
+  // for(int i = 0; i < 2; i++){
+  //   cout << courses[i];
+  // }
   
 } 
