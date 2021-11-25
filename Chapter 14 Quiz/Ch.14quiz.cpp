@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include <ctime>
+#include <fstream>
 
 using namespace std;
 
@@ -66,8 +67,7 @@ class Course{
   private:
     string courseName, semester;
     int credits;
-    vector <Student> student;
-    static int NUM_COURSES;  
+    vector <Student> student;  
   public:
     Course(){
       courseName = "No Data";
@@ -75,7 +75,6 @@ class Course{
       if(student.size() == 0){
         cout << "No Students Enrolled." << endl;
       }
-      NUM_COURSES +=1;
     };
     Course(string name, string SEMESTER, int numOfCredits){
        courseName = name;
@@ -86,17 +85,18 @@ class Course{
        cout << "Course: " << courseName << endl;
        cout << "Semester: " << semester << endl;
        cout << "Credits: " << credits << endl;
-       NUM_STUDENTS +=1;
     };
     void setCourseName(string name){
       courseName = name;
     };
-    void setSemester(int numOfCredits){
-      credits = numOfCredits;
+    void setCredits(int n){
+      credits = n;
+    }
+    void setSemester(string name){
+      semester = name;
     };
     void setStudent(){
       srand(time(NULL));
-    
       int SID;
       string sName;
       double score = (rand() % 100);
@@ -121,6 +121,9 @@ class Course{
         cout << student[i].getScores() << endl;
       }
     };
+    void setStudentFile(int sid, string sName, double sScore){
+      student.push_back(Student(sid, sName, sScore));
+    }
     string getCourseName(){
       return courseName;
     }
@@ -128,12 +131,10 @@ class Course{
       return credits;
     };
     void getStudent(){
-      int id;
+      unsigned int id;
       cout << "Please enter a student ID: ";
       cin >> id;
-      cout << student.size() << endl;
       for(int i = 0; i < student.size(); i++){
-        cout << i << " " << student[i].getID() << endl;
         if(id == student[i].getID()){
           cout << "******************* Student Information *******************" << endl;
           cout << endl;
@@ -147,23 +148,74 @@ class Course{
           cout << student[i].getScores() << endl;
         }
       }
-      
     }
 
 };
+
+// ostream& operator<<(ostream& COUT, person1& E){
+//   COUT << "Name:" << E.getName() << endl;
+//   COUT << "Age: " << E.getAge() << endl;
+//   COUT << "Gender: " << E.getGender() << endl; 
+//   return COUT;
+// };
+
+void operator>>(fstream& IMPORT, Course& E){
+  
+  
+  IMPORT.open("CourseStudents.txt", ios:: in);
+  string name, semester;
+  int credits, numberOfStudents, sid;
+  char grade;
+  double score;
+  
+
+
+  
+    IMPORT >> name;
+    E.setCourseName(name);
+    IMPORT >> credits;
+    E.setCredits(credits);
+    IMPORT >> semester;
+    E.setSemester(semester);
+
+    IMPORT >> numberOfStudents;
+
+    IMPORT >> sid;
+    IMPORT >> name;
+    IMPORT >> grade;
+    IMPORT >> score;
+    E.setStudentFile(sid,name,score);
+  
+
+}
+ostream& operator<<(ostream& COUT, Course& E){
+  COUT << "Course: " << E.getCourseName(); 
+  COUT << "Credits: " << E.getCredits();
+  COUT << "" 
+  return COUT;
+};
+
 
 
 
 int main() {
   srand(time(NULL));
 
+  fstream courseFile;
+
   //name, semester, numOfCredits
-  Course CS1("CS1", "Fall 2021",4);
+  //Course CS1("CS1", "Fall 2021",4);
+  Course CS2;
   
-  CS1.setStudent();
+  //CS1.setStudent();
+  cout << endl;
   cout << "Printing: " << endl;
   cout << endl;
-  CS1.getStudent();
+  //CS1.getStudent();
+
+  courseFile >> CS2;
+
+  cout << CS2;
 
   
 } 

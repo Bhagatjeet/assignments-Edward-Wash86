@@ -1,179 +1,173 @@
 #include <iostream>
 #include <vector>
-#include <string>
-#include <ctime>
-#include <fstream>
 
 using namespace std;
 
-class Student{
-  private:  
-    int ID;
-    string studentName;
-    char grade;
-    double scores;
-  public:
-    Student(){
-      ID = 0;
-      studentName = "No Data";
-      
-      scores = 0;
-    };
-    Student(int id, string name, double score){
-      ID = id;
-      studentName = name;
-      scores = score;
-      if (score >= 90){
-        grade = 'A';
-      } else if (score >= 80) {
-        grade = 'B';
-      } else if (score >= 70) {
-        grade = 'C';
-      } else if (score >= 60) {
-        grade = 'D';
-      } else if (score < 60) {
-        grade = 'F';
-      }
-    }
-    void setID(int id){
-      ID = id;
-    };
-    void setStudentName(string name){
-      studentName = name;
-    };
-    void setGrade(char GRADE){
-      grade = GRADE;
-    };
-    void setScores(double SCORE){
-      scores = SCORE;
-    };
-    int getID(){
-      return ID;
-    };
-    string getStudentName(){
-      return studentName;
-    };
-    char getGrade(){
-      return grade;
-    };
-    double getScores(){
-      return scores;
-    };
+//Overload Operators - giving new meaning/ adding peramiters & change the behaivior of an operator.
 
-    friend class Course;
-};
+//operator are the same as function just called with a character instead of giving it a formal name.
+//Operators:
+  //+, -, /, =, -=, +=, <<, >>, ",", *(dereferance operator), &(memory addresses), new, delete, ()
 
-class Course{
+//THIS - only accessable through a member function, poointer to the current object instance.
+
+
+// class nads{
+//   private:
+//     vector <int> apple;
+//     char A = 'A';
+//   public:
+//     nads(){
+//       for(int i = 0; i < 5; i++){
+//       apple.push_back(6 + i);
+//     };
+//     int nads :: operator>(const nads &r){
+//       int sum1 = 0, sum2 = 0;
+//       for(int i = 0; i < 6; i++){
+//         sum1+= this -> score[i];
+//         sum2 += r.score[i];
+//       }
+//       return sum1 > sum2;
+//     }
+
+//     int nads :: operator + (const nads &r){
+//       int sum1 = 0, sum2 = 0;
+//       for(int i =0l i < 6; i++){
+//         sum1+= this -> score[i];
+//         sum2 += r.score[i];
+//       }
+//       return sum1 + sum2;
+//     }
+
+
+  
+// }
+
+
+
+
+
+// int main(){
+//   nads ben();
+  
+//   }
+
+
+// }
+
+#include <iostream>
+
+using namespace std;
+
+
+class Numbers{
   private:
-    string courseName, semester;
-    int credits;
-    vector <Student> student;  
+    int size;
+    int *numbers;
   public:
-    Course(){
-      courseName = "No Data";
-      credits = 0;
-      if(student.size() == 0){
-        cout << "No Students Enrolled." << endl;
-      }
-    };
-    Course(string name, string SEMESTER, int numOfCredits){
-       courseName = name;
-       credits = numOfCredits;
-       semester = SEMESTER;
-       cout << "****************** Course has been created ******************" << endl;
-       cout << endl;
-       cout << "Course: " << courseName << endl;
-       cout << "Semester: " << semester << endl;
-       cout << "Credits: " << credits << endl;
-    };
-    void setCourseName(string name){
-      courseName = name;
-    };
-    void setSemester(int numOfCredits){
-      credits = numOfCredits;
-    };
-    void setStudent(){
-      srand(time(NULL));
-      vector <Student> student;
-      int SID;
-      string sName;
-      double score = (rand() % 100);
-      cout << endl;
-      cout << "Enter Student ID: ";
-      cin >> SID;
-      cin.ignore();
-      cout << "Enter Student Name: ";
-      getline(cin, sName);
-      student.push_back(Student(SID, sName, score));
-      cout << endl;
-      cout << "****************** Student Added ******************" << endl;
-      cout << endl;
-      for(int i = 0; i < student.size(); i++){
-        cout << "Student ID: " << endl;
-        cout << student[i].getID() << endl;
-        cout << "Student Name: " << endl;
-        cout << student[i].getStudentName() << endl;
-        cout << "Current Grade: " << endl;
-        cout << student[i].getGrade() << endl;
-        cout << "Current Score: " << endl;
-        cout << student[i].getScores() << endl;
-      }
-    };
-    string getCourseName(){
-      return courseName;
-    }
-    int getCredits(){
-      return credits;
-    };
-    Student getStudent(){
-      int id;
-      cout << "Please enter a student ID: ";
-      cin >> id;
-      for(int i = 0; i < student.size(); i++){
-        if(id == student[i].getID()){
-          cout << "******************* Student Information *******************" << endl;
-          cout << endl;
-          cout << "Student ID: " << endl;
-          cout << student[i].getID() << endl;
-          cout << "Student Name: " << endl;
-          cout << student[i].getStudentName() << endl;
-          cout << "Current Grade: " << endl;
-          cout << student[i].getGrade() << endl;
-          cout << "Current Score: " << endl;
-          cout << student[i].getScores() << endl;
+    Numbers();
+    Numbers(int s){
+      size = s;
+      numbers = new int [s];
+      for(int i = 0; i < s; i++){
+        numbers[i] = i * 9;
         }
+    };
+    Numbers(const Numbers &q){
+      size = q.size;
+      numbers = new int [size];
+      for(int i = 0; i < size; i++){
+        numbers[i] = q.numbers[i];
       }
-      return getStudent();
+      
     }
+    
 
+    ~Numbers(){
+      cout << endl;
+      cout << "Activated Deconstructor" << endl;
+      delete [] numbers;
+    };
+    int operator>(const Numbers &n){
+      int sum1 = 0, sum2 = 0;
+      for(int i = 0; i < sizeof(numbers); i++){
+        sum1+= this -> numbers[i];
+        sum2 += n.numbers[i];
+      }
+      cout << "sum1: " << sum1 << " " << "sum2: " << sum2 << endl;
+      cout << "If the result is: 1, sum1 is larger." << endl;
+      cout << "If the result is: 0, sum1 is not larger." << endl;
+      return sum1 > sum2;
+    }
+    Numbers operator= (Numbers &n){
+      
+      this -> size = n.size;
+      for(int i = 0; i < sizeof(numbers); i++){
+        this -> numbers[i] = n.numbers[i];
+      }
+        
+      return n;
+    };
+    Numbers operator+(const Numbers &n){
+      int sum1 = 0, sum2 = 0;
+      for(int i =0; i < size; i++){
+        sum1+= this -> numbers[i];
+        sum2 += n.numbers[i];
+      }
+      return sum1 + sum2;
+    };
+
+    friend void printNumbers(const Numbers &n);
+    friend ostream& operator<<(ostream &COUT, Numbers &E){
+      for(int i = 0; i < E.size;i++){
+      COUT << E.numbers[i] << " ";
+      }
+      return COUT;
+    }
+    friend istream& operator>>(istream& CIN, Numbers &E){
+      
+      for(int i = 0; i < E.size;i++){
+        cout << "Please enter a number: ";
+        CIN >> E.numbers[i];
+      }
+      return CIN;
+    }
 };
 
-// ostream& operator<<(ostream& COUT, person1& E){
-//   COUT << "Name:" << E.getName() << endl;
-//   COUT << "Age: " << E.getAge() << endl;
-//   COUT << "Gender: " << E.getGender() << endl; 
-//   return COUT;
-// };
+void printNumbers(const Numbers &n){
+  for(int i = 0; i < n.size; i++){
+    cout << n.numbers[i] << " ";
+    }
 
-void operator>>(fstream& IN, Course& E){
-  fstream import; 
-  
-  import.open("CourseStudents.txt", ios:: in);
-  
 }
 
 
 
 int main() {
-  srand(time(NULL));
 
-  //name, semester, numOfCredits
-  Course CS1("CS1", "Fall 2021",4);
-  
-  CS1.setStudent();
-  cout << "Printing: " << endl;
+  Numbers n1(10);
   cout << endl;
-  CS1.getStudent();
+  Numbers n2(n1);
+  cout << endl;
+  cout << "Printed: " << endl;
+  printNumbers(n1);
+  cout << endl;
+  printNumbers(n2);
+  cout << endl;
+  int larger = n1 > n2;
+  cout << larger;
 
+  cout << endl;
+
+  cout << n1;
+
+  cout << endl;
+
+  cin >> n1;
+
+  cout<< "New List: " << endl;
+
+  cout << n1;
   
 } 
+
