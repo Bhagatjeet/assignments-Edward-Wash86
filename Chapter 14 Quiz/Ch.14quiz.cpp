@@ -33,6 +33,8 @@ class Student{
         grade = 'D';
       } else if (score < 60) {
         grade = 'F';
+      } else if (score == 0){
+        grade = 'W';
       }
     }
     void setID(int id){
@@ -247,7 +249,8 @@ ostream& operator<<(ostream& COUT, Course& E){
 int main() {
   srand(time(NULL));
 
-  fstream courseFile;
+  fstream courseFile, addStudent;
+
 
   Course courses[4];
 
@@ -268,5 +271,37 @@ int main() {
   for(int i = 0; i < 4; i++){
     cout << courses[i];
   }
-  
+
+  Course addons[6];
+
+  addStudent.open("addstudents.txt", ios::in);
+  while(!addStudent.eof()){
+    int i = 0;
+    string name,sName;
+    int students,sid;
+    
+
+    double score;
+    addStudent >> name;
+    addons[i].setCourseName(name);
+    addStudent >> students;
+    for(int i = 0; i < sizeof(courses); i++){
+      for(int q = 0; i < sizeof(addons); i++){
+        if(addons[i].getCourseName() == courses[i].getCourseName()){
+          addStudent >> sid;
+          addStudent >> sName
+          for(int w = 0; w < students; w++){
+            courses[i].setStudentFile(sid,sName,score);
+          }
+        }
+      }
+    }
+    i++;
+  }
+
+  cout << "ADDON LIST:" << endl;
+
+  for(int i = 0; i < sizeof(addons); i++){
+    cout << addons[i];
+  }
 } 
