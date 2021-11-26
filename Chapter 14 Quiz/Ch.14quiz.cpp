@@ -191,34 +191,40 @@ void operator>>(fstream& IMPORT, Course& array){
   char grade;
   double score;
   
+  //cout << "starting at: " << POS << endl;
+  IMPORT.seekg(POS);
+  
+  
 
-  
-  
-    IMPORT.seekg(POS);
-  
+  IMPORT >> name;
+  array.setCourseName(name);
+  IMPORT >> credits;
+  array.setCredits(credits);
+  IMPORT >> semester;
+  array.setSemester(semester);
+
+  IMPORT >> numberOfStudents;
+
+  for(int i = 0; i < numberOfStudents; i++){
+    IMPORT >> sid;
     IMPORT >> name;
-    array.setCourseName(name);
-    IMPORT >> credits;
-    array.setCredits(credits);
-    IMPORT >> semester;
-    array.setSemester(semester);
+    IMPORT >> grade;
+    IMPORT >> score;
+    array.setStudentFile(sid,name,score);
+  }
 
-    IMPORT >> numberOfStudents;
-
-    for(int i = 0; i < numberOfStudents; i++){
-      IMPORT >> sid;
-      IMPORT >> name;
-      IMPORT >> grade;
-      IMPORT >> score;
-      array.setStudentFile(sid,name,score);
-    }
-
-    POS = IMPORT.tellg();//Getting the position of the indicator
-    cout << "Current positon: " << POS << endl;
-    POS += 1;
-    cout << "Next position: " << POS << endl;
+  
+  POS = IMPORT.tellg();//Getting the position of the indicator
+  POS += 1;
+  //cout << "Current positon: " << POS << endl;
   
   
+  //cout << IMPORT.tellg();
+
+  //cout << endl;
+    
+  
+  IMPORT.close();
 
     
   
@@ -255,12 +261,12 @@ int main() {
   
   //CS1.getStudent();
 
-  for(int i = 0; i < 3; i++){
+  for(int i = 0; i < 4; i++){
     courseFile >> courses[i];
   }
 
-  // for(int i = 0; i < 2; i++){
-  //   cout << courses[i];
-  // }
+  for(int i = 0; i < 4; i++){
+    cout << courses[i];
+  }
   
 } 
