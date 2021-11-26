@@ -279,30 +279,26 @@ int main() {
   double score;
 
   
-  for(int q = 4; q < 6; q++){
+  for(int q = 4; q<6; q++){
     addStudent >> courseName;
     addStudent >> students;
-    courses[q].setCourseName(courseName);
-    for(int i = 0; i < students; i++){
-      addStudent >> sid;
-      addStudent >> sName;
-      addStudent >> grade;
-      addStudent >> score;
-      courses[q].setStudentFile(sid, sName, score);
-    }
+    for(int w = 0; w < 4; w++){
+      //courses[q].setCourseName(courseName);
+      if(courses[w].getCourseName() == courseName){
+        for(int i = 0; i < students; i++){
+          addStudent >> sid;
+          addStudent >> sName;
+          addStudent >> grade;
+          addStudent >> score;
+          courses[w].setStudentFile(sid, sName, score);
+        }
+      }
+    }    
   }
 
   addStudent.close();
 
-  for(int i = 4; i < 6; i++){/*addons*/
-    for(int q = 0; q < 4; q++){/* original*/
-      if(courses[i].getCourseName() == courses[q].getCourseName()){
-        for(int w = 0; w < 5; w++){
-          courses[q].setStudent
-        }
-      }
-    }
-  }
+  
 
   
 
@@ -312,5 +308,5 @@ for(int i = 0; i < 6; i++){
   
   
 
-  //student.push_back(Student(sid, sName, sScore)
+  
 } 
