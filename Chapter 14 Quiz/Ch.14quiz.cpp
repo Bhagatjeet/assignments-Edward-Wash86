@@ -32,10 +32,8 @@ class Student{
       } else if (score >= 60) {
         grade = 'D';
       } else if (score < 60) {
-        grade = 'F';
-      } else if (score == 0){
         grade = 'W';
-      }
+      } 
     }
     void setID(int id){
       ID = id;
@@ -252,7 +250,7 @@ int main() {
   fstream courseFile, addStudent;
 
 
-  Course courses[4];
+  Course courses[6];
 
   //name, semester, numOfCredits
   //Course CS1("CS1", "Fall 2021",4);
@@ -268,40 +266,51 @@ int main() {
     courseFile >> courses[i];
   }
 
-  for(int i = 0; i < 4; i++){
-    cout << courses[i];
+  
+
+  
+  //Course class - courseName, credits, vector students
+  //File pattern courseName, number of students, sid, sname, letter grade, score
+
+  addStudent.open("addstudent.txt", ios :: in);
+  string courseName, sName;
+  int students,sid;
+  char grade;
+  double score;
+
+  
+  for(int q = 4; q < 6; q++){
+    addStudent >> courseName;
+    addStudent >> students;
+    courses[q].setCourseName(courseName);
+    for(int i = 0; i < students; i++){
+      addStudent >> sid;
+      addStudent >> sName;
+      addStudent >> grade;
+      addStudent >> score;
+      courses[q].setStudentFile(sid, sName, score);
+    }
   }
 
-  Course addons[6];
+  addStudent.close();
 
-  addStudent.open("addstudents.txt", ios::in);
-  while(!addStudent.eof()){
-    int i = 0;
-    string name,sName;
-    int students,sid;
-    
-
-    double score;
-    addStudent >> name;
-    addons[i].setCourseName(name);
-    addStudent >> students;
-    for(int i = 0; i < sizeof(courses); i++){
-      for(int q = 0; i < sizeof(addons); i++){
-        if(addons[i].getCourseName() == courses[i].getCourseName()){
-          addStudent >> sid;
-          addStudent >> sName
-          for(int w = 0; w < students; w++){
-            courses[i].setStudentFile(sid,sName,score);
-          }
+  for(int i = 4; i < 6; i++){/*addons*/
+    for(int q = 0; q < 4; q++){/* original*/
+      if(courses[i].getCourseName() == courses[q].getCourseName()){
+        for(int w = 0; w < 5; w++){
+          courses[q].setStudent
         }
       }
     }
-    i++;
   }
 
-  cout << "ADDON LIST:" << endl;
+  
 
-  for(int i = 0; i < sizeof(addons); i++){
-    cout << addons[i];
+for(int i = 0; i < 6; i++){
+    cout << courses[i];
   }
+  
+  
+
+  //student.push_back(Student(sid, sName, sScore)
 } 
