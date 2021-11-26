@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 #include <fstream>
-#include "Students.hpp"
-#include "Course.hpp"
+#include "14.Students.hpp"
+#include "14.Course.hpp"
 
 using namespace std;
 
@@ -14,7 +14,10 @@ static int POS;
 void operator>>(fstream& IMPORT, Course& array){
   
   
-  IMPORT.open("CourseStudents.txt", ios:: in);
+  IMPORT.open("Ch.14.Quiz/CourseStudents.txt", ios:: in);
+  if(!IMPORT){
+    cout << "Error 1" << endl;
+  }
   
   string name, semester;
   int credits, numberOfStudents, sid;
@@ -75,7 +78,7 @@ int main() {
   fstream courseFile, addStudent;
 
 
-  Course courses[6];
+  Course courses[4];
 
   //name, semester, numOfCredits
   //Course CS1("CS1", "Fall 2021",4);
@@ -92,7 +95,12 @@ int main() {
   }
   
 
-  addStudent.open("addstudent.txt", ios :: in);
+  addStudent.open("Ch.14.Quiz/addstudent.txt", ios :: in);
+
+  if(!addStudent){
+      cout << "Error 2" << endl;
+    }
+
   string courseName, sName;
   int students,sid;
   char grade;
