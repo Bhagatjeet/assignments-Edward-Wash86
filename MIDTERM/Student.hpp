@@ -1,7 +1,7 @@
 #ifndef 	STUDENT_H
 #define 	STUDENT_H
 
-#include <fstream>
+
 #include <string>
  
 class Student{
@@ -10,23 +10,26 @@ class Student{
     string name;
     vector <double> score;
   public:
-    Student();
+    Student(){
+      ID = 0;
+      name = "No Data";
+    };
 
-    Student(int sID, string sName, double q){
+    Student(int sID, string sName, vector <int> & E){
       ID = sID;
       name = sName;
-      for(int i = 0; sizeof(q); i++){
-        score.setScore(q[i]);
+      for(int i = 0; sizeof(E); i++){
+        score.push_back(E[i]);
       }
     }
     void setScores(double q){
       score.push_back(q);
     };
-  }
+    
     void getScores(){
-      for(int i = 0; i < sizeof(score); i++){
-        cout << "Score " << i << ": " << score[i] << endl;
-      }
+      for(int i = 0; i < score.size(); i++){
+       cout << "Score " << i << " : " << score[i];
+      };
     };
   
 };
