@@ -48,17 +48,18 @@ class NumClass{
       }
     }
 
-    int operator>(const NumClass&){
+    int operator>(const NumClass& n){
       int sum1 = 0, sum2 = 0;
-      for(int i = 0; i < values.size(); i++){
+      for(int i = 0; i < n.values.size(); i++){
         sum1+= this -> values[i];
-        sum2 += values[i];
+        sum2 += n.values[i];
       }
       cout << "sum1: " << sum1 << " " << "sum2: " << sum2 << endl;
       cout << "If the result is: 1, sum1 is larger." << endl;
       cout << "If the result is: 0, sum1 is not larger." << endl;
       return sum1 > sum2;
     } 
+
 
     friend void printNumbers(NumClass n){
       n.printVector();
