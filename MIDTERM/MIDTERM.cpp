@@ -1,5 +1,5 @@
 #include <iostream>
-#include "numbers.hpp"
+#include "Numbers.hpp"
 #include "Student.hpp"
 #include <vector>
 #include <fstream>
@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int NumClass::NumberOfOjgects = 0;
+int NumClass::NumberOfObjects = 0;
 static int POS;
 
 const int N = 10;
@@ -15,7 +15,7 @@ const int N = 10;
 void operator>>(fstream& IMPORT, Student& array){
   
   
-  IMPORT.open("Students.txt", ios :: in);
+  IMPORT.open("MIDTERM/Students.txt", ios :: in);
 
    
   int sid;
@@ -66,6 +66,7 @@ ostream& operator<<(ostream& COUT, Student& E){
 
 void binarySearch(Student array[], int, int);
 void bubbleSortbyScores(Student [], int );
+void bubbleSortbyID(Student [], int );
 
 int main() {
   cout << "Question 1: " << endl;
@@ -91,7 +92,7 @@ int main() {
 
   cout << "Result: " << ben << endl;
 
-  edward.getNumberOfObjects();
+  cout << "Total Number of Objects: " << adriana.getNumberOfObjects() << endl;
 
   cout << "======================================================" << endl;
   cout << endl;
@@ -117,12 +118,15 @@ int main() {
   bubbleSortbyScores(person, N);
 
   cout << endl;
-  cout << "Bubble Sort: " << endl;
+  cout << endl;
+  cout << "Bubble Sort(Decending Order): " << endl;
   for(int i = 0; i < N; i++){
-    cout << person[i];
+    cout << i + 1 << "."; 
+    cout << person[i] << endl;
   }
 
-  cout << endl;
+  bubbleSortbyID(person, N);
+
   cout << endl;
   cout << "Please enter the ID number of the student you would like to find: ";
   int ID;
@@ -132,14 +136,14 @@ int main() {
 
 void binarySearch(Student array[], int N, int target){
   bool found = false;
-  int first = 0;
-  int mid = 0;
-  int last = N;
+  int first = 0;//first elemnt
+  int mid;// middle element
+  int last = N; //Last element
   int result;
 
   while(first <= last && !found){
     mid = (first + last) / 2;
-
+      //10001111 > 10007777
     if(target > array[mid].getID()){
       first = mid + 1;
     }
@@ -153,13 +157,17 @@ void binarySearch(Student array[], int N, int target){
       
 
     }
+    cout << "Result: "<< mid << " ";
   } 
 
-  cout << array[result];
+  cout << array[mid];
+  
   if(!found){
     result = -1;
 
   }
+
+  
 
   
 }
@@ -169,6 +177,19 @@ void bubbleSortbyScores(Student E[], int N){
     for(int q = 0; q < N; q++){
       Student temp;
       if(E[i].getTotalSum() > E[q].getTotalSum()){
+        temp = E[i];
+        E[i] = E[q];
+        E[q] = temp;
+      }
+      
+    }
+  }
+}
+void bubbleSortbyID(Student E[], int N){
+  for(int i = 0; i < N; i++){
+    for(int q = 0; q < N; q++){
+      Student temp;
+      if(E[i].getID() < E[q].getID()){
         temp = E[i];
         E[i] = E[q];
         E[q] = temp;

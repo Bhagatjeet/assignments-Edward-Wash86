@@ -10,16 +10,16 @@ class NumClass{
   private:
     int ID;
     vector <unsigned int> values;
-    static int NumberOfOjgects;
+    static int NumberOfObjects;
   public:
     static int getNumberOfObjects(){
-      return NumberOfOjgects;
+      return NumberOfObjects;
     }
 
     NumClass(){
       ID = 0;
       cout << "Object " << ID << " no data" << endl;
-      NumberOfOjgects += 1;
+      NumberOfObjects += 1;
     }
 
     NumClass(int i, int n){
@@ -28,7 +28,7 @@ class NumClass{
       for(int i = 0; i < n; i++){
         values.push_back(rand() % 99);
       }
-      NumberOfOjgects += 1;
+      NumberOfObjects += 1;
     }
 
     int getID(){
