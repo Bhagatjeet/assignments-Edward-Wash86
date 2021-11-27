@@ -15,12 +15,15 @@ const int N = 10;
 void operator>>(fstream& IMPORT, Student& array){
   
   
-  IMPORT.open("CourseStudents.txt", ios:: in);
-  
+  IMPORT.open("Students.txt", ios :: in);
+
+   
   int sid;
   string name;
   double temp;
   vector <double> scores;
+
+  IMPORT.seekg(POS);
   
   
   
@@ -31,10 +34,18 @@ void operator>>(fstream& IMPORT, Student& array){
       scores.push_back(temp);
     }
 
-    for(int i = 0; i < N; i++){
-      array.setScore();
-    }
+    //for(int i = 0; i < N; i++){
+      array.setID(sid);
+      array.setName(name);
+      for(int q  = 0; q < 3; q++){
+        array.setScores(scores[q]);
+      }
+    //}
+
   
+  
+  POS = IMPORT.tellg();
+  POS += 1;
     
   
   IMPORT.close();
@@ -44,6 +55,17 @@ void operator>>(fstream& IMPORT, Student& array){
   
 
 }
+
+ostream& operator<<(ostream& COUT, Student& E){
+  COUT << endl;
+  COUT << E.getID() << " ";
+  COUT << E.getName() << " ";
+  COUT << E.getTotalSum() << " ";
+  return COUT;
+}
+
+void binarySearch(Student array[], int, int);
+void bubbleSortbyScores(Student [], int );
 
 int main() {
   cout << "Question 1: " << endl;
@@ -80,34 +102,78 @@ int main() {
 
   fstream import;
 
-  import.open("Students.txt", ios :: in);
-
-  cout << endl;
-
   if(import){
     cout << "File access, Successful!" << endl;
   } else cout << "Failed to open file." << endl;
 
+  int e = 0;
+
+  while(e < N){
+    import >> person[e];
+    cout << person[e];
+    e++;
+  }
+
+  bubbleSortbyScores(person, N);
+
+  cout << endl;
+  cout << "Bubble Sort: " << endl;
+  for(int i = 0; i < N; i++){
+    cout << person[i];
+  }
+
+  cout << endl;
+  cout << endl;
+  cout << "Please enter the ID number of the student you would like to find: ";
   int ID;
-  string name;
-  double test;
-  vector <double> scores;
+  cin >> ID;
+  binarySearch(person, N, ID);
+} 
 
-  while(!import.eof()){
-    import >> ID;
-    import >> name;
-    
-    for(int i = 0; i < 3; i++){
-      import >> test;
-      scores.push_back(test);
-    }
+void binarySearch(Student array[], int N, int target){
+  bool found = false;
+  int first = 0;
+  int mid = 0;
+  int last = N;
+  int result;
 
-    for(int i = 0; i < N; i++){
-      person(ID,name,scores);
+  while(first <= last && !found){
+    mid = (first + last) / 2;
+
+    if(target > array[mid].getID()){
+      first = mid + 1;
     }
+    else if(target < array[mid].getID()){
+      last = mid - 1;
+    }
+    else {
+
+      found = true;
+      result = mid;
+      
+
+    }
+  } 
+
+  cout << array[result];
+  if(!found){
+    result = -1;
 
   }
 
-
   
-} 
+}
+
+void bubbleSortbyScores(Student E[], int N){
+  for(int i = 0; i < N; i++){
+    for(int q = 0; q < N; q++){
+      Student temp;
+      if(E[i].getTotalSum() > E[q].getTotalSum()){
+        temp = E[i];
+        E[i] = E[q];
+        E[q] = temp;
+      }
+      
+    }
+  }
+}
