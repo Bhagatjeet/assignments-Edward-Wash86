@@ -54,9 +54,11 @@ class NumClass{
         sum1+= this -> values[i];
         sum2 += n.values[i];
       }
+
       cout << "sum1: " << sum1 << " " << "sum2: " << sum2 << endl;
       cout << "If the result is: 1, sum1 is larger." << endl;
       cout << "If the result is: 0, sum1 is not larger." << endl;
+
       return sum1 > sum2;
     } 
 

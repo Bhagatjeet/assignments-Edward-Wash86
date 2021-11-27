@@ -8,8 +8,14 @@ class Student{
     int ID;
     string name;
     double score[3];
+  public:
+  void getScores(){
+    for(int i = 0; i < sizeof(score); i++){
+      //cout << ""
+    }
+  };
   
-}
+};
 
 #endif
 
