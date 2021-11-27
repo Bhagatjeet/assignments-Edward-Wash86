@@ -3,14 +3,47 @@
 #include "Student.hpp"
 #include <vector>
 #include <fstream>
+#include <string>
 
 using namespace std;
 
 int NumClass::NumberOfOjgects = 0;
+static int POS;
 
 const int N = 10;
 
+void operator>>(fstream& IMPORT, Student& array){
+  
+  
+  IMPORT.open("CourseStudents.txt", ios:: in);
+  
+  int sid;
+  string name;
+  double temp;
+  vector <double> scores;
+  
+  
+  
+    IMPORT >> sid;
+    IMPORT >> name;
+    for(int i = 0; i < 3; i++){
+      IMPORT >> temp;
+      scores.push_back(temp);
+    }
 
+    for(int i = 0; i < N; i++){
+      array.setScore();
+    }
+  
+    
+  
+  IMPORT.close();
+
+    
+  
+  
+
+}
 
 int main() {
   cout << "Question 1: " << endl;
@@ -43,7 +76,7 @@ int main() {
 
   cout << "Question 2: " << endl;
 
-  Student group[N];
+  Student person[N];
 
   fstream import;
 
@@ -54,6 +87,27 @@ int main() {
   if(import){
     cout << "File access, Successful!" << endl;
   } else cout << "Failed to open file." << endl;
+
+  int ID;
+  string name;
+  double test;
+  vector <double> scores;
+
+  while(!import.eof()){
+    import >> ID;
+    import >> name;
+    
+    for(int i = 0; i < 3; i++){
+      import >> test;
+      scores.push_back(test);
+    }
+
+    for(int i = 0; i < N; i++){
+      person(ID,name,scores);
+    }
+
+  }
+
 
   
 } 
