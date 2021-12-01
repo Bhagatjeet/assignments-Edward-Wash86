@@ -14,7 +14,8 @@ static int POS;
 void operator>>(fstream& IMPORT, Course& array){
   
   
-  IMPORT.open("Ch.14.Quiz/CourseStudents.txt", ios:: in);
+//   IMPORT.open("Ch.14.Quiz/CourseStudents.txt", ios:: in);
+  IMPORT.open("CourseStudents.txt", ios:: in);
   if(!IMPORT){
     cout << "Error 1" << endl;
   }
@@ -95,7 +96,8 @@ int main() {
   }
   
 
-  addStudent.open("Ch.14.Quiz/addstudent.txt", ios :: in);
+//   addStudent.open("Ch.14.Quiz/addstudent.txt", ios :: in);
+  addStudent.open("addstudent.txt", ios :: in);
 
   if(!addStudent){
       cout << "Error 2" << endl;
