@@ -1,3 +1,10 @@
+//
+//  main.cpp
+//  CS2
+//
+//  Created by Edward Washington on 11/30/21.
+//
+
 #include <iostream>
 #include <vector>
 
@@ -10,7 +17,7 @@ class Employee{
     string name;
     int employeeNumber;
   public:
-    employee(string n,int id, int date){
+    Employee(string n,int id, int date){
       name = n;
       employeeNumber = id;
       hireDate = date;
@@ -19,7 +26,7 @@ class Employee{
       name = n;
     }
     void setID(int id){
-      employeeNumber = id;  
+      employeeNumber = id;
     }
     void setHireDate(int date){
       hireDate = date;
@@ -28,7 +35,7 @@ class Employee{
       return name;
     }
     int getEmployeeID(){
-      return employeeNumber
+        return employeeNumber;
     }
     int getHireDate(){
       return hireDate;
@@ -45,13 +52,13 @@ class ProductionWorker : public Employee{
     ProductionWorker(string NAME, int ID, int hire) : Employee(NAME, ID, hire){
 
     }
-    ProductionWorker(int SHIFT, double pay, double hours){
-      shift = SHIFT;
-      hourlyPayRate = pay;
-      workingHours = hours;
-    }
+//    ProductionWorker(int SHIFT, double pay, double hours){
+//      shift = SHIFT;
+//      hourlyPayRate = pay;
+//      workingHours = hours;
+//    }
     void getSalary(){
-      hourlyPayRate * workingHours << endl;
+      cout << hourlyPayRate * workingHours;
     }
     int getShift(){
       return shift;
@@ -66,16 +73,18 @@ class ProductionWorker : public Employee{
       cout << "Name: " << name;
       cout << "ID number: " << employeeNumber << endl;
       cout << "Hire Date: " << getHireDate() << endl;
-      cout << "Shift: " << getShift << endl;
-      cout << "Hourly Wage: " << getHourlyRate << endl;
-      cout << "Hourd worked: " << getWorkHours << endl;
-      cout << "Salary: " << getSalary << endl;
+      cout << "Shift: " << getShift() << endl;
+      cout << "Hourly Wage: " << getHourlyRate() << endl;
+      cout << "Hourd worked: " << getWorkHours() << endl;
+        
+        cout << "Salary: ";
+        getSalary();
     }
 };
 
 int main() {
-  ProductionWorker temp("Edward", 1001,08082019);
-  ProductionWorker temp(2,35.98,49.7);
+  ProductionWorker temp("Edward", 1001,2019);
+  //ProductionWorker temp(2,35.98,49.7);
 
   temp.pringInformation();
 
