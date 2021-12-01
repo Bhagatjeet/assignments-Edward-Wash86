@@ -79,7 +79,7 @@ class ProductionWorker : public Employee{
       workingHours = hours;
     }
     void pringInformation(){
-      cout << "Name: " << name;
+      cout << "Name: " << name << endl;
       cout << "ID number: " << employeeNumber << endl;
       cout << "Hire Date: " << getHireDate() << endl;
       cout << "Shift: " << getShift() << endl;
