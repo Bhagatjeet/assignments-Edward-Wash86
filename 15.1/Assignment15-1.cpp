@@ -69,6 +69,15 @@ class ProductionWorker : public Employee{
     double getWorkHours(){
       return workingHours;
     }
+    void setHourly(double pay){
+      hourlyPayRate = pay;
+    }
+    void setShift(int SHIFT){
+      shift = SHIFT;
+    }
+    void setWorkHours(double hours){
+      workingHours = hours;
+    }
     void pringInformation(){
       cout << "Name: " << name;
       cout << "ID number: " << employeeNumber << endl;
@@ -85,6 +94,10 @@ class ProductionWorker : public Employee{
 int main() {
   ProductionWorker temp("Edward", 1001,2019);
   //ProductionWorker temp(2,35.98,49.7);
+
+  temp.setHourly(56.67);
+  temp.setShift(1);
+  temp.setWorkHours(67.8);
 
   temp.pringInformation();
 
