@@ -101,4 +101,15 @@ int main() {
 
   temp.pringInformation();
 
+//added code for couriossity
+
+temp.setShift(2);
+
+if(temp.getShift() == 2){
+  temp.setHourly(temp.getHourlyRate() * 1.5);
+} 
+
+cout << endl << endl;
+temp.pringInformation();
+
 }
