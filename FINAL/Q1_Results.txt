@@ -1,4 +1,6 @@
 Q1 Results:
+proud moment: I used a global string variable to allow the user to have the option to search different text files with out having to playaround with the back end to get it to work. 
+
 using "CourseSet1":
 
 Enter a ID number: 66776
@@ -20,4 +22,10 @@ Recursive Search Found:
 
 Iterative Search Found: 
 66776 Paint 10
+
+
+using "CourseSet2":
+
+
+using "CourseSet3":
 
