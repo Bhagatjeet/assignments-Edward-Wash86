@@ -19,7 +19,7 @@ Implement the full source program and show the results with the various test dat
 
 #include <iostream>
 #include <fstream>
-#include "Course.hpp"
+#include "Course.cpp"
 
 Course recursiveBinarySearch(int , Course array[], int , int );
 Course iterativeBinarySearch(Course array[], int, int);
@@ -35,7 +35,7 @@ void operator>>(fstream& FILE_IN, Course& array){
   string name;
   int credit;
   
-  FILE_IN.open("CourseSet1.txt", ios :: in);
+  FILE_IN.open("FINAL/CourseSet1.txt", ios :: in);
 
   FILE_IN.seekg(POS);
 
