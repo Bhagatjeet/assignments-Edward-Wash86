@@ -19,7 +19,7 @@ Implement the full source program and show the results with the various test dat
 
 #include <iostream>
 #include <fstream>
-#include "Course.cpp"
+#include "Course.hpp"
 
 Course recursiveBinarySearch(int , Course array[], int , int );
 Course iterativeBinarySearch(Course array[], int, int);
@@ -35,7 +35,7 @@ void operator>>(fstream& FILE_IN, Course& array){
   string name;
   int credit;
   
-  FILE_IN.open("FINAL/CourseSet1.txt", ios :: in);
+  FILE_IN.open("CourseSet2.txt", ios :: in);
 
   FILE_IN.seekg(POS);
 
@@ -122,7 +122,10 @@ Course recursiveBinarySearch(int target, Course array[], int first, int last){
     else 
       retry = recursiveBinarySearch(target, array, middle + 1, last);
 
-  }   
+  }  
+
+  
+
   return retry;
 }
 //Notes: This algorithim takes the array/vector and cuts it in half and begins to search the half the the target should reside, this splitting method will continue until the target vale has been pinpointed. This recursive method recalls itself with modified peramiters to search the section that the target reside and will repeat this process target has been found. If the target is not in the array/vector the function will return a value that will indicate that the value could not be found.
@@ -140,9 +143,11 @@ Course iterativeBinarySearch(Course array[], int N, int target){
       first = mid + 1;
     else if(target < array[mid].getID())
       last = mid - 1;
-    else 
+    else if(target == array[mid].getID()) {
       found = true;
-      result = array[first];
+      result = array[mid];
+    }
+    //else return result;
   }
   return result;
 

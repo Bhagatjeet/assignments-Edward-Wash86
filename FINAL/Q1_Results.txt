@@ -1,0 +1,23 @@
+Q1 Results:
+using "CourseSet1":
+
+Enter a ID number: 66776
+
+Data Set Information: 
+10001 Areo-Fabrication 5 
+11045 Milling 1 
+12309 Tire-Compund-Studies 102 
+19087 Turbo-Installation 9 
+45039 Body-Working 3 
+46732 Suspension-Engineering 45 
+52663 Saftey-Sub-Structure 59 
+66776 Paint 10 
+77626 Wheel-Design 88 
+89565 Exhaust-Fabrication 4 
+
+Recursive Search Found: 
+66776 Paint 10 
+
+Iterative Search Found: 
+66776 Paint 10
+
