@@ -76,26 +76,27 @@ int main() {
   cout << "Search file: ";
   cin >> selection;
 
+  cout << endl;
+
   switch(selection){
     case 1: fileName = "FINAL/CourseSet1.txt";
-            cout << "   Searching CourseSet1.txt" << endl;
+            cout << "Searching CourseSet1.txt" << endl;
             break;
     case 2: fileName = "FINAL/CourseSet2.txt";
-            cout << "   Searching CourseSet2.txt" << endl;
+            cout << "Searching CourseSet2.txt" << endl;
             break;
     case 3: fileName = "FINAL/CourseSet3.txt";
-            cout << "   Searching CourseSet3.txt" << endl;
+            cout << "Searching CourseSet3.txt" << endl;
             break;
-    default: cout << "    File selection is not valid." << endl;
+    default: cout << "File selection is not valid." << endl;
   }
 
 
   int find;
-  cout << "   Enter a ID number: ";
-  cin >> find;
+  
   cout << endl;
 
-  cout << "Data Set Information: " << endl;
+  cout << "Course ID List: " << endl;
   for(int i = 0; i < COURSES; i++){
     FILE_IN >> lessons[i];
     
@@ -105,8 +106,11 @@ int main() {
 
   for(int i = 0; i < COURSES; i++){
     
-    cout << lessons[i] << endl;
+    cout << lessons[i].getID() << endl;
   }
+
+  cout << "Enter a ID number to get course details: ";
+  cin >> find;
   
   // int numbers[] = {2,4,5,7,8,9,10,15,16,90,105};
    int size = sizeof(lessons)/sizeof(lessons[0]);

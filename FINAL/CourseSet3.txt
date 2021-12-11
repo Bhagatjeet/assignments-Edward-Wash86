@@ -1,0 +1,10 @@
+990 Snacks_Studies 100
+675 Video_Studies 50
+485 Social_Studies 96
+909 Rock_Shoes_Theory 1000
+787 SpoungeBob_economics 589
+448 GYM 78
+123 Public_Speaking 5
+564 Performance_Driving 99
+452 Time_Attack_Challenge 567
+001 Drift_Methods 1100
