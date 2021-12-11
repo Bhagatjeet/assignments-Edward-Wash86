@@ -7,12 +7,49 @@ Implement the full source program and show the results with the various test dat
 
 #include <iostream>
 #include <fstream>
-#include "Course.hpp"
+#include "Course.cpp"
 
 int partition (Course array[], int , int );
 void quickSort(Course array[], int, int );
 void swap(int* a, int* b);
 void displayArray(Course arr[], int size);
+
+static int POS;
+static string fileName;
+const int COURSES = 10;
+
+void operator>>(fstream& FILE_IN, Course& array){
+  int id;
+  string name;
+  int credit;
+  
+  FILE_IN.open(fileName, ios :: in);
+
+  FILE_IN.seekg(POS);
+
+  FILE_IN >> id;
+  FILE_IN >> name;
+  FILE_IN >> credit;
+
+  array.setID(id);
+  array.setName(name);
+  array.setCredit(credit);
+
+  POS = FILE_IN.tellg();
+  POS += 1;
+
+  FILE_IN.close();
+  
+}
+
+ostream& operator<<(ostream& COUT, Course& LESSONS){
+  COUT << LESSONS.getID() << " ";
+  COUT << LESSONS.getName() << " ";
+  COUT << LESSONS.getCredit() << " ";
+  return COUT;
+}
+
+using namespace std;
 
 int main() {
 
@@ -31,13 +68,13 @@ int main() {
   cout << endl;
 
   switch(selection){
-    case 1: fileName = "CourseSet1.txt";
+    case 1: fileName = "FINAL/CourseSet1.txt";
             cout << "Sorting CourseSet1.txt" << endl;
             break;
-    case 2: fileName = "CourseSet2.txt";
+    case 2: fileName = "FINAL/CourseSet2.txt";
             cout << "Sorting CourseSet2.txt" << endl;
             break;
-    case 3: fileName = "CourseSet3.txt";
+    case 3: fileName = "FINAL/CourseSet3.txt";
             cout << "Sorting CourseSet3.txt" << endl;
             break;
     default: cout << "File selection is not valid." << endl;
@@ -66,7 +103,7 @@ void swap(Course* a, Course* b)
 } 
 
 // partition the array using last element as pivot
-int partition (Course array, int low, int high) 
+int partition (Course array[], int low, int high) 
 { 
     int pivot = array[high].getID();    // pivot 
     int i = (low - 1);   
