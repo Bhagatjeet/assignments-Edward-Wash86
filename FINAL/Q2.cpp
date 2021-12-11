@@ -57,3 +57,31 @@ int main() {
   displayArray(lessons,n);
   
 } 
+
+void swap(Course* a, Course* b) 
+{ 
+    Course t = *a; 
+    *a = *b; 
+    *b = t; 
+} 
+
+// partition the array using last element as pivot
+int partition (Course array[], int low, int high) 
+{ 
+    int pivot = array[high].getID();    // pivot 
+    int i = (low - 1);   
+   
+    for (int j = low; j <= high- 1; j++) 
+    { 
+        //if current element is smaller than pivot, increment the low element
+        //swap elements at i and j
+        if (array[j].getID() <= pivot) 
+        { 
+            i++;    // increment index of smaller element 
+            swap(&array[i], &array[j]); 
+        } 
+    } 
+    swap(&array[i + 1], &array[high]); 
+  return (i + 1); 
+} 
+
