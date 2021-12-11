@@ -56,7 +56,7 @@ void operator>>(fstream& FILE_IN, Course& array){
 }
 
 ostream& operator<<(ostream& COUT, Course& LESSONS){
-  COUT << LESSONS.getID() << " ";
+  COUT << << LESSONS.getID() << " ";
   COUT << LESSONS.getName() << " ";
   COUT << LESSONS.getCredit() << " ";
   return COUT;
