@@ -66,7 +66,7 @@ void swap(Course* a, Course* b)
 } 
 
 // partition the array using last element as pivot
-int partition (Course array[], int low, int high) 
+int partition (Course array, int low, int high) 
 { 
     int pivot = array[high].getID();    // pivot 
     int i = (low - 1);   
@@ -85,3 +85,25 @@ int partition (Course array[], int low, int high)
   return (i + 1); 
 } 
 
+void quickSort(Course array, int low, int high) 
+{ 
+    if (low < high) 
+    { 
+        //partition the array 
+        int pivot = partition(array, low, high); 
+   
+        //sort the sub arrays independently 
+        quickSort(array, low, pivot - 1);
+         
+        quickSort(array, pivot + 1, high);
+        
+    } 
+} 
+
+void displayArray(Course array[], int size) 
+{ 
+    int i; 
+    for (i=0; i < size; i++) 
+        cout << array[i] << endl; 
+      
+} 
