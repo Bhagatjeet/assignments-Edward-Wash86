@@ -122,7 +122,7 @@ int partition (Course array[], int low, int high)
   return (i + 1); 
 } 
 
-void quickSort(Course array, int low, int high) 
+void quickSort(Course *array, int low, int high) 
 { 
     if (low < high) 
     { 
