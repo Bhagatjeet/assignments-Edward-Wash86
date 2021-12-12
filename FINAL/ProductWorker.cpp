@@ -12,3 +12,11 @@ ProductWorker :: ProductWorker(string name, int id, string hired, int SHIFT, dou
   shift = SHIFT;
   hourlyPayRate = pay;
 };
+
+void ProductWorker :: setShift(int SHIFT){
+  shift = SHIFT;
+}
+
+void ProductWorker :: setPay(double pay){
+  hourlyPayRate = pay;
+}
