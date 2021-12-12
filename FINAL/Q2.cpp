@@ -92,6 +92,8 @@ int main() {
   quickSort(lessons, 0, n-1);
   
   displayArray(lessons,n);
+
+  cout << "To View the Recursion-Call hierarchy: Q2.draw" << endl;
   
 } 
 
@@ -105,21 +107,19 @@ void swap(Course* a, Course* b)
 // partition the array using last element as pivot
 int partition (Course array[], int low, int high) 
 { 
-    int pivot = array[high].getID();    // pivot 
-    int i = (low - 1);   
-   
-    for (int j = low; j <= high- 1; j++) 
-    { 
-        //if current element is smaller than pivot, increment the low element
-        //swap elements at i and j
-        if (array[j].getID() <= pivot) 
-        { 
-            i++;    // increment index of smaller element 
-            swap(&array[i], &array[j]); 
-        } 
-    } 
-    swap(&array[i + 1], &array[high]); 
-  return (i + 1); 
+  int pIndex = low;
+  int pivot = array[high].getID();
+  int i;
+  for(i = low; i < high; i++)
+  {
+      if(array[i].getID() < pivot)
+      {
+          swap(&array[i], &array[pIndex]);
+          pIndex++;
+      }
+  }
+  swap(&array[high], &array[pIndex]);
+  return pIndex;  
 } 
 
 void quickSort(Course *array, int low, int high) 
