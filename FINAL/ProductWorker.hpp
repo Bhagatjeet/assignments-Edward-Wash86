@@ -12,25 +12,14 @@ class ProductWorker : public Employee{
     double hourlyPayRate;
   public:
     ProductWorker() : Employee(){
-      shift = 0;
-      hourlyPayRate = 0;
+      // shift = 0;
+      // hourlyPayRate = 0;
     };
-    ProductWorker(string name, int id, string hired, int SHIFT, double pay) : Employee(name,id,hired){
-      shift = SHIFT;
-      hourlyPayRate = pay;
-    };
-    void setShift(int SHIFT){
-      shift = SHIFT;
-    };
-    void setPay(double money){
-      hourlyPayRate = money;
-    };
-    int getShift(){
-      return shift;
-    };
-    double getPay(){
-      return hourlyPayRate;
-    };
+    
+    void setShift(int SHIFT);
+    void setPay(double money);
+    int getShift();
+    double getPay();
   friend class Employee;  
   friend ostream& operator<<(ostream& COUT, ProductWorker& worker);
     
