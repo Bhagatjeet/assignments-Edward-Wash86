@@ -41,7 +41,7 @@ class ProductWorker : public Employee{
 
     void
 
-    friend class Employee;
+    
 };
 
 

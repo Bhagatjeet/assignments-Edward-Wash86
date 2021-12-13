@@ -4,8 +4,6 @@
 
 using namespace std;
 
-void findHighestPaid(ProductWorker &array);
-void bubbleSortbyID(ProductWorker *array[], int N);
 void findHighestPaid(ProductWorker *);
 
 static int POS;
@@ -84,10 +82,3 @@ ProductWorker findHighesPaid(ProductWorker *array){
   
   return max;
 }
-
-
-
-
-  
-
-
