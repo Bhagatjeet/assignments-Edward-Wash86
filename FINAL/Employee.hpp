@@ -18,7 +18,8 @@ class Employee{
     int getID();
     string getHired(); 
 
-    //friend class ProductWorker;
+    friend class ProductWorker;
+    
 };
 
 //friend class ProductWorker;

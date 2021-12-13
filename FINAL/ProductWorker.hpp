@@ -31,8 +31,8 @@ class ProductWorker : public Employee{
     double getPay(){
       return hourlyPayRate;
     };
-    
-  friend ProductWorker findHighesPaid(ProductWorker *);
+  friend class Employee;  
+  friend ostream& operator<<(ostream& COUT, ProductWorker& worker);
     
 };
 
