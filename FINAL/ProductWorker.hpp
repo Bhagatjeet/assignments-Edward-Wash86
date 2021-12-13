@@ -1,7 +1,7 @@
 #ifndef PRODUCTWORKER_H
 #define PRODUCTWORKER_H
 
-#include "employee.hpp"
+#include "Employee.hpp"
 
 
 using namespace std;
@@ -31,16 +31,8 @@ class ProductWorker : public Employee{
     double getPay(){
       return hourlyPayRate;
     };
-    void printData(){
-      cout << "Name: " << employeeName << endl;
-      cout << "ID number: " << employeeNumber << endl;
-      cout << "Hire Date: " << hireDate << endl;
-      cout << "Shift: " << shift << endl;
-      cout << "Pay: " << hourlyPayRate << endl;
-    }
-
-    void
-
+    
+  friend ProductWorker findHighesPaid(ProductWorker *);
     
 };
 

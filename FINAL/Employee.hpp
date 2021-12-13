@@ -4,19 +4,23 @@
 using namespace std;
 
 class Employee{
-  private:
+  protected:
     string employeeName;
     int employeeNumber;
     string hireDate;
   public:
     Employee();
-    Employee(String name, int id, int hired)
+    Employee(string name, int id, string hired);
     void setName(string name);
     void setID(int id);
-    void setHired(int hired);
+    void setHired(string hired);
     string getName();
     int getID();
-    int getHired(); 
-}
+    string getHired(); 
+
+    //friend class ProductWorker;
+};
+
+//friend class ProductWorker;
 
 #endif
