@@ -9,7 +9,7 @@ using namespace std;
 class ProductWorker : public Employee{
   private:
     int shift;
-    double hourlyPayRate;
+    double *hourlyPayRate;
   public:
     ProductWorker() : Employee(){
       // shift = 0;
