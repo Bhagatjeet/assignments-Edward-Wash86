@@ -23,11 +23,10 @@ ostream& operator<<(ostream& COUT, ProductWorker& worker){
   return COUT;
 }
 
-double operator > (const ProductWorker &, const ProductWorker &Q){
-  double pay1 = 0, pay2 = 0;
-  pay1 = this -> getPay();
+double operator > (const ProductWorker &Q){
+  double pay1, pay2;
+  pay1 = this -> .getPay();
   pay2 = Q.getPay();
-  return pay1 > pay2;
 }
 
 void HighestPaid(ProductWorker *array){

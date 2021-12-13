@@ -7,7 +7,7 @@
 using namespace std;
 
 class ProductWorker : public Employee{
-  private:
+ protected:
     int shift;
     double *hourlyPayRate;
   public:
