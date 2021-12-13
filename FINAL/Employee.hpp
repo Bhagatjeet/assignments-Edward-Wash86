@@ -19,7 +19,7 @@ class Employee{
     string getHired(); 
 
     friend class ProductWorker;
-    
+    //friend ostream& operator<<(ostream& COUT, ProductWorker& worker);
 };
 
 //friend class ProductWorker;

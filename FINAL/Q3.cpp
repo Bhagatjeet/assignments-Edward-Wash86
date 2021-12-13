@@ -1,82 +1,82 @@
 #include <iostream>
 #include <fstream>
-//#include "ProductWorker.hpp"
-
+#include "ProductWorker.hpp"
+#include "Employee.cpp"
 using namespace std;
 
-class Employee{
-  protected:
-    string employeeName;
-    int employeeNumber;
-    string hireDate;
-  public:
-      Employee(){
-      employeeName = "No data";
-      employeeNumber = 0;
-      hireDate = "No Data";
-    };
+// class Employee{
+//   protected:
+//     string employeeName;
+//     int employeeNumber;
+//     string hireDate;
+//   public:
+//       Employee(){
+//       employeeName = "No data";
+//       employeeNumber = 0;
+//       hireDate = "No Data";
+//     };
 
-    Employee(string name, int id, string hired){
-      employeeName = name;
-      employeeNumber = id;
-      hireDate = hired;
-    };
+//     Employee(string name, int id, string hired){
+//       employeeName = name;
+//       employeeNumber = id;
+//       hireDate = hired;
+//     };
 
-    void setName(string name){
-      employeeName = name;
-    }
+//     void setName(string name){
+//       employeeName = name;
+//     }
 
-    void setID(int id){
-      employeeNumber = id;
-    }
+//     void setID(int id){
+//       employeeNumber = id;
+//     }
 
-    void setHired(string hired){
-      hireDate = hired;
-    }
+//     void setHired(string hired){
+//       hireDate = hired;
+//     }
 
-    string getName(){
-      return employeeName;
-    } 
+//     string getName(){
+//       return employeeName;
+//     } 
 
-    int getID(){
-      return employeeNumber;
-    }
+//     int getID(){
+//       return employeeNumber;
+//     }
 
-    string getHired(){
-      return hireDate;
-    }
+//     string getHired(){
+//       return hireDate;
+//     }
     
-};
+// };
 
-class ProductWorker : public Employee{
-  private:
-    int shift;
-    double hourlyPayRate;
-  public:
-    ProductWorker() : Employee(){
-      shift = 0;
-      hourlyPayRate = 0;
-    };
-    ProductWorker(string name, int id, string hired, int SHIFT, double pay) : Employee(name,id,hired){
-      shift = SHIFT;
-       hourlyPayRate = pay;
-    };
-    void setShift(int SHIFT){
-      shift = SHIFT;
-    };
-    void setPay(double money){
-      hourlyPayRate = money;
-    };
-    int getShift(){
-      return shift;
-    };
-    double getPay(){
-      return hourlyPayRate;
-    };
-    friend void HighestPaid(ProductWorker *);
+// class ProductWorker : public Employee{
+//   private:
+//     int shift;
+//     double hourlyPayRate;
+//   public:
+//     ProductWorker() : Employee(){
+//       shift = 0;
+//       hourlyPayRate = 0;
+//     };
+//     ProductWorker(string name, int id, string hired, int SHIFT, double pay) : Employee(name,id,hired){
+//       shift = SHIFT;
+//        hourlyPayRate = pay;
+//     };
+//     void setShift(int SHIFT){
+//       shift = SHIFT;
+//     };
+//     void setPay(double money){
+//       hourlyPayRate = money;
+//     };
+//     int getShift(){
+//       return shift;
+//     };
+//     double getPay(){
+//       return hourlyPayRate;
+//     };
+//     friend void HighestPaid(ProductWorker *);
  
     
-};
+// };
 
 
 
@@ -86,13 +86,20 @@ static double maxPay = 0;
 
 
 ostream& operator<<(ostream& COUT, ProductWorker& worker){
-  COUT << "Name: " << worker.getName() << endl;
-  COUT << "ID number: " << worker.getID()<< endl;
-  COUT << "Hire Date: " << worker.getHired()<< endl;
+  
   COUT << "Shift: " << worker.getShift()<< endl;
   COUT << "Pay: " << worker.getPay()<< endl;
   return COUT;
 }
+
+ostream& operator<<(ostream& COUT, Employee& worker){
+  
+  COUT << "Name: " << worker.getName() << endl;
+  COUT << "ID number: " << worker.getID()<< endl;
+  COUT << "Hire Date: " << worker.getHired()<< endl;
+  return COUT;
+}
+
 void HighestPaid(ProductWorker *array){
   ProductWorker Winner;
   for(int i = 0; i < 10; i++)
