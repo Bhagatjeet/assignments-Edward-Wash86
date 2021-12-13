@@ -1,7 +1,7 @@
 #ifndef PRODUCTWORKER_H
 #define PRODUCTWORKER_H
 
-#include "Employee.hpp"
+#include "Employee.cpp"
 
 
 using namespace std;
@@ -17,7 +17,7 @@ class ProductWorker : public Employee{
     };
     ProductWorker(string name, int id, string hired, int SHIFT, double pay) : Employee(name,id,hired){
       shift = SHIFT;
-       hourlyPayRate = pay;
+      hourlyPayRate = pay;
     };
     void setShift(int SHIFT){
       shift = SHIFT;

@@ -1,22 +1,30 @@
-// #include <iostream>
-// #include "productworker.hpp"
-// #include "employee.hpp"
+#include <iostream>
+#include "ProductWorker.hpp"
+#include "Employee.cpp"
 
 
-// using namespace std;
+using namespace std;
 
-// ProductWorker :: ProductWorker(string name, int id, string hired, int SHIFT, double pay) : Employee(name,id,hired){
-//   employeeName = name;
-//   employeeNumber = id;
-//   hireDate = hired;
-//   shift = SHIFT;
-//   hourlyPayRate = pay;
-// };
+ProductWorker :: ProductWorker(string name, int id, string hired, int SHIFT, double pay) : Employee(name,id,hired){
+  employeeName = name;
+  employeeNumber = id;
+  hireDate = hired;
+  shift = SHIFT;
+  hourlyPayRate = pay;
+};
 
-// void ProductWorker :: setShift(int SHIFT){
-//   shift = SHIFT;
-// }
+void ProductWorker :: setShift(int SHIFT){
+  shift = SHIFT;
+}
 
-// void ProductWorker :: setPay(double pay){
-//   hourlyPayRate = pay;
-// }
+void ProductWorker :: setPay(double pay){
+  hourlyPayRate = pay;
+}
+
+int ProductWorker :: getShift(){
+  return shift;
+};
+
+double ProductWorker :: getPay(){
+  return hourlyPayRate;
+};
