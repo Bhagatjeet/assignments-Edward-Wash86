@@ -9,7 +9,7 @@ using namespace std;
 class ProductWorker : public Employee{
  protected:
     int shift;
-    double *hourlyPayRate;
+    double hourlyPayRate;
   public:
     ProductWorker() : Employee(){
       // shift = 0;
@@ -22,6 +22,7 @@ class ProductWorker : public Employee{
     double getPay();
   friend class Employee;  
   friend ostream& operator<<(ostream& COUT, ProductWorker& worker);
+  friend double operator > (const ProductWorker &Q, const ProductWorker &F);
     
 };
 
