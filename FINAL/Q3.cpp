@@ -73,13 +73,17 @@ class ProductWorker : public Employee{
     double getPay(){
       return hourlyPayRate;
     };
-  friend class Employee;  
-  //friend ostream& operator<<(ostream& COUT, ProductWorker& worker);
+    friend void HighestPaid(ProductWorker *);
+ 
     
 };
 
+
+
 static int POS;
 static string fileName;
+static double maxPay = 0;
+
 
 ostream& operator<<(ostream& COUT, ProductWorker& worker){
   COUT << "Name: " << worker.getName() << endl;
@@ -89,7 +93,16 @@ ostream& operator<<(ostream& COUT, ProductWorker& worker){
   COUT << "Pay: " << worker.getPay()<< endl;
   return COUT;
 }
-
+void HighestPaid(ProductWorker *array){
+  ProductWorker Winner;
+  for(int i = 0; i < 10; i++)
+    if(array[i].getPay() > maxPay){
+      maxPay = array[i].getPay();
+      Winner = array[i];
+    }
+    
+ cout << Winner;
+}
 void operator>>(fstream& FILE_IN, ProductWorker& array){
   int number, SHIFT;
   string name, date;
@@ -139,8 +152,9 @@ int main() {
   //cout << temp[9] << endl;
   cout << "Highest Paid:" << endl;
   
-  
-  
+  HighestPaid(temp);
 } 
+
+
 
 
