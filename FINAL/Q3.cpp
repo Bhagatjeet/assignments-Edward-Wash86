@@ -24,6 +24,11 @@ ostream& operator<<(ostream& COUT, ProductWorker& worker){
 }
 
 double operator > (const ProductWorker &Q, const ProductWorker &F){
+  cout << Q.employeeName << "'s Pay: " << Q.hourlyPayRate << endl;
+  cout << F.employeeName << "'s Pay: " << F.hourlyPayRate;
+  cout << " " << endl;
+  cout << "If the result is: 1, " <<Q.employeeName << " is paid more." << endl;
+  cout << "If the result is: 0, " <<Q.employeeName << " is not paid more." << endl;
   return Q.hourlyPayRate > F.hourlyPayRate;
 }
 
@@ -84,10 +89,13 @@ int main() {
   }
 
   //cout << temp[9] << endl;
+
+  cout << endl;
   cout << "Highest Paid:" << endl;
   
   HighestPaid(temp);
-  int findings = temp[1] > temp[2];
+  cout << endl;
+  int findings = temp[6] > temp[2];
   cout << "Result: " << findings;
 } 
 
