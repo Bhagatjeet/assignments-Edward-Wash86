@@ -123,7 +123,7 @@ int partition (Course array[], int low, int high)
 } 
 
 void quickSort(Course *array, int low, int high) 
-{ 
+{ cout << low << " " << high << endl;
     if (low < high) 
     { 
         //partition the array 
@@ -144,3 +144,9 @@ void displayArray(Course array[], int size)
         cout << array[i] << endl; 
       
 } 
+
+/*
+I am very proud of the section I built that allows a user to use my program with a selection of files. The assignment was pretty straightforward, the examples found in the book and the slides did help me understand the qsort function but I can honestly say that I do not have a comprehensive understanding of the recursion that takes place.
+
+
+*/

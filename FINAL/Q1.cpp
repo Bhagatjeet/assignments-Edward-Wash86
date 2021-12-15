@@ -56,7 +56,7 @@ void operator>>(fstream& FILE_IN, Course& array){
 }
 
 ostream& operator<<(ostream& COUT, Course& LESSONS){
-  COUT << << LESSONS.getID() << " ";
+  COUT << LESSONS.getID() << " ";
   COUT << LESSONS.getName() << " ";
   COUT << LESSONS.getCredit() << " ";
   return COUT;
@@ -112,15 +112,15 @@ int main() {
   cout << "Enter a ID number to get course details: ";
   cin >> find;
   
-  // int numbers[] = {2,4,5,7,8,9,10,15,16,90,105};
-   int size = sizeof(lessons)/sizeof(lessons[0]);
+  
+  int size = sizeof(lessons)/sizeof(lessons[0]);
 
-  // cout << size << endl;
+  
 
   Course result;
 
   result = recursiveBinarySearch(find, lessons, 0, COURSES-1);
-  // // first pushing result  = recursiveBinarySearch(2, numbers[0], 0, numbers[size-1)];
+  
 
   cout << endl;
   cout << "Recursive Search Found: " << endl;

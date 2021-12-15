@@ -24,6 +24,7 @@ ostream& operator<<(ostream& COUT, ProductWorker& worker){
 }
 
 double operator > (const ProductWorker &Q, const ProductWorker &F){
+  cout << "Who is paid more?" << endl;
   cout << Q.employeeName << "'s Pay: " << Q.hourlyPayRate << endl;
   cout << F.employeeName << "'s Pay: " << F.hourlyPayRate;
   cout << " " << endl;
@@ -88,8 +89,6 @@ int main() {
     cout << temp[i] << endl;  
   }
 
-  //cout << temp[9] << endl;
-
   cout << endl;
   cout << "Highest Paid:" << endl;
   
@@ -98,6 +97,12 @@ int main() {
   int findings = temp[6] > temp[2];
   cout << "Result: " << findings;
 } 
+
+/*Notes: This program started off very well with the creating a text file with employee data. I utilized the import function that is used on Q1 and Q2. I ran into issues with the ProductWorker.cpp file not working because of some issues with Employee.cpp file, after playing around with changing and updating the public member function and not making any progress I decided to see if the out stream overload function mit be the issue. I removed the lines that where linked to the employee cpp file and tried to compile, the program compiled and then i started to add the removed segments one at a time. Finally I found out that the compilere did not like the constructor that was linkded to Product worker. I dont know why the consructor was the issue. Then the issue with the out stream overload function, its inital design only linked with the productworker class and not the employee class, i assumed that the function would not have any issues because of the inharitance from employee, i ended up having to create another out stream function that linked to the employee class to allow proper utilazation of the employee member functions. The highest paid friend function was not really that hard as the as all i had to do was to declare a friend function in the product worker class and then create an algoritim to step through the array and record the pay of the employee with the highest pay if the next employee is paid a higher rate the maxpay variable would be updated and every time the maxpay variable was update dthe employee record was recored and stored as the highest paid.
+Now the part that was the most tricky for m, i tried to have the overload function return the all of the employee data, then i realized that all i needed was to have it return a true or fales value. So I had the grater-than function except a double which is the the function will be comparing.i was unable to get the data to imort at all because i wa sunable to use the accessors of the of the private data, i ended up changing the private mebers of the productworker class to protected so that those members can be accessed by other functions.i ran one more test after this bit of code and bam! Finished! 
+
+*/
+
 
 
 
