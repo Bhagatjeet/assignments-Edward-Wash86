@@ -93,7 +93,7 @@ int main() {
   
   displayArray(lessons,n);
 
-  cout << "To View the Recursion-Call hierarchy: Q2.draw" << endl;
+  cout << "To View the Recursion-Call hierarchy: Q2.draw" << n <<  endl;
   
 } 
 
@@ -123,16 +123,17 @@ int partition (Course array[], int low, int high)
 } 
 
 void quickSort(Course *array, int low, int high) 
-{ cout << low << " " << high << endl;
+{ //cout << low << " " << high << endl;
     if (low < high) 
     { 
         //partition the array 
         int pivot = partition(array, low, high); 
-   
+        
         //sort the sub arrays independently 
         quickSort(array, low, pivot - 1);
-         
+        
         quickSort(array, pivot + 1, high);
+        
         
     } 
 } 

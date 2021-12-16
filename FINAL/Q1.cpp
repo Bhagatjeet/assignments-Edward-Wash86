@@ -156,7 +156,7 @@ Course recursiveBinarySearch(int target, Course array[], int first, int last){
 
   return retry;
 }
-//Notes: This algorithim takes the array/vector and cuts it in half and begins to search the half the the target should reside, this splitting method will continue until the target vale has been pinpointed. This recursive method recalls itself with modified peramiters to search the section that the target reside and will repeat this process target has been found. If the target is not in the array/vector the function will return a value that will indicate that the value could not be found.
+
 
 Course iterativeBinarySearch(Course array[], int N, int target){
   bool found = false;
@@ -175,7 +175,7 @@ Course iterativeBinarySearch(Course array[], int N, int target){
       found = true;
       result = array[mid];
     }
-    //else return result;
+    
   }
   return result;
 

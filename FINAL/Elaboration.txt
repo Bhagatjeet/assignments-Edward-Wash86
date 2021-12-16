@@ -1,0 +1,156 @@
+[Question #1] Implement the binary search program[30]
+
+In this question, we will implement the binary search program(your choice of iterative or recursive). The search target value is a Class Course object. The class Course has the following member data and functions.
+
+Course ID: integer
+Course name: string
+Course credit: integer
+Constructor and Member functions that would be necessary to be used in this question
+
+In this program, we should manage 10 course objects.
+To set up 10 object values, you can use the text file from input data.
+Create the binary search function to find a certain course with the course ID.
+Before calling this function, the course objects should be sorted based on the ID value.
+
+Implement the full source program and show the results with the various test data.
+CourseSet1
+Please Select a file to search: 
+1. CourseSet1.txt
+2. CourseSet2.txt
+3. CourseSet3.txt
+
+Search file: 1
+
+Searching CourseSet1.txt
+
+Course ID List: 
+10001
+11045
+12309
+19087
+45039
+46732
+52663
+66776
+77626
+89565
+Enter a ID number to get course details: 11045
+
+Recursive Search Found: 
+11045 Milling 1 
+
+Iterative Search Found: 
+11045 Milling 1 
+
+CourseSet2
+
+Please Select a file to search: 
+1. CourseSet1.txt
+2. CourseSet2.txt
+3. CourseSet3.txt
+
+Search file: 2
+
+Searching CourseSet2.txt
+
+Course ID List: 
+102
+103
+143
+144
+145
+159
+160
+505
+506
+507
+Enter a ID number to get course details: 144
+
+Recursive Search Found: 
+144 Jass_String 4 
+
+Iterative Search Found: 
+144 Jass_String 4 
+
+CourseSet3
+
+Please Select a file to search: 
+1. CourseSet1.txt
+2. CourseSet2.txt
+3. CourseSet3.txt
+
+Search file: 3
+
+Searching CourseSet3.txt
+
+Course ID List: 
+1
+123
+448
+452
+485
+564
+675
+787
+909
+990
+Enter a ID number to get course details: 787
+
+Recursive Search Found: 
+787 SpoungeBob_economics 589 
+
+Iterative Search Found: 
+787 SpoungeBob_economics 589 
+
+How did it go?
+A:This program was not so hard to develop as it is very similar to the homework assignments. I felt that the greatest addition to this assignment was my implementation of a menu to allow the user to select a text file from a menu. This was no trouble I have built such a feature before.
+The algorithm (LINES 139 - 159) takes the array/vector and cuts it in half and begins to search the half the target should reside, this splitting method will continue until the target value has been pinpointed. This recursive method recalls itself with modified parameters to search the section that the target resides and will repeat this process target has been found. If the target is not in the array/vector the function will return a value that will indicate that the value could not be found. For extra brownie points in also implemented a recursive search and an iterative search to locate the desired person.
+
+===============================================================================
+
+[Question #2] Implement the Recursive Quick Sort Algorithm[30]
+
+In this question, we will implement the Recursive Quick Sort program with the Class Course. We need to sort 10 Course objects based on the Course ID(sort key = ID). We will use the same class Course that was implemented in Question 1
+Show the Recursion-Call hierarchy with the typical parameter values that were used.
+
+Implement the full source program and show the results with the various test data.
+
+How did it go?
+A:I am very proud of the section I built that allows a user to use my program with a selection of files. The assignment was pretty straightforward, the examples found in the book and the slides did help me understand the sort function but I can honestly say that I do not have a comprehensive understanding of the recursion that takes place. This was hard for me to build as the qsort recursion step through did not come easily for me. I hope the request drawing is correct or close.
+
+Q2.draw
+
+===============================================================================
+
+[Question #3] Implement the Inherited Class(40)
+
+Employee and ProductWorker Classes
+Design a class named Employee. The class should keep the following information in
+• Employee name
+• Employee number
+• Hire date
+Write one or more constructors and the appropriate accessor and mutator functions for the class.
+Next, write a class named ProductionWorker that is derived from the Employee class. The ProductionWorker class should have member variables to hold the following information:
+• Shift (an integer)
+• Hourly pay rate (a double )
+The workday is divided into two shifts: day and night. The shift variable will hold an integer value representing the shift that the employee works. The day shift is shift 1, and the night shift is shift 2. Write one or more constructors and the appropriate accessor and mutator functions for the class. Demonstrate the classes by writing a program that uses a ProductionWorker object.
+In this program, we will make 10 ProductWorker objects. You may use the text file to input easily.
+
+Once all objects are ready, print all information of 10  ProducWorker objects first.
+Make a friend function to find the employee who has the highest hourly pay rate.
+Show the employee information who has the highest rate.
+For ProductWorkers,
+make the default Constructor and Parameterized Constructor 
+ProductWorker( );
+ProductWorker(“John”, 10001, “12/24/2021”, 1, 20.0);
+make an overloaded operator >
+for example, 
+ProductWorker p1, p2;
+if ( p1 > p2) // if p1 has the high
+
+How did it go?
+A:This program started off very well with creating a text file with employee data. I utilized the import function that is used in Q1 and Q2. I ran into issues with the ProductWorker.cpp file not working because of some issues with Employee.cpp file, after playing around with changing and updating the public member function and not making any progress I decided to see if the out stream overload function might be the issue. I removed the lines that were linked to the employee cpp file and tried to compile, the program compiled, and then I started to add the removed segments one at a time. Finally, I found out that the compiler did not like the constructor that was linked to the Product worker. I don't know why the constructor was the issue. Then the issue with the out stream overload function, its initial design only linked with the product worker class and not the employee class, I assumed that the function would not have any issues because of the inheritance from the employee, I ended up having to create another out-stream function that linked to the employee class to allow proper utilization of the employee member functions. The highest-paid friend function was not really that hard as all I had to do was to declare a friend function in the product worker class and then create an algorithm to step through the array and record the payment of the employee with the highest pay if the next employee is paid a higher rate the Maxpay variable would be updated and every time the Maxpay variable was update the employee record was recorded and stored as the highest-paid.
+Now the part that was the most tricky for me, I tried to have the overload function return all of the employee data, then I realized that all I needed was to have it return a true or false value. So I had the greater-than function except a double which is the function will be comparing. I was unable to get the data to import at all because I was unable to use the accessors of the private data, I ended up changing the private members of the product worker class to protected so that those members can be accessed by other functions.I ran one more test after this bit of code and bam! Finished!  
+
+
+
