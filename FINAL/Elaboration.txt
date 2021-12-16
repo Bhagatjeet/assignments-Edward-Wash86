@@ -119,6 +119,74 @@ How did it go?
 A:I am very proud of the section I built that allows a user to use my program with a selection of files. The assignment was pretty straightforward, the examples found in the book and the slides did help me understand the sort function but I can honestly say that I do not have a comprehensive understanding of the recursion that takes place. This was hard for me to build as the qsort recursion step through did not come easily for me. I hope the request drawing is correct or close.
 
 Q2.draw
+CourseSet1
+
+Please Select a file to search: 
+1. CourseSet1.txt
+2. CourseSet2.txt
+3. CourseSet3.txt
+
+Search file: 1
+
+Sorting CourseSet1.txt
+
+10001 Areo-Fabrication 5 
+11045 Milling 1 
+12309 Tire-Compund-Studies 102 
+19087 Turbo-Installation 9 
+45039 Body-Working 3 
+46732 Suspension-Engineering 45 
+52663 Saftey-Sub-Structure 59 
+66776 Paint 10 
+77626 Wheel-Design 88 
+89565 Exhaust-Fabrication 4 
+To View the Recursion-Call hierarchy: Q2.draw10
+
+CourseSet2
+
+Please Select a file to search: 
+1. CourseSet1.txt
+2. CourseSet2.txt
+3. CourseSet3.txt
+
+Search file: 2
+
+Sorting CourseSet2.txt
+
+102 Metal_Heavy 56 
+103 Metal_Death 59 
+143 Jazz_Brass 1 
+144 Jass_String 4 
+145 Jazz_Piano 10 
+159 EDM_Beats 5 
+160 Euro_EDM 2 
+505 Salsa 56 
+506 Banda 115 
+507 Cumbia 9 
+To View the Recursion-Call hierarchy: Q2.draw10
+
+CourseSet2
+
+Please Select a file to search: 
+1. CourseSet1.txt
+2. CourseSet2.txt
+3. CourseSet3.txt
+
+Search file: 3
+
+Sorting CourseSet3.txt
+
+1 Drift_Methods 1100 
+123 Public_Speaking 5 
+448 GYM 78 
+452 Time_Attack_Challenge 567 
+485 Social_Studies 96 
+564 Performance_Driving 99 
+675 Video_Studies 50 
+787 SpoungeBob_economics 589 
+909 Rock_Shoes_Theory 1000 
+990 Snacks_Studies 100 
+To View the Recursion-Call hierarchy: Q2.draw10
 
 ===============================================================================
 
@@ -152,5 +220,78 @@ How did it go?
 A:This program started off very well with creating a text file with employee data. I utilized the import function that is used in Q1 and Q2. I ran into issues with the ProductWorker.cpp file not working because of some issues with Employee.cpp file, after playing around with changing and updating the public member function and not making any progress I decided to see if the out stream overload function might be the issue. I removed the lines that were linked to the employee cpp file and tried to compile, the program compiled, and then I started to add the removed segments one at a time. Finally, I found out that the compiler did not like the constructor that was linked to the Product worker. I don't know why the constructor was the issue. Then the issue with the out stream overload function, its initial design only linked with the product worker class and not the employee class, I assumed that the function would not have any issues because of the inheritance from the employee, I ended up having to create another out-stream function that linked to the employee class to allow proper utilization of the employee member functions. The highest-paid friend function was not really that hard as all I had to do was to declare a friend function in the product worker class and then create an algorithm to step through the array and record the payment of the employee with the highest pay if the next employee is paid a higher rate the Maxpay variable would be updated and every time the Maxpay variable was update the employee record was recorded and stored as the highest-paid.
 Now the part that was the most tricky for me, I tried to have the overload function return all of the employee data, then I realized that all I needed was to have it return a true or false value. So I had the greater-than function except a double which is the function will be comparing. I was unable to get the data to import at all because I was unable to use the accessors of the private data, I ended up changing the private members of the product worker class to protected so that those members can be accessed by other functions.I ran one more test after this bit of code and bam! Finished!  
 
+Name: sam
+ID number: 1001
+Hire Date: 12/4/1999
+Shift: 1
+Pay: 19.56
+
+Name: frank
+ID number: 1002
+Hire Date: 03/13/2004
+Shift: 1
+Pay: 20.89
+
+Name: paul
+ID number: 1003
+Hire Date: 09/09/2009
+Shift: 1
+Pay: 15
+
+Name: parker
+ID number: 1004
+Hire Date: 01/3/2021
+Shift: 2
+Pay: 15.5
+
+Name: bob
+ID number: 1005
+Hire Date: 07/14/2019
+Shift: 1
+Pay: 35.5
+
+Name: james
+ID number: 1006
+Hire Date: 07/15/2020
+Shift: 2
+Pay: 56.56
+
+Name: carl
+ID number: 1007
+Hire Date: 05/05/1985
+Shift: 2
+Pay: 78.89
+
+Name: victor
+ID number: 1008
+Hire Date: 08/07/2019
+Shift: 1
+Pay: 42
+
+Name: pablo
+ID number: 1009
+Hire Date: 02/14/2021
+Shift: 2
+Pay: 15
+
+Name: max
+ID number: 1010
+Hire Date: 12/24/2019
+Shift: 1
+Pay: 12.6
+
+
+Highest Paid:
+Name: carl
+ID number: 1007
+Hire Date: 05/05/1985
+Shift: 2
+Pay: 78.89
+
+Who is paid more?
+carl's Pay: 78.89
+paul's Pay: 15 
+If the result is: 1, carl is paid more.
+If the result is: 0, carl is not paid more.
 
 

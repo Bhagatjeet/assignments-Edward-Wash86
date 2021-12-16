@@ -84,7 +84,7 @@ int main() {
     FILE_IN >> temp[i];
     
   }
-  
+  cout <<  "List in assending order: " << endl;
   for(int i = 0; i < 10; i++){
     cout << temp[i] << endl;  
   }
